@@ -1,0 +1,35 @@
+{
+  "name": "keyboard-corner",
+  "version": "1.0.0",
+  "description": "A website for showing off the world of mechanical keyboards.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --hot --open chrome.exe",
+    "build": "webpack --config webpack.config.js --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomTomDam/keyboard-corner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomTomDam/keyboard-corner/issues"
+  },
+  "homepage": "https://github.com/TomTomDam/keyboard-corner#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^4.5.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
+}

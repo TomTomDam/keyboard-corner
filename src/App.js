@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //JSX files
 import Home from "./components/Home";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import About from "./components/About";
-import Keyboards from "./components/Keyboards";
+import MyKeyboards from "./components/MyKeyboards";
+
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -32,9 +35,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div className="container">
-          <Header />
+      <div className="container-fluid text-center">
+        <Router>
+          <Navbar />
           <Route
             exact
             path="/"
@@ -44,10 +47,11 @@ class App extends React.Component {
               </React.Fragment>
             )}
           />
-          <Route path="/keyboards" component={Keyboards} />
+          <Route path="/mykeyboards" component={MyKeyboards} />
           <Route path="/about" component={About} />
-        </div>
-      </Router>
+          <Footer />
+        </Router>
+      </div>
     );
   }
 }

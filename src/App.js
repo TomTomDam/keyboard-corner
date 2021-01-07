@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards";
+import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia";
 
 import "./App.css";
 
@@ -46,6 +47,10 @@ class App extends React.Component {
                 <Home />
               </React.Fragment>
             )}
+          />
+          <Route
+            path="/keyboard-encyclopedia"
+            component={KeyboardEncyclopedia}
           />
           <Route path="/mykeyboards" component={MyKeyboards} />
           <Route path="/about" component={About} />

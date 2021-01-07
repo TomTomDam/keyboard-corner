@@ -2,12 +2,12 @@ import React from 'react'
 
 function MyKeyboards() {
     return (
-        <div class="mt-2">
-            <div class="col-md-12 py-2">
+        <div className="col-12 py-2">
+            <div class="page-header">
                 <h1>My Keyboards</h1>
                 <p>This is a list of my keyboards that I've purchased or built.</p>
             </div>
-            <div class="col-md-12 py-2">
+            <div class="mykeyboards-section">
                 <h3>Space65 Cybervoyager</h3>
                 <p>
                     Parts list:
@@ -26,11 +26,11 @@ function MyKeyboards() {
                 <div class="mykeyboards-gallery">
                 </div>
             </div>
-            <div class="col-md-12 py-2">
+            <div class="mykeyboards-section">
                 <h3>Custom 60%</h3>
                 <p>
                     Parts list:
-                    <ul>
+                    <ul className="mykeyboards-parts-list">
                         <li><b>Layout: </b>60% w/ arrow keys</li>
                         <img className="mykeyboards-cover-image" src="src\assets\images\MyKeyboards\FirstCustomKeyboard2.jpg"/>
                         <li><b>Keycap set: </b>ePBT 9009</li>

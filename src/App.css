@@ -119,14 +119,19 @@
 
   .navbar {
     color: white;
+    background-color: #1E90FF;
   }
 
   .nav-link {
     color: white;
   }
+
+  a:hover {
+    color: black;
+  }
   
   /* Home page */
-  .header {
+  .home-jumbotron {
       background: #1781eb;
       color: white;
       width: 100vw;
@@ -135,14 +140,6 @@
       margin-bottom: 15px;
       padding-top: 3vmax;
       padding-bottom: 3vmax;
-  }
-  
-  .header-heading {
-      color: white;
-  }
-  
-  .header-text {
-      color: white;
   }
   
   .content-wrapper {
@@ -357,6 +354,10 @@
   }
   
   /* My Keyboards */
+  .mykeyboards-section {
+
+  }
+
   .carousel-inner > .carousel-item > img {
       display: inline-block;
       margin: 0 auto;

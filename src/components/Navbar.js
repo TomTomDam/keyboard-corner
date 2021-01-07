@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3" style={{backgroundColor: "#1E90FF"}}>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
             <a class="navbar-brand">
                 Keyboard Corner
             </a>
@@ -13,25 +13,8 @@ function Navbar() {
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarNav">
                 <ul class="navbar-nav ml-auto my-2">
-                    <li class="nav-item dropdown mx-4">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            The Keyboard Encyclopedia
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item">Switches</a>
-                            <a class="dropdown-item">Layouts</a>
-                            <a class="dropdown-item">Modding</a>
-                            <a class="dropdown-item">Recommended keyboards</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown mx-4">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My Keyboards
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item">Space65</a>
-                            <a class="dropdown-item">Custom 60%</a>
-                        </div>
+                    <li>
+                        <Link to="/keyboard-encyclopedia" className="nav-link mx-4">The Keyboard Encyclopedia</Link>
                     </li>
                     <li>
                         <Link to="/" className="nav-link mx-4">Home</Link>

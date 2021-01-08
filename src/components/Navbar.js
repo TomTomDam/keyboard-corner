@@ -5,7 +5,9 @@ function Navbar() {
   return (
     <header>
       <nav class="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
-        <a class="navbar-brand">Keyboard Corner</a>
+        <a>
+          <Link to="/" className="navbar-brand">Keyboard Corner</Link>
+        </a>
         <button
           class="navbar-toggler"
           type="button"

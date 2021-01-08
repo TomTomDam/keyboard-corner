@@ -88,6 +88,10 @@
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
   }
+
+  .container-fluid {
+    padding: 0px;
+  }
   
   img {
       width: 80%;
@@ -107,22 +111,18 @@
       margin-top: 20px;
       margin-bottom: 20px;
   }
-  
-  .container-article {
-      width: 1600px;
-  }
 
   /* Navbar */
-  .container-fluid {
-    padding: 0px;
-  }
-
   .navbar {
     color: white;
     background-color: #1E90FF;
   }
 
   .nav-link {
+    color: white;
+  }
+
+  .navbar-brand {
     color: white;
   }
 
@@ -159,8 +159,6 @@
   #home-learn-more {
     padding-top: 50px;
   }
-
-  
   
   /* Contact Form */
   #contact-container {
@@ -343,31 +341,6 @@
       left: 0;
   }
   
-  /* Table of Contents */
-  #toc-container {
-      background: #f9f9f9 none repeat scroll 0 0;
-      border: 1px solid #aaa;
-      display: table;
-      font-size: 95%;
-      margin-bottom: 1em;
-      padding: 20px;
-      width: auto;
-      text-align: left;
-  }
-  
-  #toc-container li, #toc-container ul, #toc-container ul li {
-      list-style: outside none none !important;
-  }
-  
-  /* Plate Material Comparison Chart Table */
-  #plateMaterialComparisonChartTable {
-  
-  }
-  
-  #plateMaterialComparisonChartTable table th td {
-      border: 1px solid black;
-  }
-  
   /* My Keyboards */
   .mykeyboards-section {
 
@@ -394,4 +367,47 @@
   .mykeyboards-cover-image {
     height: 900px;
     width: 1200px;
+  }
+
+    /* Keyboard Encyclopedia */
+  .container-article {
+      width: 1600px;
+      margin: 0 auto;
+  }
+
+  .keyboard-encyclopedia-section {
+    text-align: left;
+  }
+
+  .keyboard-encyclopedia-heading {
+    text-align: left;
+  }
+
+  .keyboard-encyclopedia-list > li {
+    list-style-type: none;
+  }
+
+    /* Table of Contents */
+    #toc-container {
+      background: #f9f9f9 none repeat scroll 0 0;
+      border: 1px solid #aaa;
+      display: table;
+      font-size: 95%;
+      margin-bottom: 1em;
+      padding: 20px;
+      width: auto;
+      text-align: left;
+  }
+  
+  #toc-container li, #toc-container ul, #toc-container ul li {
+      list-style: outside none none !important;
+  }
+  
+  /* Plate Material Comparison Chart Table */
+  #plateMaterialComparisonChartTable {
+  
+  }
+  
+  #plateMaterialComparisonChartTable table th td {
+      border: 1px solid black;
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //JSX files
 import Home from "./components/Home";
@@ -39,21 +39,25 @@ class App extends React.Component {
       <div className="container-fluid text-center">
         <Router>
           <Navbar />
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <React.Fragment>
-                <Home />
-              </React.Fragment>
-            )}
-          />
-          <Route
-            path="/keyboard-encyclopedia"
-            component={KeyboardEncyclopedia}
-          />
-          <Route path="/mykeyboards" component={MyKeyboards} />
-          <Route path="/about" component={About} />
+          <main className="main pb-2">
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <React.Fragment>
+                    <Home />
+                  </React.Fragment>
+                )}
+              />
+              <Route
+                path="/keyboard-encyclopedia"
+                component={KeyboardEncyclopedia}
+              />
+              <Route path="/mykeyboards" component={MyKeyboards} />
+              <Route path="/about" component={About} />
+            </Switch>
+          </main>
           <Footer />
         </Router>
       </div>

@@ -12,7 +12,7 @@
   
   /* Provide sufficient contrast against white background */
   a {
-    color: #333;
+    color: #1E90FF;
     text-decoration: none;
   }
 
@@ -127,7 +127,8 @@
   }
 
   a:hover {
-    color: black;
+    color: lightgray;
+    text-decoration: none;
   }
   
   /* Home page */
@@ -137,15 +138,29 @@
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-top: -16px;
-      margin-bottom: 15px;
+      margin-bottom: 2.5vmax;
       padding-top: 3vmax;
       padding-bottom: 3vmax;
   }
   
   .content-wrapper {
-      padding-top: 2.5vmax;
       padding-bottom: 2.5vmax;
   }
+
+  .home-section-header {
+    padding-bottom: 15px;
+  }
+
+  .home-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #home-learn-more {
+    padding-top: 50px;
+  }
+
+  
   
   /* Contact Form */
   #contact-container {

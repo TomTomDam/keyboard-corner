@@ -2,7 +2,7 @@ import React from 'react'
 
 function MyKeyboards() {
     return (
-        <div className="col-12 py-2">
+        <div className="">
             <div class="page-header">
                 <h1>My Keyboards</h1>
                 <p>This is a list of my keyboards that I've purchased or built.</p>

@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LayoutsAndSizes from "../KeyboardEncyclopedia/Index/LayoutsAndSizes";
 
 function KeyboardEncyclopedia() {
   return (

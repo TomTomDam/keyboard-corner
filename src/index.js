@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
 //Imported JSX files
-import App from './App';
+import App from "./App";
 
 ReactDOM.render(
-    <App/>,
-    document.querySelector('#root')
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.querySelector("#root")
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -37,33 +37,31 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div className="container-fluid text-center">
-          <Navbar />
-          <main className="main pb-2">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={(props) => (
-                  <React.Fragment>
-                    <Home />
-                  </React.Fragment>
-                )}
-              />
-              <Route
-                exact
-                path="/keyboard-encyclopedia"
-                component={KeyboardEncyclopedia}
-              />
-              {KeyboardEncyclopediaRoutes}
-              <Route path="/mykeyboards" component={MyKeyboards} />
-              <Route path="/about" component={About} />
-            </Switch>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+      <div className="container-fluid text-center">
+        <Navbar />
+        <main className="main pb-2">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <React.Fragment>
+                  <Home />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/keyboard-encyclopedia"
+              component={KeyboardEncyclopedia}
+            />
+            {KeyboardEncyclopediaRoutes}
+            <Route path="/mykeyboards" component={MyKeyboards} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
     );
   }
 }

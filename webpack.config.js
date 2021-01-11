@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const mode = process.env.NODE_ENV || "development";
 
 module.exports = {
   entry: "./src/index.js",
@@ -37,5 +38,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  mode: "development",
+  devtool: mode === "development" ? "inline-source-map" : false,
+  mode: mode,
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
+import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
 
 class App extends React.Component {
   state = {

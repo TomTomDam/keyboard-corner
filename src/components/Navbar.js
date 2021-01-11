@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
-        <a>
-          <Link to="/" className="navbar-brand">
-            Keyboard Corner
-          </Link>
-        </a>
+      <nav className="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
+        <Link to="/" className="navbar-brand">
+          Keyboard Corner
+        </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -19,13 +17,13 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse"
+          className="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse"
           id="navbarNav"
         >
-          <ul class="navbar-nav ml-auto my-2">
+          <ul className="navbar-nav ml-auto my-2">
             <li>
               <Link to="/keyboard-encyclopedia" className="nav-link mx-4">
                 The Keyboard Encyclopedia

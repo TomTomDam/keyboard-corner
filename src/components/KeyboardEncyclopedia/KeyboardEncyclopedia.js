@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 function KeyboardEncyclopedia() {
   return (
-    <div class="container-article">
-      <header class="">
-        <h1 class="heading">The Keyboard Encyclopedia</h1>
-        <p class="">
+    <div className="container-article">
+      <header className="">
+        <h1 className="heading">The Keyboard Encyclopedia</h1>
+        <p className="">
           Your comprehensive guide to all things related to mechanical
           keyboards.
         </p>
       </header>
       <div className="keyboard-encyclopedia-section">
-        <h2 class="heading">Index</h2>
+        <h2 className="heading">Index</h2>
         <hr />
         <ul className="keyboard-encyclopedia-list">
           <li>
@@ -42,7 +42,9 @@ function KeyboardEncyclopedia() {
         </ul>
       </div>
       <div className="keyboard-encyclopedia-section">
-        <h3 class="heading keyboard-encyclopedia-heading">List of Switches</h3>
+        <h3 className="heading keyboard-encyclopedia-heading">
+          List of Switches
+        </h3>
         <hr />
         <ul className="keyboard-encyclopedia-list">
           <li>
@@ -60,7 +62,7 @@ function KeyboardEncyclopedia() {
         </ul>
       </div>
       <div className="keyboard-encyclopedia-section">
-        <h3 class="heading keyboard-encyclopedia-heading">
+        <h3 className="heading keyboard-encyclopedia-heading">
           Mechanical Keyboard Modifications
         </h3>
         <hr />
@@ -73,7 +75,7 @@ function KeyboardEncyclopedia() {
         </ul>
       </div>
       <div className="keyboard-encyclopedia-section">
-        <h3 class="heading keyboard-encyclopedia-heading">Accessories</h3>
+        <h3 className="heading keyboard-encyclopedia-heading">Accessories</h3>
         <hr />
         <ul className="keyboard-encyclopedia-list">
           <li>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
@@ -44,11 +44,14 @@ function Navbar() {
                 About
               </Link>
             </li>
+            <li>
+              <Link to="/contact" className="nav-link mx-4">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
   );
 }
-
-export default Navbar;

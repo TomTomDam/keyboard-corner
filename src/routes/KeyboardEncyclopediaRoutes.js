@@ -14,7 +14,7 @@ import Durock from "../components/KeyboardEncyclopedia/ListOfSwitches/Durock";
 import SwitchModifications from "../components/KeyboardEncyclopedia/KeyboardModifications/SwitchModifications";
 
 const KeyboardEncyclopediaRoutes = (
-  <div>
+  <>
     <Route
       path="/keyboard-encyclopedia/introduction"
       component={Introduction}
@@ -42,7 +42,7 @@ const KeyboardEncyclopediaRoutes = (
       path="/keyboard-encyclopedia/custom-cables"
       component={CustomCables}
     />
-  </div>
+  </>
 );
 
 export default KeyboardEncyclopediaRoutes;

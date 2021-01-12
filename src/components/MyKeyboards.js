@@ -1,24 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 
-function MyKeyboards() {
+export default function MyKeyboards() {
   return (
-    <div className="">
-      <div className="page-header">
+    <>
+      <header>
         <h1>My Keyboards</h1>
         <p>This is a list of my keyboards that I've purchased or built.</p>
-      </div>
-      <div className="mykeyboards-section">
+      </header>
+      <Section>
         <h3>Space65 Cybervoyager</h3>
         <p>
           Parts list:
-          <ul className="mykeyboards-parts-list">
+          <PartsList>
             <li>
               <b>Layout: </b>65%
             </li>
-            <img
-              className="mykeyboards-cover-image"
-              src="src\assets\images\MyKeyboards\Space65 ePBT Kuro Shiro 1.jpg"
-            />
+            <CoverImage src="src\assets\images\MyKeyboards\Space65 ePBT Kuro Shiro 1.jpg" />
             <li>
               <b>Keycap set: </b>ePBT Kuro Shiro
             </li>
@@ -40,22 +38,19 @@ function MyKeyboards() {
             <li>
               <b>Other mods: </b>Case foam
             </li>
-          </ul>
+          </PartsList>
         </p>
-        <div className="mykeyboards-gallery"></div>
-      </div>
-      <div className="mykeyboards-section">
+        <Gallery></Gallery>
+      </Section>
+      <Section>
         <h3>Custom 60%</h3>
         <p>
           Parts list:
-          <ul className="mykeyboards-parts-list">
+          <PartsList>
             <li>
               <b>Layout: </b>60% w/ arrow keys
             </li>
-            <img
-              className="mykeyboards-cover-image"
-              src="src\assets\images\MyKeyboards\FirstCustomKeyboard2.jpg"
-            />
+            <CoverImage src="src\assets\images\MyKeyboards\FirstCustomKeyboard2.jpg" />
             <li>
               <b>Keycap set: </b>ePBT 9009
             </li>
@@ -80,12 +75,23 @@ function MyKeyboards() {
             <li>
               <b>Other mods: </b>Case foam - Neoprene 3mm
             </li>
-          </ul>
+          </PartsList>
         </p>
-        <div className="mykeyboards-gallery"></div>
-      </div>
-    </div>
+        <Gallery></Gallery>
+      </Section>
+    </>
   );
 }
 
-export default MyKeyboards;
+const Section = styled.div``;
+
+const CoverImage = styled.img`
+  height: 900px;
+  width: 1200px;
+`;
+
+const PartsList = styled.ul`
+  list-style-type: none;
+`;
+
+const Gallery = styled.div``;

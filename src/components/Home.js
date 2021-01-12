@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-function Home() {
+export default function Home() {
   return (
-    <div className="">
-      <section className="home-jumbotron">
+    <>
+      <Jumbotron>
         <h1 className="display-4">Welcome to Keyboard Corner!</h1>
         <p>
           A centralised resource for all things related to mechanical keyboards.
         </p>
-      </section>
-      <section className="content-wrapper">
-        <div className="row justify-content-center home-row">
+      </Jumbotron>
+      <Wrapper>
+        <Row className="row justify-content-center">
           <div className="col-2">
             <Link to="/keyboard-encyclopedia/introduction" className="">
               {/* <img src="" /> */}
@@ -36,8 +37,8 @@ function Home() {
               switches. See what switches are right for you.
             </p>
           </div>
-        </div>
-        <div className="row justify-content-center home-row">
+        </Row>
+        <Row className="row justify-content-center home-row">
           <div className="col-2">
             <Link to="/keyboard-encyclopedia/keycaps" className="">
               {/* <img src="" /> */}
@@ -68,9 +69,9 @@ function Home() {
               them from wobbling. They essentially <i>stabilize</i> the keycap.
             </p>
           </div>
-        </div>
-        <div className="row justify-content-center home-row">
-          <div id="home-learn-more">
+        </Row>
+        <Row className="row justify-content-center home-row">
+          <LearnMore>
             <p>
               Would you like to learn more? Click here to go to the{" "}
               <Link to="/keyboard-encyclopedia" className="">
@@ -79,18 +80,18 @@ function Home() {
               for specially curated and comprehensive resources regarding
               mechanical keyboards.
             </p>
-          </div>
-        </div>
-      </section>
-      <section className="content-wrapper">
-        <div className="home-section-header">
+          </LearnMore>
+        </Row>
+      </Wrapper>
+      <Wrapper>
+        <Header>
           <h1>Getting into the hobby</h1>
           <p>
             You like what you see, but you don't know what keyboard to get. Look
             no further.
           </p>
-        </div>
-        <div className="row justify-content-center home-row">
+        </Header>
+        <Row className="row justify-content-center">
           <div className="col-2">
             <Link to="/recommended-keyboards" className="">
               {/* <img src="" /> */}
@@ -112,10 +113,36 @@ function Home() {
             </Link>
             <p></p>
           </div>
-        </div>
-      </section>
-    </div>
+        </Row>
+      </Wrapper>
+    </>
   );
 }
 
-export default Home;
+const Jumbotron = styled.section`
+  background: #1781eb;
+  color: white;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -16px;
+  margin-bottom: 2.5vmax;
+  padding-top: 3vmax;
+  padding-bottom: 3vmax;
+`;
+
+const Wrapper = styled.div`
+  padding-bottom: 2.5vmax;
+`;
+
+const Header = styled.div`
+  padding-bottom: 15px;
+`;
+
+const Row = styled.div`
+  margin-left: 0;
+  margin-right: 0;
+`;
+
+const LearnMore = styled.div`
+  padding-top: 50px;
+`;

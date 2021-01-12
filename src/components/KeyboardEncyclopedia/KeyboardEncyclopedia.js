@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-function KeyboardEncyclopedia() {
+export default function KeyboardEncyclopedia() {
   return (
-    <div className="container-article">
-      <header className="">
-        <h1 className="heading">The Keyboard Encyclopedia</h1>
+    <Container>
+      <header>
+        <h1 className="">The Keyboard Encyclopedia</h1>
         <p className="">
           Your comprehensive guide to all things related to mechanical
           keyboards.
         </p>
       </header>
-      <div className="keyboard-encyclopedia-section">
-        <h2 className="heading">Index</h2>
+      <Section>
+        <h2 className="">Index</h2>
         <hr />
-        <ul className="keyboard-encyclopedia-list">
+        <List>
           <li>
             <Link to="/keyboard-encyclopedia/introduction">
               Introduction to Mechanical Keyboards
@@ -39,14 +40,12 @@ function KeyboardEncyclopedia() {
           <li>
             <Link to="/keyboard-encyclopedia/stabilizers">Stabilizers</Link>
           </li>
-        </ul>
-      </div>
-      <div className="keyboard-encyclopedia-section">
-        <h3 className="heading keyboard-encyclopedia-heading">
-          List of Switches
-        </h3>
+        </List>
+      </Section>
+      <Section>
+        <Heading>List of Switches</Heading>
         <hr />
-        <ul className="keyboard-encyclopedia-list">
+        <List>
           <li>
             <Link to="/keyboard-encyclopedia/switches/cherry">Cherry</Link>
           </li>
@@ -59,32 +58,47 @@ function KeyboardEncyclopedia() {
           <li>
             <Link to="/keyboard-encyclopedia/switches/durock">Durock</Link>
           </li>
-        </ul>
-      </div>
-      <div className="keyboard-encyclopedia-section">
-        <h3 className="heading keyboard-encyclopedia-heading">
-          Mechanical Keyboard Modifications
-        </h3>
+        </List>
+      </Section>
+      <Section>
+        <Heading>Mechanical Keyboard Modifications</Heading>
         <hr />
-        <ul className="keyboard-encyclopedia-list">
+        <List>
           <li>
             <Link to="/keyboard-encyclopedia/switch-modifications">
               Switch Modifications
             </Link>
           </li>
-        </ul>
-      </div>
-      <div className="keyboard-encyclopedia-section">
-        <h3 className="heading keyboard-encyclopedia-heading">Accessories</h3>
+        </List>
+      </Section>
+      <Section>
+        <Heading>Accessories</Heading>
         <hr />
-        <ul className="keyboard-encyclopedia-list">
+        <List>
           <li>
             <Link to="/keyboard-encyclopedia/custom-cables">Custom Cables</Link>
           </li>
-        </ul>
-      </div>
-    </div>
+        </List>
+      </Section>
+    </Container>
   );
 }
 
-export default KeyboardEncyclopedia;
+const Container = styled.div`
+  width: 1600px;
+  margin: 0 auto;
+`;
+
+const Section = styled.div`
+  text-align: left;
+`;
+
+const Heading = styled.div`
+  text-align: left;
+`;
+
+const List = styled.ul`
+  & > li {
+    list-style-type: none;
+  }
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -11,6 +11,7 @@ import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
+import Contact from "./components/Contact";
 
 class App extends React.Component {
   state = {
@@ -40,25 +41,24 @@ class App extends React.Component {
       <div className="container-fluid text-center">
         <Navbar />
         <main className="main pb-2">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <React.Fragment>
-                  <Home />
-                </React.Fragment>
-              )}
-            />
-            <Route
-              exact
-              path="/keyboard-encyclopedia"
-              component={KeyboardEncyclopedia}
-            />
-            {KeyboardEncyclopediaRoutes}
-            <Route path="/mykeyboards" component={MyKeyboards} />
-            <Route path="/about" component={About} />
-          </Switch>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <React.Fragment>
+                <Home />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            exact
+            path="/keyboard-encyclopedia"
+            component={KeyboardEncyclopedia}
+          />
+          {KeyboardEncyclopediaRoutes}
+          <Route exact path="/mykeyboards" component={MyKeyboards} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
         </main>
         <Footer />
       </div>

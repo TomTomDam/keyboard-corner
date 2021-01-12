@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
+//Stylesheets
 import "./App.css";
 
 //JSX files
@@ -8,30 +9,55 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import MyKeyboards from "./components/MyKeyboards";
+import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
 import Contact from "./components/Contact";
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     keyboards: [
       {
         id: 1,
+        image:
+          "src\\assets\\images\\MyKeyboards\\Space65 ePBT Kuro Shiro 1.jpg",
         title: "Space65 CV - Black Gold",
-        switches: "Holy Panda - Krytox 203g0, 105 on springs",
+        switches: "Massdrop Holy Panda - Krytox 203g0, 105 on springs",
         plate: "Carbon  fiber",
         keycaps: "ePBT Kuro Shiro",
+        case: "Black and Gold",
         mods: "Case foam",
+        layout: "65%",
+        stabilizers: "Durock Clear",
+        description: "",
       },
       {
         id: 2,
-        title: "Primus - White and Cyan",
+        image: "src\\assets\\images\\MyKeyboards\\FirstCustomKeyboard2.jpg",
+        title: "KBDFans 5 Degree",
+        switches: "Gateron Yellow - Krytox 205g0, 105 on springs",
+        plate: "Aluminium",
+        keycaps: "ePBT 9009",
+        case: "Grey",
+        mods: "Case foam",
+        layout: "60%",
+        stabilizers: "Cherry",
+        description: "",
+      },
+      {
+        id: 3,
+        image:
+          "src\\assets\\images\\MyKeyboards\\primus_keyboard_render_whitecyan.png",
+        title: "Primus",
         switches:
           "Original Aspiration - Krytox 205g0, 105 on springs, white Deskey switch films",
         plate: "Polycarbonate",
         keycaps: "KAT Mizu",
+        case: "White and Cyan, Stainless steel weight",
         mods: "N/A",
+        layout: "75%",
+        stabilizers: "c3Equalz Tiffany Blue",
+        description: "",
       },
     ],
   };
@@ -41,29 +67,26 @@ class App extends React.Component {
       <div className="container-fluid text-center">
         <Navbar />
         <main className="main pb-2">
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <React.Fragment>
-                <Home />
-              </React.Fragment>
-            )}
-          />
+          <Route exact path="/" component={Home} />
           <Route
             exact
             path="/keyboard-encyclopedia"
             component={KeyboardEncyclopedia}
           />
           {KeyboardEncyclopediaRoutes}
-          <Route exact path="/mykeyboards" component={MyKeyboards} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
+          <Route
+            path="/mykeyboards"
+            render={(props) => (
+              <>
+                <MyKeyboards keyboards={this.state.keyboards} />
+              </>
+            )}
+          />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
         </main>
         <Footer />
       </div>
     );
   }
 }
-
-export default App;

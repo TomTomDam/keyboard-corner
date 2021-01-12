@@ -23,7 +23,7 @@ const KeyboardEncyclopediaRoutes = (
       path="/keyboard-encyclopedia/layouts-and-sizes"
       component={LayoutsAndSizes}
     />
-    <Route path="/keyboard-encyclopedia/switches" component={Switches} />
+    <Route exact path="/keyboard-encyclopedia/switches" component={Switches} />
     <Route
       path="/keyboard-encyclopedia/plates-and-pcbs"
       component={PlatesAndPCBs}
@@ -32,8 +32,8 @@ const KeyboardEncyclopediaRoutes = (
     <Route path="/keyboard-encyclopedia/stabilizers" component={Stabilizers} />
     <Route path="/keyboard-encyclopedia/switches/cherry" component={Cherry} />
     <Route path="/keyboard-encyclopedia/switches/gateron" component={Gateron} />
-    <Route path="/keyboard-encyclopedia/kailh" component={Kailh} />
-    <Route path="/keyboard-encyclopedia/durock" component={Durock} />
+    <Route path="/keyboard-encyclopedia/switches/kailh" component={Kailh} />
+    <Route path="/keyboard-encyclopedia/switches/durock" component={Durock} />
     <Route
       path="/keyboard-encyclopedia/switch-modifications"
       component={SwitchModifications}

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Contact() {
+const Contact = () => {
   return (
     <Container>
       <Wrapper>
@@ -33,7 +33,9 @@ export default function Contact() {
       </Wrapper>
     </Container>
   );
-}
+};
+
+export default Contact;
 
 const Container = styled.div`
   display: flex;

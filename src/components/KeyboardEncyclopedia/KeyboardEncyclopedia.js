@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import KeyboardEncyclopediaCard from "./KeyboardEncyclopediaCard";
 
-export default function KeyboardEncyclopedia() {
+const KeyboardEncyclopedia = () => {
   return (
     <Container>
       <header>
@@ -82,7 +83,9 @@ export default function KeyboardEncyclopedia() {
       </Section>
     </Container>
   );
-}
+};
+
+export default KeyboardEncyclopedia;
 
 const Container = styled.div`
   width: 1600px;

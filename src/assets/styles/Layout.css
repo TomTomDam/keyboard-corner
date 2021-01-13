@@ -21,22 +21,12 @@ iframe {
   border: none !important;
 }
 
-.container-fluid {
-  padding: 0px;
-}
-
-img {
-  width: 80%;
-  height: auto;
-}
-
 hr {
   border-top: 1px solid gray;
 }
 
-img.row-image {
-  height: 350px;
-  width: 500px;
+.container-fluid {
+  padding: 0px;
 }
 
 .heading {

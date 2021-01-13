@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Jumbotron>
@@ -117,7 +117,9 @@ export default function Home() {
       </Wrapper>
     </>
   );
-}
+};
+
+export default Home;
 
 const Jumbotron = styled.section`
   background: #1781eb;

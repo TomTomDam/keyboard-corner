@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <header>
       <NavBar className="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
@@ -55,7 +55,9 @@ export default function Navbar() {
       </NavBar>
     </header>
   );
-}
+};
+
+export default Navbar;
 
 const NavBar = styled.nav`
   color: white;

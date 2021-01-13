@@ -29,6 +29,16 @@ button.accept-policy {
   line-height: inherit;
 }
 
+img {
+  width: 80%;
+  height: auto;
+}
+
+img.row-image {
+  height: 350px;
+  width: 500px;
+}
+
 .tableofcontents {
   background: #f9f9f9 none repeat scroll 0 0;
   border: 1px solid #aaa;

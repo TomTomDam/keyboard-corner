@@ -3,6 +3,10 @@ import { Route } from "react-router-dom";
 
 //Stylesheets
 import "./App.css";
+import "./assets/styles/Base.css";
+import "./assets/styles/Layout.css";
+import "./assets/styles/Modules.css";
+import "./assets/styles/Theme.css";
 
 //JSX files
 import Home from "./components/Home";

@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Navbar() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
-        <Link to="/" className="navbar-brand">
+      <NavBar className="navbar navbar-expand-lg navbar-toggleable-sm box-shadow mb-3">
+        <NavBarBrand to="/" className="navbar-brand">
           Keyboard Corner
-        </Link>
+        </NavBarBrand>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,33 +26,49 @@ export default function Navbar() {
         >
           <ul className="navbar-nav ml-auto my-2">
             <li>
-              <Link to="/keyboard-encyclopedia" className="nav-link mx-4">
+              <NavLink to="/keyboard-encyclopedia" className="nav-link mx-4">
                 The Keyboard Encyclopedia
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/" className="nav-link mx-4">
+              <NavLink to="/" className="nav-link mx-4">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/mykeyboards" className="nav-link mx-4">
+              <NavLink to="/mykeyboards" className="nav-link mx-4">
                 My Keyboards
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className="nav-link mx-4">
+              <NavLink to="/about" className="nav-link mx-4">
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="nav-link mx-4">
+              <NavLink to="/contact" className="nav-link mx-4">
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
-      </nav>
+      </NavBar>
     </header>
   );
 }
+
+const NavBar = styled.nav`
+  color: white;
+  background-color: #1e90ff;
+`;
+
+const NavBarBrand = styled(Link)`
+  color: white;
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+`;
+
+const NavLink = styled(Link)`
+  color: white;
+`;

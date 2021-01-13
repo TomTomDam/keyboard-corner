@@ -23,13 +23,13 @@ const KeyboardEncyclopediaRoutes = (
       path="/keyboard-encyclopedia/layouts-and-sizes"
       component={LayoutsAndSizes}
     />
-    <Route exact path="/keyboard-encyclopedia/switches" component={Switches} />
     <Route
       path="/keyboard-encyclopedia/plates-and-pcbs"
       component={PlatesAndPCBs}
     />
     <Route path="/keyboard-encyclopedia/keycaps" component={Keycaps} />
     <Route path="/keyboard-encyclopedia/stabilizers" component={Stabilizers} />
+    <Route exact path="/keyboard-encyclopedia/switches" component={Switches} />
     <Route path="/keyboard-encyclopedia/switches/cherry" component={Cherry} />
     <Route path="/keyboard-encyclopedia/switches/gateron" component={Gateron} />
     <Route path="/keyboard-encyclopedia/switches/kailh" component={Kailh} />

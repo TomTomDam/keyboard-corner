@@ -1,12 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import styled from "styled-components";
 
 //Stylesheets
 import "./App.css";
-import "./assets/styles/Base.css";
-import "./assets/styles/Layout.css";
-import "./assets/styles/Modules.css";
-import "./assets/styles/Theme.css";
+import "./assets/styles/Base";
+import "./assets/styles/Layout";
+import "./assets/styles/Modules";
+import "./assets/styles/Theme";
+import { GlobalBase } from "./assets/styles/Base";
+import { GlobalLayout, Container } from "./assets/styles/Layout";
+import { GlobalModules } from "./assets/styles/Modules";
+import { GlobalTheme } from "./assets/styles/Theme";
 
 //JSX files
 import Home from "./components/Home";
@@ -68,9 +73,13 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid text-center">
+      <Container>
+        <GlobalBase />
+        <GlobalLayout />
+        <GlobalModules />
+        <GlobalTheme />
         <Navbar />
-        <main className="main pb-2">
+        <Main>
           <Route exact path="/" component={Home} />
           <Route
             exact
@@ -78,19 +87,18 @@ export default class App extends React.Component {
             component={KeyboardEncyclopedia}
           />
           {KeyboardEncyclopediaRoutes}
-          <Route
-            path="/mykeyboards"
-            render={(props) => (
-              <>
-                <MyKeyboards keyboards={this.state.keyboards} />
-              </>
-            )}
-          />
+          <Route exact path="/mykeyboards">
+            <MyKeyboards keyboards={this.state.keyboards} />
+          </Route>
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-        </main>
+        </Main>
         <Footer />
-      </div>
+      </Container>
     );
   }
 }
+
+const Main = styled.main`
+  padding-bottom: 0.5rem;
+`;

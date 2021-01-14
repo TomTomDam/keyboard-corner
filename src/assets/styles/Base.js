@@ -1,3 +1,6 @@
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalBase = createGlobalStyle`
 * {
   box-sizing: border-box;
   margin: 0;
@@ -34,3 +37,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
+`;
+
+export default GlobalBase;

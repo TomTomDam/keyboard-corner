@@ -1,34 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Row, Col, Display } from "react-bootstrap";
+import { Row, Col } from "../assets/styles/Layout";
 
 const Home = () => {
   return (
     <>
       <Jumbotron>
-        <div className="display-4">Welcome to Keyboard Corner!</div>
+        <JumbotronHeader>Keyboard Corner</JumbotronHeader>
         <p>
           A centralised resource for all things related to mechanical keyboards.
         </p>
       </Jumbotron>
       <Wrapper>
-        <WrapperRow className="justify-content-center">
-          <Col md={2}>
+        <WrapperRow>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/introduction" className="">
               {/* <img src="" /> */}
               <h4>Introduction to Mechanical Keyboards</h4>
             </Link>
             <p>What's the big deal about mechanical keyboards?</p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/layouts-and-sizes" className="">
               {/* <img src="" /> */}
               <h4>Layouts and Sizes</h4>
             </Link>
             <p>Keyboards come in all shapes and sizes.</p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/switches" className="">
               {/* <img src="" /> */}
               <h4>Switches</h4>
@@ -37,10 +37,10 @@ const Home = () => {
               The very nature of mechanical keyboards is powered by mechanical
               switches. See what switches are right for you.
             </p>
-          </Col>
+          </WrapperRowCol>
         </WrapperRow>
-        <WrapperRow className="row justify-content-center home-row">
-          <Col md={2}>
+        <WrapperRow>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/keycaps" className="">
               {/* <img src="" /> */}
               <h4>Keycaps</h4>
@@ -49,8 +49,8 @@ const Home = () => {
               Keycaps can make or break the look of a keyboard, as well as the
               sound and typing feel. Learn the varieties of keycaps there are.
             </p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/plates-and-pcbs" className="">
               {/* <img src="" /> */}
               <h4>Plates and PCBs</h4>
@@ -59,8 +59,8 @@ const Home = () => {
               The plate provides structural rigidity and the PCB is what allows
               your keyboard to electronically work.
             </p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/stabilizers" className="">
               {/* <img src="" /> */}
               <h4>Stabilizers</h4>
@@ -69,9 +69,9 @@ const Home = () => {
               Stabilizers, or "stabs", sit underneath larger keys to prevent
               them from wobbling. They essentially <i>stabilize</i> the keycap.
             </p>
-          </Col>
+          </WrapperRowCol>
         </WrapperRow>
-        <WrapperRow className="row justify-content-center home-row">
+        <WrapperRow>
           <RowText>
             Would you like to learn more? Click here to go to the{" "}
             <Link to="/keyboard-encyclopedia" className="">
@@ -90,28 +90,28 @@ const Home = () => {
             no further.
           </p>
         </Header>
-        <WrapperRow className="row justify-content-center">
-          <Col md={2}>
+        <WrapperRow>
+          <WrapperRowCol>
             <Link to="/recommended-keyboards" className="">
               {/* <img src="" /> */}
               <h4>Recommended Keyboards</h4>
             </Link>
             <p></p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/community" className="">
               {/* <img src="" /> */}
               <h4>The Mechanical Keyboard Community</h4>
             </Link>
             <p></p>
-          </Col>
-          <Col md={2}>
+          </WrapperRowCol>
+          <WrapperRowCol>
             <Link to="/keyboard-encyclopedia/group-buys" className="">
               {/* <img src="" /> */}
               <h4>Group Buys</h4>
             </Link>
             <p></p>
-          </Col>
+          </WrapperRowCol>
         </WrapperRow>
       </Wrapper>
     </>
@@ -131,19 +131,27 @@ const Jumbotron = styled.section`
   padding-bottom: 3vmax;
 `;
 
-const Wrapper = styled.div`
-  padding-bottom: 2.5vmax;
+const JumbotronHeader = styled.h1`
+  margin-bottom: 15px;
 `;
 
 const Header = styled.div`
-  padding-bottom: 15px;
+  margin-bottom: 15px;
+`;
+
+const Wrapper = styled.div`
+  margin-bottom: 2.5vmax;
 `;
 
 const WrapperRow = styled(Row)`
-  margin-left: 0;
-  margin-right: 0;
+  justify-content: center;
+`;
+
+const WrapperRowCol = styled(Col)`
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
 `;
 
 const RowText = styled.p`
-  padding-top: 50px;
+  margin-top: 50px;
 `;

@@ -1,10 +1,9 @@
 import React from "react";
+import { StyledFooter } from "../assets/styles/Layout";
 
 const Footer = () => {
   return (
-    <footer className="border-top footer text-muted text-left px-4">
-      &copy; 2021 - Keyboard Corner
-    </footer>
+    <StyledFooter className="">&copy; 2021 - Keyboard Corner</StyledFooter>
   );
 };
 

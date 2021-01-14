@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "react-bootstrap";
 import KeyboardEncyclopediaCard from "./KeyboardEncyclopediaCard";
 
 export default class KeyboardEncyclopedia extends React.Component {
@@ -93,29 +92,29 @@ export default class KeyboardEncyclopedia extends React.Component {
 
   render() {
     const GettingStarted = this.state.gettingStarted.map((article) => (
-      <Col md={2} key={article.id}>
-        <KeyboardEncyclopediaCard article={article} />
-      </Col>
+      <div className="col-md-2" key={article.id}>
+        <KeyboardEncyclopediaCard key={article.id} article={article} />
+      </div>
     ));
 
     const ListOfSwitches = this.state.listOfSwitches.map((article) => (
-      <Col md={2} key={article.id}>
-        <KeyboardEncyclopediaCard article={article} />
-      </Col>
+      <div className="col-md-2" key={article.id}>
+        <KeyboardEncyclopediaCard key={article.id} article={article} />
+      </div>
     ));
 
     const KeyboardModifications = this.state.keyboardModifications.map(
       (article) => (
-        <Col md={2} key={article.id}>
-          <KeyboardEncyclopediaCard article={article} />
-        </Col>
+        <div className="col-md-2" key={article.id}>
+          <KeyboardEncyclopediaCard key={article.id} article={article} />
+        </div>
       )
     );
 
     const Accessories = this.state.accessories.map((article) => (
-      <Col md={2} key={article.id}>
-        <KeyboardEncyclopediaCard article={article} />
-      </Col>
+      <div className="col-md-2" key={article.id}>
+        <KeyboardEncyclopediaCard key={article.id} article={article} />
+      </div>
     ));
 
     return (
@@ -129,19 +128,21 @@ export default class KeyboardEncyclopedia extends React.Component {
         </header>
         <Section>
           <Heading>Getting Started</Heading>
-          <Row className="justify-content-center">{GettingStarted}</Row>
+          <div className="row justify-content-center">{GettingStarted}</div>
         </Section>
         <Section>
           <Heading>List of Switches</Heading>
-          <Row className="justify-content-center">{ListOfSwitches}</Row>
+          <div className="row justify-content-center">{ListOfSwitches}</div>
         </Section>
         <Section>
           <Heading>Keyboard Modifications</Heading>
-          <Row className="justify-content-center">{KeyboardModifications}</Row>
+          <div className="row justify-content-center">
+            {KeyboardModifications}
+          </div>
         </Section>
         <Section>
           <Heading>Accessories</Heading>
-          <Row className="justify-content-center">{Accessories}</Row>
+          <div className="row justify-content-center">{Accessories}</div>
         </Section>
       </Container>
     );

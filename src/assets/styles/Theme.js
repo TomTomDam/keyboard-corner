@@ -12,6 +12,7 @@ export const Theme = {
     white: "#F5F9FF",
     blue: "#84d4cc",
     pink: "#F45680",
+    black: "#fff",
   },
   fonts: Font,
   fontSizes: {

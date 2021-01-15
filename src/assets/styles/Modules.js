@@ -14,20 +14,21 @@ img.row-image {
 export const Button = styled.button`
   display: inline-block;
   border: none;
-  background: ${(props) => props.theme.colours.darkgray};
+  background: ${(props) => props.theme.colours.blue};
   color: ${(props) => props.theme.colours.white};
   padding: 7px 20px;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease 0s;
   &:hover {
-    background: ${(props) => props.theme.colours.lightgray};
+    background: ${(props) => props.theme.colours.darkgray};
   }
 `;
 
 export const ButtonPrimary = styled(Button)`
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: ${(props) => props.theme.colours.lightgray};
+  border-color: ${(props) => props.theme.colours.darkgray};
 `;
 
 export const BtnAcceptPolicy = styled.button`

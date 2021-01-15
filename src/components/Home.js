@@ -4,10 +4,11 @@ import styled from "styled-components";
 import { Row, Col3, Header } from "../assets/styles/Layout";
 import { Button } from "../assets/styles/Modules";
 import BackgroundImage from "../assets/images/moderndolchkeyboard.png";
+import BauerKeyboard from "../assets/images/8008_bauer_keyboard.jpg";
 
 const Home = () => {
   return (
-    <Wrapper>
+    <>
       <Jumbotron>
         <JumbotronText>
           <JumbotronHeader>Keyboard Corner</JumbotronHeader>
@@ -21,12 +22,23 @@ const Home = () => {
       <Wrapper1>
         <Header>
           <Heading>What's the big deal about mechanical keyboards?</Heading>
-          <p>Gang</p>
         </Header>
+        <Wrapper1Container>
+          <Wrapper1Image src={BauerKeyboard} />
+          <Wrapper1Text>
+            With the advent of technology, keyboards are one of the tools that
+            we use to perform our daily tasks on our computers and laptops. It
+            is a tool that we often take for granted.
+          </Wrapper1Text>
+        </Wrapper1Container>
       </Wrapper1>
       <Wrapper2>
         <Header>
-          <Heading>The Keyboard Encyclopedia</Heading>
+          <Heading>
+            Okay, I'm interested. How do I learn more about mechanical
+            keyboards?
+          </Heading>
+          <h2>The Keyboard Encyclopedia</h2>
         </Header>
         <WrapperRow>
           <Col3>
@@ -133,7 +145,7 @@ const Home = () => {
           </Col3>
         </WrapperRow>
       </Wrapper3>
-    </Wrapper>
+    </>
   );
 };
 
@@ -141,21 +153,21 @@ export default Home;
 
 const Jumbotron = styled.section`
   position: relative;
-  background: ${(props) => props.theme.colours.white};
+  background: ${(props) => props.theme.colours.lightgray};
   background-image: url(${BackgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 500px -100px;
   color: ${(props) => props.theme.colours.darkgray};
-  /* width: 100vw; */
   margin-left: calc(50% - 50vw);
   margin-top: -16px;
   height: 100%;
 `;
 
 const JumbotronHeader = styled.h1`
+  color: ${(props) => props.theme.colours.white};
   font-size: ${(props) => props.theme.fontSizes.large};
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const JumbotronText = styled.div`
@@ -163,6 +175,7 @@ const JumbotronText = styled.div`
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
+  text-align: center;
 `;
 
 const JumbotronHeaderText = styled.p`
@@ -176,17 +189,41 @@ const JumbotronButton = styled(Button)`
   padding-bottom: 15px;
 `;
 
-const Heading = styled.h2`
-  margin-bottom: 0.5rem;
+const Heading = styled.h1`
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  margin-bottom: 2rem;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
+  padding-top: 2.5vmax;
   padding-bottom: 2.5vmax;
 `;
 
 const Wrapper1 = styled(Wrapper)`
   background: ${(props) => props.theme.colours.darkgray};
   color: ${(props) => props.theme.colours.white};
+`;
+
+const Wrapper1Container = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 60%;
+  padding-top: 2.5vmax;
+  padding-bottom: 2.5vmax;
+`;
+
+const Wrapper1Image = styled.img`
+  flex: 2;
+  object-fit: contain;
+  width: 800px;
+  height: 500px;
+`;
+
+const Wrapper1Text = styled.p`
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  flex: 1;
+  text-align: left;
 `;
 
 const Wrapper2 = styled(Wrapper)`
@@ -207,9 +244,9 @@ const WrapperRow = styled(Row)`
 const WrapperRowColLink = styled.h4`
   transition: all 0.3s ease 0s;
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const RowText = styled.p`
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 `;

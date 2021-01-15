@@ -30,12 +30,14 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
     "style-loader": "^2.0.0"
   }
 }

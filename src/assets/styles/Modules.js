@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Link } from "react-router-dom";
 
 export const GlobalModules = createGlobalStyle`
 img {
@@ -12,19 +11,20 @@ img.row-image {
 }
 `;
 
-export const Btn = styled.button`
+export const Button = styled.button`
   display: inline-block;
   border: none;
-  background: #555;
-  color: #fff;
+  background: ${(props) => props.theme.colours.darkgray};
+  color: ${(props) => props.theme.colours.white};
   padding: 7px 20px;
+  border-radius: 10px;
   cursor: pointer;
   &:hover {
-    background: #666;
+    background: ${(props) => props.theme.colours.lightgray};
   }
 `;
 
-export const BtnPrimary = styled(Btn)`
+export const ButtonPrimary = styled(Button)`
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;

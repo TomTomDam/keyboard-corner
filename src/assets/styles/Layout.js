@@ -27,16 +27,19 @@ export const StyledFooter = styled.footer`
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-  border-top: 1px solid #dee2e6;
   padding: 0 2rem;
+  background: ${(props) => props.theme.colours.primary};
+  color: ${(props) => props.theme.colours.secondary};
 `;
 
-export const Heading = styled.header`
-  margin-top: 20px;
-  margin-bottom: 20px;
+export const Header = styled.header`
+  margin-bottom: 15px;
 `;
 
 export const HorizontalLine = styled.hr`
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
   border-top: 1px solid gray;
 `;
 
@@ -59,4 +62,9 @@ export const Col = styled.div`
   flex: 0 0 auto;
   width: auto;
   max-width: none;
+`;
+
+export const Col3 = styled(Col)`
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
 `;

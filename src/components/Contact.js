@@ -184,7 +184,7 @@ const FormButtonBackground = styled.div`
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #0000d8;
+  background: ${(props) => props.theme.colours.blue};
   top: 0;
   left: -100%;
   -webkit-transition: all 0.4s;

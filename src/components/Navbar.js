@@ -14,9 +14,6 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
             <NavLink to="/mykeyboards">My Keyboards</NavLink>
           </li>
           <li>
@@ -39,17 +36,16 @@ const NavBar = styled.nav`
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
   color: white;
-  background-color: #1e90ff;
+  background-color: ${(props) => props.theme.colours.darkgray};
 `;
 
 const NavBarLogo = styled(Link)`
   font-weight: bold;
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  color: white;
-  &:hover,
-  :focus {
-    color: lightgray;
+  color: ${(props) => props.theme.colours.white};
+  &:hover {
+    color: darkgray;
   }
 `;
 
@@ -62,14 +58,34 @@ const NavLinkWrapper = styled.ul`
 `;
 
 const NavLink = styled(Link)`
+  position: relative;
   transition: all 0.3s ease 0s;
   cursor: pointer;
-  color: white;
+  color: ${(props) => props.theme.colours.white};
   & .active {
-    color: #fff;
+    color: darkgray;
   }
-  & :hover,
-  :focus {
-    color: lightgray;
+  &:hover {
+    color: darkgray;
+  }
+  &::before {
+    transition: all 0.3s ease 0s;
+  }
+  &::after {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: ${(props) => props.theme.colours.blue};
+    height: 5px;
+    top: 65px;
+  }
+  &:hover:after {
+    width: 100%;
   }
 `;

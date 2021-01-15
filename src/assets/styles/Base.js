@@ -1,4 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
+import RobotoRegular from "../Roboto-Regular.ttf";
+
+export const Font = "RobotoRegular";
 
 export const GlobalBase = createGlobalStyle`
 * {
@@ -8,12 +11,12 @@ export const GlobalBase = createGlobalStyle`
 }
 
 a {
-  color: #1e90ff;
+  color: ${(props) => props.theme.colours.blue};
   text-decoration: none;
 }
 
 a:hover {
-  color: lightgray;
+  color: darkgray;
   text-decoration: none;
 }
 
@@ -31,11 +34,23 @@ html {
   min-height: 100%;
 }
 
+@font-face {
+  font-family: ${Font};
+  src: url(${RobotoRegular}) format("opentype");
+}
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ${(props) => props.theme.fonts};
   line-height: 1.4;
+  background: ${(props) => props.theme.colours.white};
+  color: ${(props) => props.theme.colours.darkgray};
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 `;
 

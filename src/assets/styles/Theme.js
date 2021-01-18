@@ -20,4 +20,10 @@ export const Theme = {
     medium: "2em",
     large: "3em",
   },
+  media: {
+    phone: "600px",
+    tablet: "768px",
+    laptop: "992px",
+    desktop: "1200px",
+  },
 };

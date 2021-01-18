@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Navbar = () => {
   return (
     <header>
-      <NavBar>
+      <NavBar id="navbar">
         <NavBarLogo to="/">Keyboard Corner</NavBarLogo>
         <NavLinkWrapper>
           <li>
@@ -30,13 +30,36 @@ const Navbar = () => {
 
 export default Navbar;
 
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+  var navbar = document.getElementById("navbar");
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    navbar.style.top = "0";
+  } else {
+    navbar.style.top = -navbar.clientHeight;
+  }
+  prevScrollpos = currentScrollPos;
+};
+
 const NavBar = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  margin-bottom: 1rem;
   color: white;
   background-color: ${(props) => props.theme.colours.darkgray};
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+  /* @media (max-width: 768px) {
+  }
+
+  @media (max-width: 500px) {
+  } */
 `;
 
 const NavBarLogo = styled(Link)`

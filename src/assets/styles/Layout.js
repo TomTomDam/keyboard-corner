@@ -12,6 +12,10 @@ export const GlobalLayout = createGlobalStyle`
 }
 `;
 
+export const Main = styled.main`
+  margin-bottom: 0.5rem;
+`;
+
 export const Container = styled.div`
   width: 100%;
   padding: 0px;
@@ -28,8 +32,8 @@ export const StyledFooter = styled.footer`
   white-space: nowrap;
   line-height: 60px;
   padding: 0 2rem;
-  background: ${(props) => props.theme.colours.primary};
-  color: ${(props) => props.theme.colours.secondary};
+  background: ${(props) => props.theme.colours.darkgray};
+  color: ${(props) => props.theme.colours.white};
 `;
 
 export const Header = styled.header`

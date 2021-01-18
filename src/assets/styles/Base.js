@@ -40,6 +40,8 @@ html {
 }
 
 body {
+  /* Padding top by fixed navbar height */
+  padding-top: 70px;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: ${(props) => props.theme.fonts};

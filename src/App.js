@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import styled from "styled-components";
 
 //Stylesheets
 import "./App.css";
@@ -9,7 +8,7 @@ import "./assets/styles/Layout";
 import "./assets/styles/Modules";
 import "./assets/styles/Theme";
 import { GlobalBase } from "./assets/styles/Base";
-import { GlobalLayout, Container } from "./assets/styles/Layout";
+import { GlobalLayout, Main, Container } from "./assets/styles/Layout";
 import { GlobalModules } from "./assets/styles/Modules";
 import { GlobalTheme } from "./assets/styles/Theme";
 
@@ -98,7 +97,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const Main = styled.main`
-  padding-bottom: 0.5rem;
-`;

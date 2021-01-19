@@ -1,14 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalModules = createGlobalStyle`
-img {
-  width: 80%;
-  height: auto;
-}
-img.row-image {
-  height: 350px;
-  width: 500px;
-}
 `;
 
 export const Button = styled.button`

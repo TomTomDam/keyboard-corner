@@ -3,22 +3,30 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Row, Header } from "../assets/styles/Layout";
 import { Button } from "../assets/styles/Modules";
+
+//Images
 import BackgroundImage from "../assets/images/moderndolchkeyboard.png";
 import BauerKeyboard from "../assets/images/8008_bauer_keyboard.jpg";
 import HolyPandas from "../assets/images/holypandaswitches.jpg";
+import CherryMXRed from "../assets/images/cherry_mx_red_animation_static.png";
+import CherryMXBrown from "../assets/images/cherry_mx_brown_animation_static.png";
+import CherryMXBlue from "../assets/images/cherry_mx_blue_animation_static.png";
+import CherryMXRedAnimation from "../assets/images/cherry_mx_red_animation.gif";
+import CherryMXBrownAnimation from "../assets/images/cherry_mx_brown_animation.gif";
+import CherryMXBlueAnimation from "../assets/images/cherry_mx_blue_animation.gif";
 
 const Home = () => {
   return (
     <>
       <Jumbotron>
-        <JumbotronText top="50%" left="30%">
-          <JumbotronHeader>Keyboard Corner</JumbotronHeader>
+        <JumbotronHeader top="50vh" left="30vw">
+          <JumbotronHeading>Keyboard Corner</JumbotronHeading>
           <JumbotronHeaderText>
             A centralised resource for all things related to mechanical
             keyboards.
           </JumbotronHeaderText>
           <JumbotronButton>Get started</JumbotronButton>
-        </JumbotronText>
+        </JumbotronHeader>
       </Jumbotron>
       <Wrapper1>
         <Header>
@@ -27,36 +35,70 @@ const Home = () => {
         <Wrapper1Container>
           <Wrapper1Image src={BauerKeyboard} />
           <Wrapper1Text>
-            <p>
-              Compared to a typical consumer keyboard, a mechanical keyboard
-              uses <b>mechanical switches</b> to register key presses.
-            </p>
+            Compared to a typical consumer keyboard, a mechanical keyboard uses{" "}
+            <b>mechanical switches</b> to register key presses.
           </Wrapper1Text>
           <Wrapper1Image src={HolyPandas} />
         </Wrapper1Container>
       </Wrapper1>
       <Wrapper2>
-        <WrapperRow>
-          <Header>
-            <Heading>Why should I use a mechanical keyboard?</Heading>
-            <p>
-              We are currently living in a technologically driven world.
-              Keyboards have become one of our primary tools that we use to
-              carry out our daily tasks.
-            </p>
-            <p>It is often a tool that we take for granted.</p>
-          </Header>
-        </WrapperRow>
+        <Header>
+          <Heading>Why should I use a mechanical keyboard?</Heading>
+        </Header>
+        <Wrapper3Container>
+          <p>
+            We are currently living in a technologically driven world. Keyboards
+            have become one of our primary tools that we use to carry out our
+            daily tasks. Unfortunately, it has become something we now take for
+            granted.
+          </p>
+          <p>
+            Mechanical keyboards can be customised in a variety of ways to suit
+            your preferences.
+          </p>
+        </Wrapper3Container>
       </Wrapper2>
+      <Wrapper4>
+        <Header>
+          <Heading>
+            Types of Switches
+          </Heading>
+          <Wrapper4HeaderText>When people refer to mechanical switches, they are most likely
+            referring to MX-style switches. People also tend to think of those
+            loud, clicky switches that are often found in gaming keyboards; in
+            actuality, MX-style mechanical switches come in three types in total:
+            <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.</Wrapper4HeaderText>
+          <Wrapper4ImagesRow>
+            <Wrapper4ImageContainer>
+              <Wrapper4ImageTitle>Linear</Wrapper4ImageTitle>
+              <LinearSwitchImage id="linearSwitch" src={CherryMXRed}/>
+              <p>Smooth all the way down</p>
+            </Wrapper4ImageContainer>
+            <Wrapper4ImageContainer>
+              <Wrapper4ImageTitle>Tactile</Wrapper4ImageTitle>
+              <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown}/>
+              <p>Tactile bump</p>
+            </Wrapper4ImageContainer>
+            <Wrapper4ImageContainer>
+              <Wrapper4ImageTitle>Clicky</Wrapper4ImageTitle>
+              <ClickySwitchImage id="clickySwitch" src={CherryMXBlue}/>
+              <p>Tactile bump with an audible "click" sound</p>
+            </Wrapper4ImageContainer>
+          </Wrapper4ImagesRow>
+        </Header>
+      </Wrapper4>
       <Wrapper3>
         <Header>
           <Heading>How do I learn more about mechanical keyboards?</Heading>
-          <p>
-            Browse the Keyboard Encyclopedia or choose one of the categories
-            below.
-          </p>
         </Header>
-        <Wrapper3CategoryButtonContainer>
+        <Wrapper3Container>
+          <Wrapper3Text>
+            The Keyboard Encyclopedia is your one stop shop for anything related
+            to mechanical keyboards.
+          </Wrapper3Text>
+          <Wrapper3Button>Read more</Wrapper3Button>
+        </Wrapper3Container>
+        {/* <Wrapper3CategoryButtonContainer>
           <CategoryButton>All</CategoryButton>
           <CategoryButton>Getting Started</CategoryButton>
           <CategoryButton>List of Switches</CategoryButton>
@@ -68,10 +110,9 @@ const Home = () => {
           <Card>
             <CardTitle>
               <Link to="/keyboard-encyclopedia/introduction" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>
+                <WrapperGridLink>
                   Introduction to Mechanical Keyboards
-                </WrapperRowColLink>
+                </WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -82,8 +123,7 @@ const Home = () => {
             <CardTitle>
               {" "}
               <Link to="/keyboard-encyclopedia/layouts-and-sizes" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>Layouts and Sizes</WrapperRowColLink>
+                <WrapperGridLink>Layouts and Sizes</WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -93,8 +133,7 @@ const Home = () => {
           <Card>
             <CardTitle>
               <Link to="/keyboard-encyclopedia/switches" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>Switches</WrapperRowColLink>
+                <WrapperGridLink>Switches</WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -107,8 +146,7 @@ const Home = () => {
           <Card>
             <CardTitle>
               <Link to="/keyboard-encyclopedia/keycaps" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>Keycaps</WrapperRowColLink>
+                <WrapperGridLink>Keycaps</WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -121,8 +159,7 @@ const Home = () => {
           <Card>
             <CardTitle>
               <Link to="/keyboard-encyclopedia/plates-and-pcbs" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>Plates and PCBs</WrapperRowColLink>
+                <WrapperGridLink>Plates and PCBs</WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -135,8 +172,7 @@ const Home = () => {
           <Card>
             <CardTitle>
               <Link to="/keyboard-encyclopedia/stabilizers" className="">
-                {/* <img src="" /> */}
-                <WrapperRowColLink>Stabilizers</WrapperRowColLink>
+                <WrapperGridLink>Stabilizers</WrapperGridLink>
               </Link>
             </CardTitle>
             <CardBody>
@@ -148,16 +184,14 @@ const Home = () => {
             </CardBody>
           </Card>
         </WrapperGrid>
-        <WrapperRow>
-          <RowText>
-            Would you like to learn more? Click here to go to the{" "}
-            <Link to="/keyboard-encyclopedia" className="">
-              Keyboard Encyclopedia
-            </Link>{" "}
-            for specially curated and comprehensive resources regarding
-            mechanical keyboards.
-          </RowText>
-        </WrapperRow>
+        <RowText>
+          Would you like to learn more? Click here to go to the{" "}
+          <Link to="/keyboard-encyclopedia" className="">
+            Keyboard Encyclopedia
+          </Link>{" "}
+          for specially curated and comprehensive resources regarding mechanical
+          keyboards.
+        </RowText> */}
       </Wrapper3>
     </>
   );
@@ -185,41 +219,47 @@ const Jumbotron = styled.section`
   } */
 `;
 
-const JumbotronHeader = styled.h1`
-  color: ${(props) => props.theme.colours.white};
-  font-size: ${(props) => props.theme.fontSizes.large};
-  margin-bottom: 1rem;
-`;
-
-const JumbotronText = styled.div`
+const JumbotronHeader = styled.div`
   position: absolute;
   top: ${(props) => props.top};
   left: ${(props) => props.left};
   transform: translate(-50%, -50%);
   text-align: center;
 
-  @media screen and (max-width: ${(props) => props.theme.media.phone}) {
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
     top: ${(props) => props.top};
-    left: calc(${(props) => props.left} + 20%);
+    left: calc(${(props) => props.left} + 20vw);
   }
 
-  @media screen and (min-width: ${(props) => props.theme.media.phone}) {
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
     top: ${(props) => props.top};
-    left: calc(${(props) => props.left} + 20%);
+    left: calc(${(props) => props.left} + 20vw);
   }
 
-  @media screen and (min-width: ${(props) =>
-      props.theme.media.tablet}) and (min-width: ${(props) =>
-      props.theme.media.laptop}) and (min-width: ${(props) =>
-      props.theme.media.desktop}) {
+  @media only screen 
+      and (min-width: ${(props) => props.theme.media.tablet}) 
+      and (min-width: ${(props) => props.theme.media.laptop}) 
+      and (min-width: ${(props) => props.theme.media.desktop}) 
+  {
     top: ${(props) => props.top};
-    left: calc(${(props) => props.left} + 20%);
+    left: calc(${(props) => props.left} + 20vw);
   }
 
-  @media screen and (min-width: 1900px) {
+  @media only screen and (min-width: 1700px) {
+    top: ${(props) => props.top};
+    left: calc(${(props) => props.left} + 10vw);
+  }
+
+  @media only screen and (min-width: 2100px) {
     top: ${(props) => props.top};
     left: ${(props) => props.left};
   }
+`;
+
+const JumbotronHeading = styled.h1`
+  color: ${(props) => props.theme.colours.white};
+  font-size: ${(props) => props.theme.fontSizes.large};
+  margin-bottom: 1rem;
 `;
 
 const JumbotronHeaderText = styled.p`
@@ -234,7 +274,7 @@ const JumbotronButton = styled(Button)`
 `;
 
 const Heading = styled.h1`
-  font-size: ${(props) => props.theme.fontSizes.medium};
+  font-size: ${(props) => props.theme.fontSizes.large};
   margin-bottom: 2rem;
 `;
 
@@ -252,24 +292,47 @@ const Wrapper1 = styled(Wrapper)`
 
 const Wrapper1Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+  width: 50%;
   margin: 0 auto;
-  max-width: 80%;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
 `;
 
 const Wrapper1Image = styled.img`
-  flex: 1;
+  flex: 0 0 33%;
   object-fit: contain;
-  width: 800px;
-  height: 500px;
+  width: 25%;
+  height: 25%;
+  padding: 1rem;
+
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.tablet}) {
+    width: 75%;
+    height: 75%;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.desktop}) {
+    width: 50%;
+    height: 50%;
+  }
 `;
 
 const Wrapper1Text = styled.p`
+  flex: 0 0 33%;
   font-size: ${(props) => props.theme.fontSizes.medium};
-  flex: 1;
   text-align: center;
+  padding: 1rem;
 `;
 
 //Wrapper 2
@@ -278,10 +341,95 @@ const Wrapper2 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.darkgray};
 `;
 
+//Wrapper 4
+const Wrapper4 = styled(Wrapper)`
+  background: ${(props) => props.theme.colours.white};
+  color: ${(props) => props.theme.colours.darkgray};
+  max-width: 50%;
+  margin: 0 auto;
+`;
+
+const Wrapper4HeaderText = styled.p`
+  font-size: 1.5rem;
+  margin-top: 4rem;
+`;
+
+const Wrapper4ImagesRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rem;
+`;
+
+const Wrapper4ImageContainer = styled.div`
+  flex: 1;
+`;
+
+const Wrapper4ImageTitle = styled.h1`
+  font-size: ${(props) => props.theme.fontSizes.medium};
+`;
+
+const Wrapper4Image = styled.img`
+    max-width: 100%;
+    height: auto;
+    padding: 1rem;
+`;
+
+const LinearSwitchImage = styled(Wrapper4Image)`
+`;
+
+const TactileSwitchImage = styled(Wrapper4Image)`
+`;
+
+const ClickySwitchImage = styled(Wrapper4Image)`
+`;
+
+//Animate switches on hover
+$(function() {
+  $("#linearSwitch").hover(
+    function() {
+      $(this).attr("src", CherryMXRedAnimation);
+    },
+    function() {
+      $(this).attr("src", CherryMXRed);
+    }
+  );
+
+  $("#tactileSwitch").hover(
+    function() {
+      $(this).attr("src", CherryMXBrownAnimation);
+    },
+    function() {
+      $(this).attr("src", CherryMXBrown);
+    }
+  );
+
+  $("#clickySwitch").hover(
+    function() {
+      $(this).attr("src", CherryMXBlueAnimation);
+    },
+    function() {
+      $(this).attr("src", CherryMXBlue);
+    }
+  );
+});
+
 //Wrapper 3
 const Wrapper3 = styled(Wrapper)`
   background: ${(props) => props.theme.colours.darkgray};
   color: ${(props) => props.theme.colours.white};
+`;
+
+const Wrapper3Container = styled.div`
+
+`
+
+const Wrapper3Text = styled.p`
+
+`
+
+const Wrapper3Button = styled.button`
+
 `;
 
 const Wrapper3CategoryButtonContainer = styled.div`
@@ -292,7 +440,7 @@ const Wrapper3CategoryButtonContainer = styled.div`
   flex: 1 0 auto;
   justify-content: center;
   overflow-x: auto;
-  margin: 40px 0px;
+  margin: 2rem 0px;
 `;
 
 const CategoryButton = styled.button`
@@ -301,10 +449,10 @@ const CategoryButton = styled.button`
   font-weight: bold;
   border: none;
   transition: all 0.3s;
-  padding: 0px 20px;
-  margin-right: 20px;
-  height: 50px;
-  border-radius: 25px;
+  padding: 0 1.5rem;
+  margin-right: 1.5rem;
+  height: 3rem;
+  border-radius: 0.25rem;
   cursor: pointer;
 
   &:hover {
@@ -317,7 +465,7 @@ const WrapperGrid = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  width: 60%;
+  max-width: 60%;
   margin: 0 auto;
 `;
 
@@ -346,10 +494,10 @@ const WrapperRow = styled(Row)`
   justify-content: center;
 `;
 
-const WrapperRowColLink = styled.h4`
+const WrapperGridLink = styled.h4`
   transition: all 0.3s ease 0s;
 `;
 
-const RowText = styled.p`
+const RowText = styled.div`
   margin-top: 2rem;
 `;

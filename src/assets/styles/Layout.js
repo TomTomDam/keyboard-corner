@@ -13,6 +13,7 @@ export const GlobalLayout = createGlobalStyle`
 `;
 
 export const Main = styled.main`
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
 `;
 

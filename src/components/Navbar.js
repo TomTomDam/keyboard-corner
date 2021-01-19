@@ -30,6 +30,7 @@ const Navbar = () => {
 
 export default Navbar;
 
+//Hide navbar on scroll down, show on scroll up
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   var navbar = document.getElementById("navbar");
@@ -50,16 +51,10 @@ const NavBar = styled.nav`
   z-index: 100;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  padding: 24px 32px;
   color: white;
   background-color: ${(props) => props.theme.colours.darkgray};
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-
-  /* @media (max-width: 768px) {
-  }
-
-  @media (max-width: 500px) {
-  } */
 `;
 
 const NavBarLogo = styled(Link)`

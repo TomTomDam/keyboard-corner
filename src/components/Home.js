@@ -45,7 +45,7 @@ const Home = () => {
         <Header>
           <Heading>Why should I use a mechanical keyboard?</Heading>
         </Header>
-        <Wrapper3Container>
+        <Wrapper2Container>
           <p>
             We are currently living in a technologically driven world. Keyboards
             have become one of our primary tools that we use to carry out our
@@ -56,143 +56,49 @@ const Home = () => {
             Mechanical keyboards can be customised in a variety of ways to suit
             your preferences.
           </p>
-        </Wrapper3Container>
+        </Wrapper2Container>
       </Wrapper2>
-      <Wrapper4>
+      <Wrapper3>
         <Header>
           <Heading>
             Types of Switches
           </Heading>
-          <Wrapper4HeaderText>When people refer to mechanical switches, they are most likely
+          <Wrapper3HeaderText>When people refer to mechanical switches, they are most likely
             referring to MX-style switches. People also tend to think of those
             loud, clicky switches that are often found in gaming keyboards; in
             actuality, MX-style mechanical switches come in three types in total:
-            <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.</Wrapper4HeaderText>
-          <Wrapper4ImagesRow>
-            <Wrapper4ImageContainer>
-              <Wrapper4ImageTitle>Linear</Wrapper4ImageTitle>
+            <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.</Wrapper3HeaderText>
+          <Wrapper3ImagesRow>
+            <Wrapper3ImageContainer>
+              <Wrapper3ImageTitle>Linear</Wrapper3ImageTitle>
               <LinearSwitchImage id="linearSwitch" src={CherryMXRed}/>
               <p>Smooth all the way down</p>
-            </Wrapper4ImageContainer>
-            <Wrapper4ImageContainer>
-              <Wrapper4ImageTitle>Tactile</Wrapper4ImageTitle>
+            </Wrapper3ImageContainer>
+            <Wrapper3ImageContainer>
+              <Wrapper3ImageTitle>Tactile</Wrapper3ImageTitle>
               <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown}/>
               <p>Tactile bump</p>
-            </Wrapper4ImageContainer>
-            <Wrapper4ImageContainer>
-              <Wrapper4ImageTitle>Clicky</Wrapper4ImageTitle>
+            </Wrapper3ImageContainer>
+            <Wrapper3ImageContainer>
+              <Wrapper3ImageTitle>Clicky</Wrapper3ImageTitle>
               <ClickySwitchImage id="clickySwitch" src={CherryMXBlue}/>
               <p>Tactile bump with an audible "click" sound</p>
-            </Wrapper4ImageContainer>
-          </Wrapper4ImagesRow>
+            </Wrapper3ImageContainer>
+          </Wrapper3ImagesRow>
         </Header>
-      </Wrapper4>
-      <Wrapper3>
+      </Wrapper3>
+      <Wrapper4>
         <Header>
           <Heading>How do I learn more about mechanical keyboards?</Heading>
         </Header>
-        <Wrapper3Container>
-          <Wrapper3Text>
+        <Wrapper4Container>
+          <Wrapper4Text>
             The Keyboard Encyclopedia is your one stop shop for anything related
             to mechanical keyboards.
-          </Wrapper3Text>
-          <Wrapper3Button>Read more</Wrapper3Button>
-        </Wrapper3Container>
-        {/* <Wrapper3CategoryButtonContainer>
-          <CategoryButton>All</CategoryButton>
-          <CategoryButton>Getting Started</CategoryButton>
-          <CategoryButton>List of Switches</CategoryButton>
-          <CategoryButton>List of Switches</CategoryButton>
-          <CategoryButton>Keyboard Modifications</CategoryButton>
-          <CategoryButton>Accessories</CategoryButton>
-        </Wrapper3CategoryButtonContainer>
-        <WrapperGrid>
-          <Card>
-            <CardTitle>
-              <Link to="/keyboard-encyclopedia/introduction" className="">
-                <WrapperGridLink>
-                  Introduction to Mechanical Keyboards
-                </WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>What's the big deal about mechanical keyboards?</p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardTitle>
-              {" "}
-              <Link to="/keyboard-encyclopedia/layouts-and-sizes" className="">
-                <WrapperGridLink>Layouts and Sizes</WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>Keyboards come in all shapes and sizes.</p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardTitle>
-              <Link to="/keyboard-encyclopedia/switches" className="">
-                <WrapperGridLink>Switches</WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>
-                The very nature of mechanical keyboards is powered by mechanical
-                switches. See what switches are right for you.
-              </p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardTitle>
-              <Link to="/keyboard-encyclopedia/keycaps" className="">
-                <WrapperGridLink>Keycaps</WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>
-                Keycaps can make or break the look of a keyboard, as well as the
-                sound and typing feel. Learn the varieties of keycaps there are.
-              </p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardTitle>
-              <Link to="/keyboard-encyclopedia/plates-and-pcbs" className="">
-                <WrapperGridLink>Plates and PCBs</WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>
-                The plate provides structural rigidity and the PCB is what
-                allows your keyboard to electronically work.
-              </p>
-            </CardBody>
-          </Card>
-          <Card>
-            <CardTitle>
-              <Link to="/keyboard-encyclopedia/stabilizers" className="">
-                <WrapperGridLink>Stabilizers</WrapperGridLink>
-              </Link>
-            </CardTitle>
-            <CardBody>
-              <p>
-                Stabilizers, or "stabs", sit underneath larger keys to prevent
-                them from wobbling. They essentially <i>stabilize</i> the
-                keycap.
-              </p>
-            </CardBody>
-          </Card>
-        </WrapperGrid>
-        <RowText>
-          Would you like to learn more? Click here to go to the{" "}
-          <Link to="/keyboard-encyclopedia" className="">
-            Keyboard Encyclopedia
-          </Link>{" "}
-          for specially curated and comprehensive resources regarding mechanical
-          keyboards.
-        </RowText> */}
-      </Wrapper3>
+          </Wrapper4Text>
+          <Wrapper4Button>Read more</Wrapper4Button>
+        </Wrapper4Container>
+      </Wrapper4>
     </>
   );
 };
@@ -208,6 +114,7 @@ const Jumbotron = styled.section`
   background-position: 500px -100px;
   color: ${(props) => props.theme.colours.darkgray};
   margin-left: calc(50% - 50vw);
+  margin-top: -16px;
   height: calc(100vh + 1.5rem);
 
   /* @media (max-width: 768px) {
@@ -341,47 +248,79 @@ const Wrapper2 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.darkgray};
 `;
 
-//Wrapper 4
-const Wrapper4 = styled(Wrapper)`
+const Wrapper2Container = styled.div`
+
+`;
+
+//Wrapper 3
+const Wrapper3 = styled(Wrapper)`
   background: ${(props) => props.theme.colours.white};
   color: ${(props) => props.theme.colours.darkgray};
   max-width: 50%;
   margin: 0 auto;
 `;
 
-const Wrapper4HeaderText = styled.p`
+const Wrapper3HeaderText = styled.p`
   font-size: 1.5rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 `;
 
-const Wrapper4ImagesRow = styled.div`
+const Wrapper3ImagesRow = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   margin-top: 15rem;
+
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.tablet}) {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.desktop}) {
+    margin-top: 15rem;
+    flex-direction: row;
+    align-items: baseline;
+  }
 `;
 
-const Wrapper4ImageContainer = styled.div`
-  flex: 1;
+const Wrapper3ImageContainer = styled.div`
+  flex: 0 0 33%;
+  max-width: 33%;
+  & > p {
+    font-size: 1.25em;
+  }
 `;
 
-const Wrapper4ImageTitle = styled.h1`
+const Wrapper3ImageTitle = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.medium};
 `;
 
-const Wrapper4Image = styled.img`
+const Wrapper3Image = styled.img`
     max-width: 100%;
     height: auto;
     padding: 1rem;
 `;
 
-const LinearSwitchImage = styled(Wrapper4Image)`
+const LinearSwitchImage = styled(Wrapper3Image)`
 `;
 
-const TactileSwitchImage = styled(Wrapper4Image)`
+const TactileSwitchImage = styled(Wrapper3Image)`
 `;
 
-const ClickySwitchImage = styled(Wrapper4Image)`
+const ClickySwitchImage = styled(Wrapper3Image)`
 `;
 
 //Animate switches on hover
@@ -414,90 +353,20 @@ $(function() {
   );
 });
 
-//Wrapper 3
-const Wrapper3 = styled(Wrapper)`
+//Wrapper 4
+const Wrapper4 = styled(Wrapper)`
   background: ${(props) => props.theme.colours.darkgray};
   color: ${(props) => props.theme.colours.white};
 `;
 
-const Wrapper3Container = styled.div`
+const Wrapper4Container = styled.div`
 
 `
 
-const Wrapper3Text = styled.p`
+const Wrapper4Text = styled.p`
 
 `
 
-const Wrapper3Button = styled.button`
+const Wrapper4Button = styled.button`
 
-`;
-
-const Wrapper3CategoryButtonContainer = styled.div`
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex: 1 0 auto;
-  justify-content: center;
-  overflow-x: auto;
-  margin: 2rem 0px;
-`;
-
-const CategoryButton = styled.button`
-  background: ${(props) => props.theme.colours.lightgray};
-  color: ${(props) => props.theme.colours.blue};
-  font-weight: bold;
-  border: none;
-  transition: all 0.3s;
-  padding: 0 1.5rem;
-  margin-right: 1.5rem;
-  height: 3rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-
-  &:hover {
-    background: ${(props) => props.theme.colours.white};
-  }
-`;
-
-const WrapperGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  max-width: 60%;
-  margin: 0 auto;
-`;
-
-const Card = styled.div`
-  flex: 0 0 25%;
-  max-width: 25%;
-  min-width: 0;
-  margin: 15px 15px;
-  word-wrap: break-word;
-  background-color: ${(props) => props.theme.colours.lightgray};
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-`;
-
-const CardTitle = styled.div`
-  padding-top: 2.25rem;
-  padding-bottom: 0.75rem;
-`;
-
-const CardBody = styled.div`
-  padding: 1.25rem;
-`;
-
-const WrapperRow = styled(Row)`
-  justify-content: center;
-`;
-
-const WrapperGridLink = styled.h4`
-  transition: all 0.3s ease 0s;
-`;
-
-const RowText = styled.div`
-  margin-top: 2rem;
 `;

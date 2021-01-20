@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import {Header} from "../../assets/styles/Layout";
 
 const Keyboard = (props) => {
   return (
-    <Section>
-      <h2>{props.keyboard.title}</h2>
-      <h3>Parts list:</h3>
+    <Card>
+      <Header>
+        <h2>{props.keyboard.title}</h2>
+      </Header>
       <PartsList>
+        <CoverImage src={props.keyboard.image} />
         <li>
           <b>Layout: </b>
           {props.keyboard.layout}
         </li>
-        <CoverImage src={props.keyboard.image} />
         <li>
           <b>Keycaps: </b>
           {props.keyboard.keycaps}
@@ -38,22 +40,23 @@ const Keyboard = (props) => {
         </li>
         <li>{props.keyboard.description}</li>
       </PartsList>
-      <Gallery></Gallery>
-    </Section>
+    </Card>
   );
 };
 
 export default Keyboard;
 
-const Section = styled.div``;
+const Card = styled.div`
+  flex: 1 0 33%;
+  padding: 1rem;
+`;
 
 const CoverImage = styled.img`
-  height: 900px;
-  width: 1200px;
+  width: 600px;
+  height: 400px;
+  padding-bottom: 1rem;
 `;
 
 const PartsList = styled.ul`
   list-style-type: none;
 `;
-
-const Gallery = styled.div``;

@@ -114,8 +114,8 @@ const Jumbotron = styled.section`
   background-position: 500px -100px;
   color: ${(props) => props.theme.colours.darkgray};
   margin-left: calc(50% - 50vw);
-  margin-top: -16px;
   height: calc(100vh + 1.5rem);
+  margin-top: -16px;
 
   /* @media (max-width: 768px) {
     background
@@ -188,7 +188,7 @@ const Heading = styled.h1`
 const Wrapper = styled.section`
   padding-top: 5vh;
   padding-bottom: 5vh;
-  height: calc(100vh);
+  height: 100vh;
 `;
 
 //Wrapper 1
@@ -367,6 +367,6 @@ const Wrapper4Text = styled.p`
 
 `
 
-const Wrapper4Button = styled.button`
+const Wrapper4Button = styled(Button)`
 
 `;

@@ -96,7 +96,7 @@ const Home = () => {
             The Keyboard Encyclopedia is your one stop shop for anything related
             to mechanical keyboards.
           </Wrapper4Text>
-          <Wrapper4Button>Read more</Wrapper4Button>
+          <Wrapper4Button>The Keyboard Encyclopedia</Wrapper4Button>
         </Wrapper4Container>
       </Wrapper4>
     </>

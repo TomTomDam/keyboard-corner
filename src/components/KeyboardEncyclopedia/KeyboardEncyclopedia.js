@@ -119,47 +119,75 @@ export default class KeyboardEncyclopedia extends React.Component {
 
     return (
       <Container>
-        <header>
-          <h1>The Keyboard Encyclopedia</h1>
-          <p>
+        <HeaderSection>
+          <HeaderSectionHeading>The Keyboard Encyclopedia</HeaderSectionHeading>
+          <HeaderSectionText>
             Your comprehensive guide to all things related to mechanical
             keyboards.
-          </p>
-        </header>
-        <Section>
-          <Heading>Getting Started</Heading>
-          <div className="row justify-content-center">{GettingStarted}</div>
-        </Section>
-        <Section>
-          <Heading>List of Switches</Heading>
-          <div className="row justify-content-center">{ListOfSwitches}</div>
-        </Section>
-        <Section>
-          <Heading>Keyboard Modifications</Heading>
-          <div className="row justify-content-center">
-            {KeyboardModifications}
-          </div>
-        </Section>
-        <Section>
-          <Heading>Accessories</Heading>
-          <div className="row justify-content-center">{Accessories}</div>
-        </Section>
+          </HeaderSectionText>
+        </HeaderSection>
+        <Grid>
+          <StickyNavbar>
+            <StickyNavbarLink>Navlink 1</StickyNavbarLink>
+          </StickyNavbar>
+          <StickyNavbarBorder></StickyNavbarBorder>
+          <Content>
+
+          </Content>
+        </Grid>
       </Container>
     );
   }
 }
 
 const Container = styled.div`
-  width: 1600px;
-  margin: 0 auto;
 `;
 
-const Section = styled.div`
-  text-align: left;
-  padding-top: 50px;
-  padding-bottom: 50px;
+const HeaderSection = styled.div`
+  width: 100%;
+  background: ${(props) => props.theme.colours.darkgray};
+  color: ${(props) => props.theme.colours.white};
+  padding: 3vw;
+  margin-top: -16px;
 `;
 
-const Heading = styled.h1`
-  text-align: left;
+const HeaderSectionHeading = styled.h1`
+  font-size: ${(props) => props.theme.fontSizes.large};
+  margin-bottom: 1rem;
+`;
+
+const HeaderSectionText = styled.p`
+  font-size: 1.5rem;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+`;
+
+const GridItem = styled.div`
+  margin: 1rem;
+`;
+
+const StickyNavbarBorder = styled.div`
+  border: none;
+  width: 1px;
+  height: 100vh;
+  color: black;
+  background-color: black;
+  background: radial-gradient(circle, black, white);
+`;
+
+const StickyNavbar = styled(GridItem)`
+`;
+
+const StickyNavbarLink = styled.div`
+  padding: 1rem;
+`;
+
+const Content = styled(GridItem)`
+
 `;

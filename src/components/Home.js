@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Row, Header } from "../assets/styles/Layout";
+import { Header } from "../assets/styles/Layout";
 import { Button } from "../assets/styles/Modules";
 
 //Images
@@ -96,7 +96,7 @@ const Home = () => {
             The Keyboard Encyclopedia is your one stop shop for anything related
             to mechanical keyboards.
           </Wrapper4Text>
-          <Wrapper4Button>Read more</Wrapper4Button>
+          <Wrapper4Button>The Keyboard Encyclopedia</Wrapper4Button>
         </Wrapper4Container>
       </Wrapper4>
     </>
@@ -116,14 +116,6 @@ const Jumbotron = styled.section`
   margin-left: calc(50% - 50vw);
   height: calc(100vh + 1.5rem);
   margin-top: -16px;
-
-  /* @media (max-width: 768px) {
-    background
-  }
-
-  @media (max-width: 500px) {
-    background
-  } */
 `;
 
 const JumbotronHeader = styled.div`

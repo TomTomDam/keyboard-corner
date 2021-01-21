@@ -13,36 +13,40 @@ import Kailh from "../components/KeyboardEncyclopedia/ListOfSwitches/Kailh";
 import Durock from "../components/KeyboardEncyclopedia/ListOfSwitches/Durock";
 import SwitchModifications from "../components/KeyboardEncyclopedia/KeyboardModifications/SwitchModifications";
 
-const KeyboardEncyclopediaRoutes = (
+function KeyboardEncyclopediaRoutes(props) {
+  const path = props.path;
+
+  return (
   <>
     <Route
-      path="/keyboard-encyclopedia/introduction"
+      path={`${path}/introduction`}
       component={Introduction}
     />
     <Route
-      path="/keyboard-encyclopedia/layouts-and-sizes"
+      path={`${path}/layouts-and-sizes`}
       component={LayoutsAndSizes}
     />
     <Route
-      path="/keyboard-encyclopedia/plates-and-pcbs"
+      path={`${path}/plates-and-pcbs`}
       component={PlatesAndPCBs}
     />
-    <Route path="/keyboard-encyclopedia/keycaps" component={Keycaps} />
-    <Route path="/keyboard-encyclopedia/stabilizers" component={Stabilizers} />
-    <Route exact path="/keyboard-encyclopedia/switches" component={Switches} />
-    <Route path="/keyboard-encyclopedia/switches/cherry" component={Cherry} />
-    <Route path="/keyboard-encyclopedia/switches/gateron" component={Gateron} />
-    <Route path="/keyboard-encyclopedia/switches/kailh" component={Kailh} />
-    <Route path="/keyboard-encyclopedia/switches/durock" component={Durock} />
+    <Route path={`${path}/keycaps`} component={Keycaps} />
+    <Route path={`${path}/stabilizers`} component={Stabilizers} />
+    <Route exact path={`${path}/switches`} component={Switches} />
+    <Route path={`${path}/switches/cherry`} component={Cherry} />
+    <Route path={`${path}/switches/gateron`} component={Gateron} />
+    <Route path={`${path}/switches/kailh`} component={Kailh} />
+    <Route path={`${path}/switches/durock`} component={Durock} />
     <Route
-      path="/keyboard-encyclopedia/switch-modifications"
+      path={`${path}/switch-modifications`}
       component={SwitchModifications}
     />
     <Route
-      path="/keyboard-encyclopedia/custom-cables"
+      path={`${path}/custom-cables`}
       component={CustomCables}
     />
   </>
-);
+  );
+}
 
 export default KeyboardEncyclopediaRoutes;

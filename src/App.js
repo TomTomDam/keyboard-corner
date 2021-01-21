@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //Stylesheets
 import "./App.css";
@@ -19,8 +19,8 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
-import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
 import Contact from "./components/Contact";
+import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
 
 export default class App extends React.Component {
   state = {
@@ -79,18 +79,18 @@ export default class App extends React.Component {
         <GlobalTheme />
         <Navbar />
         <Main>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/keyboard-encyclopedia"
-            component={KeyboardEncyclopedia}
-          />
-          {KeyboardEncyclopediaRoutes}
-          <Route exact path="/mykeyboards">
-            <MyKeyboards keyboards={this.state.keyboards} />
-          </Route>
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route 
+              path="/keyboard-encyclopedia"
+              component={KeyboardEncyclopedia}
+            />
+            <Route path="/mykeyboards">
+              <MyKeyboards keyboards={this.state.keyboards} />
+            </Route>
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+          </Switch>
         </Main>
         <Footer />
       </Container>

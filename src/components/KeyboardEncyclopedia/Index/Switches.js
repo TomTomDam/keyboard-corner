@@ -242,7 +242,7 @@ export default function Switches() {
             recognised in one go.
           </li>
           <li>
-            <b>Linear, Tactile, Clicky</b> - see <a href="#switches-2">here</a>.
+            <b>Linear, Tactile, Clicky</b> - <a href="#switches-2">the three different types of switches</a>.
           </li>
           <li>
             <b>Ping</b> - a distinct noise you can sometimes hear from the
@@ -251,11 +251,10 @@ export default function Switches() {
           </li>
           <li>
             <p>
-              <b>Plate-mounted switch</b> - switches that can be{" "}
-              <a href="#">mounted on a plate</a>, where the plate sits{" "}
-              <a href="#">on top of the PCB</a>. This allows for the switches to
-              be secured into the keyboard, and plates lead to different sound
-              profiles.
+              <b>Plate-mounted switch</b> - switches that can be mounted on a{" "}
+              <a href="#">plate</a>, where the plate sits on top of the{" "}
+              <a href="#">PCB</a>. This allows for the switches to be secured
+              into the keyboard, and plates lead to different sound profiles.
             </p>
             <p>
               Some keyboards, e.g. Massdrop CTRL and ALT, may require you to cut
@@ -295,10 +294,10 @@ export default function Switches() {
       <PageSection>
         <PageSectionHeading>Types of mechanical switches</PageSectionHeading>
         <PageParagraph>
-          There are three types of switches - Linear, Tactile and Clicky - and they all
-          differ in regards to their feel and even their sound. Do you recall
-          that the stem is what determines the tactile properties of the switch?
-          Let's look at how the stem varies among the three types.
+          There are three types of switches - Linear, Tactile and Clicky - and
+          they all differ in regards to their feel and even their sound. Do you
+          recall that the stem is what determines the tactile properties of the
+          switch? Let's look at how the stem varies among the three types.
         </PageParagraph>
       </PageSection>
     </PageContainer>

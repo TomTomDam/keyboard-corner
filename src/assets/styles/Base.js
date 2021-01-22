@@ -46,12 +46,12 @@ body {
   margin-bottom: 60px;
   font-family: ${(props) => props.theme.fonts};
   line-height: 1.4;
-  background: ${(props) => props.theme.colours.white};
+  background: white;
   color: ${(props) => props.theme.colours.darkgray};
 }
 
 p {
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 `;

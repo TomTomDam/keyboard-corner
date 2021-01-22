@@ -32,7 +32,6 @@ export const TableOfContents = styled.div`
   background: #f9f9f9 none repeat scroll 0 0;
   border: 1px solid #aaa;
   display: table;
-  font-size: 95%;
   margin-bottom: 1em;
   padding: 20px;
   width: auto;
@@ -43,3 +42,17 @@ export const TableOfContents = styled.div`
     list-style: outside none none !important;
   }
 `;
+
+export const TableOfContentsTitle = styled.div`
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+export const TableOfContentsChapter = styled.div`
+  margin-top: 0.25rem;
+`;
+
+export const TableOfContentsSubChapters = styled.ul`
+  margin-left: 2rem;
+`;
+

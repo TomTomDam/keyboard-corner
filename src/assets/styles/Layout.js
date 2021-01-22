@@ -14,7 +14,7 @@ export const GlobalLayout = createGlobalStyle`
 
 export const Main = styled.main`
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const Container = styled.div`
@@ -38,7 +38,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const Header = styled.header`
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 `;
 
 export const HorizontalLine = styled.hr`
@@ -52,24 +52,41 @@ export const Iframe = styled.iframe`
   border: none !important;
 `;
 
-export const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+//Keyboard Encyclopedia Page
+export const PageContainer = styled.div`
+  text-align: left;
 `;
 
-export const Col = styled.div`
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 30px;
-  flex: 0 0 auto;
-  width: auto;
-  max-width: none;
+export const PageTitle = styled.h1`
+  font-size: 3rem;
 `;
 
-export const Col3 = styled(Col)`
-  flex: 0 0 16.666667%;
-  max-width: 16.666667%;
+export const PageSection = styled.section`
+  margin-top: 3rem;
+`;
+
+export const PageSectionHeading = styled.h2`
+  font-size: 1.95rem;
+  margin-top: 1rem;
+`;
+
+export const PageSectionSubheading = styled.h3`
+  font-size: 1.5rem;
+  margin-top: 1rem;
+`;
+
+export const PageParagraph = styled.p`
+  max-width: 40%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+`;
+
+export const PageUl = styled.ul`
+  max-width: 40%;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  & > li {
+    margin-top: 0.5rem;
+  }
 `;

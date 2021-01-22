@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, Switch, useRouteMatch, Route } from "react-router-dom";
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
 import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
 import Introduction from "./Index/Introduction";
 
@@ -81,12 +81,13 @@ const HeaderSectionText = styled.p`
 const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
 `;
 
 const StickyNavbar = styled.div`
   position: sticky;
   flex: 0 1 15%;
+  background: ${(props) => props.theme.colours.white};
+  padding-top: 1rem;
 `;
 
 const StickyNavbarSection = styled.div`
@@ -101,6 +102,7 @@ const StickyNavbarTitle = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  color: ${(props) => props.theme.colours.darkgray};
   margin-top: 10px;
   margin-bottom: 5px;
 `;
@@ -115,10 +117,14 @@ const StickyNavbarBorder = styled.div`
   width: 1px;
   height: 100vh;
   color: black;
-  background-color: black;
-  background: radial-gradient(circle, black, white);
+  background-color: #dddddd;
 `;
 
 const Page = styled.div`
   flex: 0 1 85%;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: white;
 `;

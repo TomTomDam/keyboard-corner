@@ -1,11 +1,26 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Introduction() {
 
   return (
-    <div>
-      <h1>Introduction to Mechanical Keyboards</h1>
-    </div>
+    <Container>
+      <Title>Introduction to Mechanical Keyboards</Title>
+      <Section>
+
+      </Section>
+    </Container>
   );
 }
+
+const Container = styled.div`
+
+`;
+
+const Title = styled.h1`
+
+`;
+
+const Section = styled.section`
+  
+`;

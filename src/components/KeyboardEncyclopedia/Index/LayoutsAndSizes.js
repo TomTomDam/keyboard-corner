@@ -1,11 +1,28 @@
 import React from "react";
+import styled from "styled-components";
+import {
+  PageContainer,
+  PageTitle,
+  PageSection,
+  PageSectionHeading,
+  PageSectionSubheading,
+  PageParagraph,
+  PageUl,
+  PageOl
+} from "../../../assets/styles/Layout";
+import {
+  TableOfContents,
+  TableOfContentsTitle,
+  TableOfContentsChapter,
+  TableOfContentsSubChapters,
+} from "../../../assets/styles/Modules";
 
-function LayoutsAndSizes() {
+export default function LayoutsAndSizes() {
   return (
-    <div className="">
-      <h1>Layouts and Sizes</h1>
-    </div>
+    <PageContainer>
+      <PageTitle>Layouts and Sizes</PageTitle>
+      <PageSection>
+      </PageSection>
+    </PageContainer>
   );
 }
-
-export default LayoutsAndSizes;

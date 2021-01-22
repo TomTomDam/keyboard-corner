@@ -38,7 +38,7 @@ export default function KeyboardEncyclopedia() {
             <StickyNavbarLink to={`${url}/switches/cherry`}>Cherry</StickyNavbarLink>
             <StickyNavbarLink to={`${url}/switches/gateron`}>Gateron</StickyNavbarLink>
             <StickyNavbarLink to={`${url}/switches/kailh`}>Kailh</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/durock`}>Durock</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switches/durock-jwk`}>Durock/JWK</StickyNavbarLink>
           </StickyNavbarSection>
 
           <StickyNavbarSection>
@@ -66,7 +66,7 @@ const HeaderSection = styled.div`
   background: ${(props) => props.theme.colours.lightgray};
   color: ${(props) => props.theme.colours.white};
   padding: 3vw;
-  margin-top: -16px;
+  margin-top: -2rem;
 `;
 
 const HeaderSectionHeading = styled.h1`

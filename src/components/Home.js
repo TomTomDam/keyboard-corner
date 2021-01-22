@@ -115,7 +115,7 @@ const Jumbotron = styled.section`
   color: ${(props) => props.theme.colours.darkgray};
   margin-left: calc(50% - 50vw);
   height: calc(100vh + 1.5rem);
-  margin-top: -16px;
+  margin-top: -2rem;
 `;
 
 const JumbotronHeader = styled.div`

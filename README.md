@@ -1,9 +1,9 @@
 # keyboard-corner
 
-A website for showing off the world of mechanical keyboards.
+A website for showing off the world of mechanical keyboards using React.
 
 ## Features
 
-React, styled-components, Bootstrap.
+React, styled-components.
 
-I plan to integrate it with a back-end framework (Express.js) and a database (SQLite).
+I plan to integrate it with a back-end framework (Node.js with Express.js) and a lightweight database (SQLite).

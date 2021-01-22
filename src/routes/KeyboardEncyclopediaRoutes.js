@@ -10,7 +10,7 @@ import CustomCables from "../components/KeyboardEncyclopedia/Accessories/CustomC
 import Cherry from "../components/KeyboardEncyclopedia/ListOfSwitches/Cherry";
 import Gateron from "../components/KeyboardEncyclopedia/ListOfSwitches/Gateron";
 import Kailh from "../components/KeyboardEncyclopedia/ListOfSwitches/Kailh";
-import Durock from "../components/KeyboardEncyclopedia/ListOfSwitches/Durock";
+import DurockJWK from "../components/KeyboardEncyclopedia/ListOfSwitches/DurockJWK";
 import SwitchModifications from "../components/KeyboardEncyclopedia/KeyboardModifications/SwitchModifications";
 
 function KeyboardEncyclopediaRoutes(props) {
@@ -36,7 +36,7 @@ function KeyboardEncyclopediaRoutes(props) {
     <Route path={`${path}/switches/cherry`} component={Cherry} />
     <Route path={`${path}/switches/gateron`} component={Gateron} />
     <Route path={`${path}/switches/kailh`} component={Kailh} />
-    <Route path={`${path}/switches/durock`} component={Durock} />
+    <Route path={`${path}/switches/durock-jwk`} component={DurockJWK} />
     <Route
       path={`${path}/switch-modifications`}
       component={SwitchModifications}

@@ -17,10 +17,10 @@ import {
   TableOfContentsSubChapters,
 } from "../../../assets/styles/Modules";
 
-export default function SwitchModifications() {
+export default function Durock() {
   return (
     <PageContainer>
-      <PageTitle>Switch Modifications</PageTitle>
+      <PageTitle>Durock/JWK</PageTitle>
       <PageSection></PageSection>
     </PageContainer>
   );

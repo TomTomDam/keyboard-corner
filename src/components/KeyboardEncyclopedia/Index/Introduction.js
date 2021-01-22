@@ -1,26 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  PageContainer,
+  PageTitle,
+  PageSection,
+  PageSectionHeading,
+  PageSectionSubheading,
+  PageParagraph,
+  PageUl,
+  PageOl,
+} from "../../../assets/styles/Layout";
+import {
+  TableOfContents,
+  TableOfContentsTitle,
+  TableOfContentsChapter,
+  TableOfContentsSubChapters,
+} from "../../../assets/styles/Modules";
 
 export default function Introduction() {
-
   return (
-    <Container>
-      <Title>Introduction to Mechanical Keyboards</Title>
-      <Section>
-
-      </Section>
-    </Container>
+    <PageContainer>
+      <PageTitle>Introduction to Mechanical Keyboards</PageTitle>
+      <PageSection></PageSection>
+    </PageContainer>
   );
 }
-
-const Container = styled.div`
-
-`;
-
-const Title = styled.h1`
-
-`;
-
-const Section = styled.section`
-  
-`;

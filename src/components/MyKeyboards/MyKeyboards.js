@@ -13,16 +13,16 @@ const MyKeyboards = (props) => {
         <h1>My Keyboards</h1>
         <p>This is a list of my keyboards that I've purchased or built.</p>
       </header>
-      <CardContainer>
+      <Container>
         {Keyboards}
-      </CardContainer>
+      </Container>
     </>
   );
 };
 
 export default MyKeyboards;
 
-const CardContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -246,7 +246,6 @@ const Wrapper2Container = styled.div`
 
 //Wrapper 3
 const Wrapper3 = styled(Wrapper)`
-  background: ${(props) => props.theme.colours.white};
   color: ${(props) => props.theme.colours.darkgray};
   max-width: 50%;
   margin: 0 auto;

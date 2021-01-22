@@ -51,8 +51,11 @@ body {
 }
 
 p {
+  margin-top: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 `;
 

@@ -83,7 +83,16 @@ export const PageParagraph = styled.p`
 
 export const PageUl = styled.ul`
   max-width: 40%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  & > li {
+    margin-top: 0.5rem;
+  }
+`;
+
+export const PageOl = styled.ol`
+  margin-top: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.8;
   & > li {

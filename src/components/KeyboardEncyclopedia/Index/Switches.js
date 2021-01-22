@@ -8,6 +8,7 @@ import {
   PageSectionSubheading,
   PageParagraph,
   PageUl,
+  PageOl
 } from "../../../assets/styles/Layout";
 import {
   TableOfContents,
@@ -22,6 +23,9 @@ import MechanicalKeyboard from "../../../assets/images/Switches/mechanical_keybo
 import MechanicalKeyboardSwitch1 from "../../../assets/images/Switches/mechanical_keyboard_switches.jpg";
 import MechanicalKeyboardSwitch2 from "../../../assets/images/Switches/mechanical_switches.png";
 import DisassembledSwitch from "../../../assets/images/Switches/Cherry_MX_Brown_-_disassembled_top_views.jpg";
+import TypesOfSwitches from "../../../assets/images/Switches/types_of_switches_gif.gif";
+import TopreSwitch from "../../../assets/images/Switches/topre_switch.jpg";
+import TopreSwitchDiagram from "../../../assets/images/Switches/topre_switch_diagram.png";
 
 export default function Switches() {
   return (
@@ -149,6 +153,9 @@ export default function Switches() {
               <li>
                 <a href="#switches-7.1">7.1. Logitech Romer G</a>
               </li>
+              <li>
+                <a href="#switches-7.2">7.2. Optical switches</a>
+              </li>
             </TableOfContentsSubChapters>
           </TableOfContentsChapter>
           <TableOfContentsChapter>
@@ -157,8 +164,8 @@ export default function Switches() {
         </ul>
       </TableOfContents>
       <PageSection>
-        <PageSectionHeading>Mechanical switches</PageSectionHeading>
-        <PageSectionSubheading>
+        <PageSectionHeading id="switches-1">Mechanical switches</PageSectionHeading>
+        <PageSectionSubheading id="switches-1.1">
           Anatomy of a mechanical switch
         </PageSectionSubheading>
         <PageParagraph>
@@ -182,7 +189,7 @@ export default function Switches() {
               offer a smoother keypress and more pleasant sound profiles.
             </p>
             <p>A mechanical switch is comprised of these parts:</p>
-            <ol>
+            <PageOl>
               <li>
                 <b>Bottom housing</b> - The housing is a case that holds the
                 switch together. This is the bottom half of the switch housing.
@@ -205,7 +212,7 @@ export default function Switches() {
                 and 6. <b>Metal leaves</b> - Responsible for completing the
                 electrical circuit and registering a keypress.
               </li>
-            </ol>
+            </PageOl>
             <p>
               When a key is pressed using a mechanical switch, the stem and
               spring move down. This pushes one metal leaf against the other,
@@ -214,7 +221,7 @@ export default function Switches() {
             </p>
           </ImageTextContainer>
         </PageRow>
-        <PageSectionSubheading>Glossary</PageSectionSubheading>
+        <PageSectionSubheading id="switches-1.2">Glossary</PageSectionSubheading>
         <PageUl>
           <li>
             <b>Actuation weight/force</b> - the force required to trigger
@@ -242,7 +249,8 @@ export default function Switches() {
             recognised in one go.
           </li>
           <li>
-            <b>Linear, Tactile, Clicky</b> - <a href="#switches-2">the three different types of switches</a>.
+            <b>Linear, Tactile, Clicky</b> -{" "}
+            <a href="#switches-2">the three different types of switches</a>.
           </li>
           <li>
             <b>Ping</b> - a distinct noise you can sometimes hear from the
@@ -292,13 +300,161 @@ export default function Switches() {
         </PageUl>
       </PageSection>
       <PageSection>
-        <PageSectionHeading>Types of mechanical switches</PageSectionHeading>
+        <PageSectionHeading id="switches-2">Types of mechanical switches</PageSectionHeading>
         <PageParagraph>
           There are three types of switches - Linear, Tactile and Clicky - and
           they all differ in regards to their feel and even their sound. Do you
           recall that the stem is what determines the tactile properties of the
           switch? Let's look at how the stem varies among the three types.
         </PageParagraph>
+        <Figure>
+          <Image src={TypesOfSwitches} alt="Types of switches" />
+          <FigureCaption>
+            Linear, Tactile and Clicky switches in action
+          </FigureCaption>
+        </Figure>
+        <PageParagraph>
+          <h3 id="switches-2.1">Linear</h3>
+          <p>
+            Linear stems are completely flat and have no protrusions unlike
+            tactile and clicky stems. There is no tactile feedback to let you
+            know when the key has been actuated. Linears are popular among
+            gamers who are often rapidly pressing the same key and wish to
+            activate a switch repeatedly without the bump getting "stuck" when
+            releasing the key press. However, this is down to the individual as
+            to whether or not you like to game with linears or tactiles.
+          </p>
+          <h3 id="switches-2.2">Tactile</h3>
+          <p>
+            On tactile stems, there are protrusions on them that collide with
+            and move over the metal leaf, giving the switch a distinctive "bump"
+            feeling. This type of switch is the most similar to your typical
+            membrane keyboard, but many tactile switches on the market offer
+            completely different tactile profiles. Tactile switches range from
+            very sharp bumps that happen right at the top of the key press e.g.
+            Zealios, to more recessed, rounded bumps that have some pre-travel
+            before the bump is felt e.g. Holy Panda.
+          </p>
+          <h3 id="switches-2.3">Clicky</h3>
+          <p>
+            Clicky switches have a click jacket that surrounds the stem, and now
+            the click jacket passes across the metal leaf and pops down. This
+            creates a very audible "click" when actuated, hence the name. This
+            also produces a very sharp bump when pressing down on a clicky
+            switch. Because clickys are very loud, they are not recommended for
+            those who type in a public environment. Or for those who do not wish
+            to wake up their next door neighbours <small>/s</small>.
+            Nevertheless, they provide a sharp tactile feeling that many find
+            appealing.
+          </p>
+        </PageParagraph>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-3">
+          Mechanical switch brands/manufacturers
+        </PageSectionHeading>
+        <PageParagraph>
+          <a href="/keyboard-encyclopedia/switches">
+            Click here for a more detailed list of switches.
+          </a>
+        </PageParagraph>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-4">
+          Topre (electro-capacitive) switches
+        </PageSectionHeading>
+        <PageParagraph>
+          Originally designed by a Japanese engineering company, Topre
+          Corporation, their namesake product is based on the principle of
+          electric capacitance. What this means is that key presses are sensed
+          electrically without any physical closure, unlike mechanical switches.
+          This mechanism helps to overcome the issue of{" "}
+          <a href="#key-bounce">key bouncing</a>. Here is what they look like:
+        </PageParagraph>
+        <PageRow>
+          <Figure>
+            <Image src={TopreSwitch} alt="Topre switches in a keyboard" />
+            <FigureCaption>Topre switches in a keyboard</FigureCaption>
+          </Figure>
+          <Figure>
+            <Image
+              src={TopreSwitchDiagram}
+              alt="Cross-section diagram of a Topre switch"
+            />
+            <FigureCaption>
+              Cross-section diagram of a Topre Switch
+            </FigureCaption>
+          </Figure>
+        </PageRow>
+        <PageParagraph>
+          Topre switches are sometimes regarded to be a more "sophisticated"
+          version of rubber domes i.e. membrane keyboards, as they do have a
+          rubber dome sheet that is also present in membrane keyboards. Unlike
+          mechanical switches, they do not come separately due to the way Topre
+          switches are assembled in a keyboard. Therefore, in order to try out
+          Topre switches, you must purchase pre-built keyboards. Widely
+          available pre-built Topre keyboards include the Happy Hacking Keyboard
+          (HHKB), RealForce and Norbatouch keyboards.
+        </PageParagraph>
+        <PageParagraph>
+          On top of its reputation of being a more "sophisticated" version of
+          membrane keyboards, Topre keyboards are very expensive which often
+          deters keyboard enthusiasts. Nevertheless, Topre switches have been
+          praised for its tactile feel and the{" "}
+          <a
+            href="https://www.youtube.com/watch?v=7EnzFbLKIGg&feature=youtu.be&t=6"
+            target="_blank"
+          >
+            deep "thock" sound
+          </a>{" "}
+          it produces. Overall, Topre switches are a classic case of "don't
+          knock it till you try it".
+        </PageParagraph>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-5">Alps switches</PageSectionHeading>
+        <PageParagraph>
+          Designed by Japanese electronics company Alps Electric, Alps switches{" "}
+        </PageParagraph>
+        <Figure>
+          <Image src="" />
+          <FigureCaption></FigureCaption>
+        </Figure>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-6">
+          Buckling spring switches
+        </PageSectionHeading>
+        <PageParagraph></PageParagraph>
+        <Figure>
+          <Image src="" />
+          <FigureCaption></FigureCaption>
+        </Figure>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-7">
+          Other types of switches
+        </PageSectionHeading>
+        <PageSectionSubheading id="switches-7.1">
+          Logitech Romer G
+        </PageSectionSubheading>
+        <PageParagraph></PageParagraph>
+        <Figure>
+          <Image src="" />
+          <FigureCaption></FigureCaption>
+        </Figure>
+        <PageSectionSubheading id="switches-7.2">
+          Optical switches
+        </PageSectionSubheading>
+        <PageParagraph></PageParagraph>
+        <Figure>
+          <Image src="" />
+          <FigureCaption></FigureCaption>
+        </Figure>
+      </PageSection>
+      <PageSection>
+        <PageSectionHeading id="switches-8">What switch should I get?</PageSectionHeading>
+        <PageParagraph></PageParagraph>
       </PageSection>
     </PageContainer>
   );
@@ -316,14 +472,12 @@ const Figure = styled.figure`
 `;
 
 const FigureCaption = styled.figcaption`
-  text-align: center;
   margin-top: 1rem;
 `;
 
 const Image = styled.img`
   width: 800px;
   height: auto;
-  padding: 1rem;
 `;
 
 const ImageTextContainer = styled.div`

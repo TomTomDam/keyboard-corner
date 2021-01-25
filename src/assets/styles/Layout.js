@@ -99,3 +99,10 @@ export const PageOl = styled.ol`
     margin-top: 0.5rem;
   }
 `;
+
+export const PageRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;

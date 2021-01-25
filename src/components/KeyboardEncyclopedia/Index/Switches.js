@@ -8,13 +8,18 @@ import {
   PageSectionSubheading,
   PageParagraph,
   PageUl,
-  PageOl
+  PageOl,
+  PageRow
 } from "../../../assets/styles/Layout";
 import {
   TableOfContents,
   TableOfContentsTitle,
   TableOfContentsChapter,
   TableOfContentsSubChapters,
+  Figure,
+  FigureCaption,
+  Image,
+  ImageTextContainer
 } from "../../../assets/styles/Modules";
 
 import FullSizeKeyboard from "../../../assets/images/LayoutsAndSizes/fullsizekeyboard_keyboard.png";
@@ -459,34 +464,3 @@ export default function Switches() {
     </PageContainer>
   );
 }
-
-const PageRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const Figure = styled.figure`
-  padding: 1rem;
-`;
-
-const FigureCaption = styled.figcaption`
-  margin-top: 1rem;
-`;
-
-const Image = styled.img`
-  width: 800px;
-  height: auto;
-`;
-
-const ImageTextContainer = styled.div`
-  flex: 0 1 40%;
-  align-self: flex-start;
-  padding: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  & > ol {
-    margin-left: 2rem;
-  }
-`;

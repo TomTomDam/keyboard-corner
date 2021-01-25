@@ -104,6 +104,7 @@ const Home = () => {
 };
 
 export default Home;
+
 //Jumbotron
 const Jumbotron = styled.section`
   position: relative;

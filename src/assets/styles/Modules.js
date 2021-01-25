@@ -57,3 +57,26 @@ export const TableOfContentsSubChapters = styled.ul`
   margin-left: 2rem;
 `;
 
+export const Figure = styled.figure`
+  padding: 1rem;
+`;
+
+export const FigureCaption = styled.figcaption`
+  margin-top: 1rem;
+`;
+
+export const Image = styled.img`
+  width: 800px;
+  height: auto;
+`;
+
+export const ImageTextContainer = styled.div`
+  flex: 0 1 40%;
+  align-self: flex-start;
+  padding: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  & > ol {
+    margin-left: 2rem;
+  }
+`;

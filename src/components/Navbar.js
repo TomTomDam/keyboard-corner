@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Navbar = () => {
   return (
     <header>
+      <NavBarBackground></NavBarBackground>
       <NavBar id="navbar">
         <NavBarLogo to="/">Keyboard Corner</NavBarLogo>
         <NavLinkWrapper>
@@ -42,6 +43,15 @@ window.onscroll = function () {
   }
   prevScrollpos = currentScrollPos;
 };
+
+const NavBarBackground = styled.div`
+  display: inline;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: ${(props) => props.theme.colours.darkgray};
+  z-index: -1;
+`;
 
 const NavBar = styled.nav`
   position: fixed;

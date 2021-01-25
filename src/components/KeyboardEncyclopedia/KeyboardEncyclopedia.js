@@ -115,7 +115,6 @@ const StickyNavbarLink = styled(Link)`
 const StickyNavbarBorder = styled.div`
   border: none;
   width: 1px;
-  height: 100vh;
   color: black;
   background-color: #dddddd;
 `;

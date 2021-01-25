@@ -15,6 +15,7 @@
 
 /* Plate Material Comparison Chart Table */
 #plateMaterialComparisonChartTable {
+  padding: 1rem;
 }
 
 #plateMaterialComparisonChartTable table th td {

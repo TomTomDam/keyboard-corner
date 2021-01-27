@@ -106,6 +106,7 @@ export default function Switches() {
           about them? Read on to find out!
         </PageParagraph>
       </PageSection>
+
       <TableOfContents>
         <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
         <ul>
@@ -168,6 +169,7 @@ export default function Switches() {
           </TableOfContentsChapter>
         </ul>
       </TableOfContents>
+      
       <PageSection>
         <PageSectionHeading id="switches-1">Mechanical switches</PageSectionHeading>
         <PageSectionSubheading id="switches-1.1">

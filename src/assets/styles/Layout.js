@@ -88,6 +88,7 @@ export const PageUl = styled.ul`
   line-height: 1.8;
   & > li {
     margin-top: 0.5rem;
+    margin-left: 1rem;
   }
 `;
 
@@ -97,6 +98,7 @@ export const PageOl = styled.ol`
   line-height: 1.8;
   & > li {
     margin-top: 0.5rem;
+    margin-left: 1rem;
   }
 `;
 

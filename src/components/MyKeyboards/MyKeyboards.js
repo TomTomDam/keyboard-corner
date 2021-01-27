@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Keyboard from "./Keyboard";
 import styled from "styled-components";
+import { Heading } from "../../assets/styles/Layout";
 
 const MyKeyboards = () => {
-  const [keyboards, setKeyboards] = useState([
+  const [keyboardsList, setKeyboards] = useState([
     {
       id: 1,
       image: "src\\assets\\images\\MyKeyboards\\Space65 ePBT Kuro Shiro 1.jpg",
@@ -47,14 +48,14 @@ const MyKeyboards = () => {
     },
   ]);
 
-  const Keyboards = keyboards.map((keyboard) => (
+  const Keyboards = keyboardsList.map((keyboard) => (
     <Keyboard key={keyboard.id} keyboard={keyboard} />
   ));
 
   return (
     <>
       <header>
-        <h1>My Keyboards</h1>
+        <Heading>My Keyboards</Heading>
         <p>This is a list of my keyboards that I've purchased or built.</p>
       </header>
       <Container>{Keyboards}</Container>

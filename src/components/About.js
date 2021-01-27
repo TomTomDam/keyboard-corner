@@ -1,9 +1,10 @@
 import React from "react";
+import { Heading } from "../assets/styles/Layout";
 
 const About = () => {
   return (
     <div>
-      <h1>About</h1>
+      <Heading>About</Heading>
     </div>
   );
 };

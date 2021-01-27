@@ -15,6 +15,10 @@ import {
   TableOfContentsTitle,
   TableOfContentsChapter,
   TableOfContentsSubChapters,
+  Figure,
+  FigureCaption,
+  Image,
+  ImageTextContainer,
 } from "../../../assets/styles/Modules";
 
 export default function Durock() {

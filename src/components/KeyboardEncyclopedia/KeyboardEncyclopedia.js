@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import { Heading } from "../../assets/styles/Layout";
 import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
 import Introduction from "./Index/Introduction";
 
@@ -10,7 +11,7 @@ export default function KeyboardEncyclopedia() {
   return (
     <Container>
       <HeaderSection>
-        <HeaderSectionHeading>The Keyboard Encyclopedia</HeaderSectionHeading>
+        <Heading>The Keyboard Encyclopedia</Heading>
         <HeaderSectionText>
           Your comprehensive guide to all things related to mechanical
           keyboards.
@@ -20,37 +21,57 @@ export default function KeyboardEncyclopedia() {
         <StickyNavbar>
           <StickyNavbarSection>
             <StickyNavbarTitle>Getting Started</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/introduction`}>Introduction to Mechanical Keyboards</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/introduction`}>
+              Introduction to Mechanical Keyboards
+            </StickyNavbarLink>
             <StickyNavbarLink to={`${url}/switches`}>Switches</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/layouts-and-sizes`}>Layouts and Sizes</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/plates-and-pcbs`}>Plates and PCBs</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/layouts-and-sizes`}>
+              Layouts and Sizes
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/plates-and-pcbs`}>
+              Plates and PCBs
+            </StickyNavbarLink>
             <StickyNavbarLink to={`${url}/keycaps`}>Keycaps</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/stabilizers`}>Stabilizers</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/stabilizers`}>
+              Stabilizers
+            </StickyNavbarLink>
           </StickyNavbarSection>
 
           <StickyNavbarSection>
             <StickyNavbarTitle>Keyboard Modifications</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/switch-modifications`}>Switch Modifications</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switch-modifications`}>
+              Switch Modifications
+            </StickyNavbarLink>
           </StickyNavbarSection>
 
           <StickyNavbarSection>
             <StickyNavbarTitle>List of Switches</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/switches/cherry`}>Cherry</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/gateron`}>Gateron</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/kailh`}>Kailh</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/durock-jwk`}>Durock/JWK</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switches/cherry`}>
+              Cherry
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switches/gateron`}>
+              Gateron
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switches/kailh`}>
+              Kailh
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/switches/durock-jwk`}>
+              Durock/JWK
+            </StickyNavbarLink>
           </StickyNavbarSection>
 
           <StickyNavbarSection>
             <StickyNavbarTitle>Accessories</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/custom-cables`}>Custom Cables</StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/custom-cables`}>
+              Custom Cables
+            </StickyNavbarLink>
           </StickyNavbarSection>
         </StickyNavbar>
         <StickyNavbarBorder></StickyNavbarBorder>
         <Page>
           <Switch>
-            <Route exact path={path} component={Introduction}/>
-            <KeyboardEncyclopediaRoutes path={path}/>
+            <Route exact path={path} component={Introduction} />
+            <KeyboardEncyclopediaRoutes path={path} />
           </Switch>
         </Page>
       </ContentContainer>
@@ -58,8 +79,7 @@ export default function KeyboardEncyclopedia() {
   );
 }
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const HeaderSection = styled.div`
   width: 100%;
@@ -67,11 +87,6 @@ const HeaderSection = styled.div`
   color: ${(props) => props.theme.colours.white};
   padding: 3vw;
   margin-top: -2rem;
-`;
-
-const HeaderSectionHeading = styled.h1`
-  font-size: ${(props) => props.theme.fontSizes.large};
-  margin-bottom: 1rem;
 `;
 
 const HeaderSectionText = styled.p`

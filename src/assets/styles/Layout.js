@@ -41,6 +41,11 @@ export const Header = styled.header`
   margin-bottom: 1rem;
 `;
 
+export const Heading = styled.h1`
+  font-size: ${(props) => props.theme.fontSizes.large};
+  margin-bottom: 1rem;
+`;
+
 export const HorizontalLine = styled.hr`
   box-sizing: content-box;
   height: 0;

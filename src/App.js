@@ -20,55 +20,9 @@ import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import Contact from "./components/Contact";
-import KeyboardEncyclopediaRoutes from "./routes/KeyboardEncyclopediaRoutes";
 
 export default class App extends React.Component {
-  state = {
-    keyboards: [
-      {
-        id: 1,
-        image:
-          "src\\assets\\images\\MyKeyboards\\Space65 ePBT Kuro Shiro 1.jpg",
-        title: "Space65 CV - Black Gold",
-        switches: "Massdrop Holy Panda - Krytox 203g0, 105 on springs",
-        plate: "Carbon  fiber",
-        keycaps: "ePBT Kuro Shiro",
-        case: "Black and Gold",
-        mods: "Case foam",
-        layout: "65%",
-        stabilizers: "Durock Clear",
-        description: "",
-      },
-      {
-        id: 2,
-        image: "src\\assets\\images\\MyKeyboards\\FirstCustomKeyboard2.jpg",
-        title: "KBDFans 5 Degree",
-        switches: "Gateron Yellow - Krytox 205g0, 105 on springs",
-        plate: "Aluminium",
-        keycaps: "ePBT 9009",
-        case: "Grey",
-        mods: "Case foam",
-        layout: "60%",
-        stabilizers: "Cherry",
-        description: "",
-      },
-      {
-        id: 3,
-        image:
-          "src\\assets\\images\\MyKeyboards\\primus_keyboard_render_whitecyan.png",
-        title: "Primus",
-        switches:
-          "Original Aspiration - Krytox 205g0, 105 on springs, white Deskey switch films",
-        plate: "Polycarbonate",
-        keycaps: "KAT Mizu",
-        case: "White and Cyan, Stainless steel weight",
-        mods: "N/A",
-        layout: "75%",
-        stabilizers: "c3Equalz Tiffany Blue",
-        description: "",
-      },
-    ],
-  };
+  state = {};
 
   render() {
     return (
@@ -81,12 +35,12 @@ export default class App extends React.Component {
         <Main>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route 
+            <Route
               path="/keyboard-encyclopedia"
               component={KeyboardEncyclopedia}
             />
             <Route path="/mykeyboards">
-              <MyKeyboards keyboards={this.state.keyboards} />
+              <MyKeyboards />
             </Route>
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

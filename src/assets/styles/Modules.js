@@ -28,6 +28,7 @@ export const BtnAcceptPolicy = styled.button`
   line-height: inherit;
 `;
 
+//Keyboard Encyclopedia Page
 export const TableOfContents = styled.div`
   background: #f9f9f9 none repeat scroll 0 0;
   border: 1px solid #aaa;

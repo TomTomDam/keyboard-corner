@@ -11,17 +11,14 @@ import {
   PageOl,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
-} from "../../../assets/styles/Modules";
+} from "../../../assets/styles/Modules"
+import TableOfContents from "../TableOfContents";
 
-export default function Gateron() {
+const Gateron = () => {
   return (
     <PageContainer>
       <PageTitle>Gateron</PageTitle>
@@ -29,3 +26,5 @@ export default function Gateron() {
     </PageContainer>
   );
 }
+
+export default Gateron;

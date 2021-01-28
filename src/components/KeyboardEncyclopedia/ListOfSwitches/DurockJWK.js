@@ -11,17 +11,14 @@ import {
   PageOl,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
-export default function Durock() {
+const Durock = () => {
   return (
     <PageContainer>
       <PageTitle>Durock/JWK</PageTitle>
@@ -29,3 +26,5 @@ export default function Durock() {
     </PageContainer>
   );
 }
+
+export default Durock;

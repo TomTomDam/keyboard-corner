@@ -11,17 +11,14 @@ import {
   PageOl,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
-export default function Kailh() {
+const Kailh = () => {
   return (
     <PageContainer>
       <PageTitle>Kailh</PageTitle>
@@ -29,3 +26,5 @@ export default function Kailh() {
     </PageContainer>
   );
 }
+
+export default Kailh;

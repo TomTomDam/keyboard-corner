@@ -12,15 +12,12 @@ import {
   PageRow,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
 import FullSizeKeyboardLayout from "../../../assets/images/LayoutsAndSizes/fullsizekeyboard_layout.png";
 import FullSizeKeyboard from "../../../assets/images/LayoutsAndSizes/fullsizekeyboard_keyboard.png";
@@ -51,7 +48,104 @@ import SplitBackspace from "../../../assets/images/LayoutsAndSizes/splitbackspac
 import SplitRightShift from "../../../assets/images/LayoutsAndSizes/tgr_jane_v2_splitrightshift.jpg";
 import SplitEverything from "../../../assets/images/LayoutsAndSizes/spliteverything.jpg";
 
-export default function LayoutsAndSizes() {
+const LayoutsAndSizes = () => {
+  const anchorLink = "layouts-and-sizes";
+  const chapterList = [
+    {
+      id: 1,
+      name: "Sizes",
+      subchapters: [
+        {
+          id: 1,
+          name: "Full-size",
+        },
+        {
+          id: 2,
+          name: "Tenkeyless (TKL) / 80%",
+        },
+        {
+          id: 3,
+          name: "75%",
+        },
+        {
+          id: 4,
+          name: "60%",
+        },
+        {
+          id: 5,
+          name: "65%",
+        },
+        {
+          id: 6,
+          name: "40%",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Layouts",
+      subchapters: [
+        {
+          id: 1,
+          name: "ANSI, ISO and JIS",
+        },
+        {
+          id: 2,
+          name: "HHKB (Happy Hacking Keyboard)",
+        },
+        {
+          id: 3,
+          name: "Tsangan",
+        },
+        {
+          id: 4,
+          name: "Winkeyless",
+        },
+        {
+          id: 5,
+          name: "Dvorak",
+        },
+        {
+          id: 6,
+          name: "Colemak",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Layout customisations",
+      subchapters: [
+        {
+          id: 1,
+          name: "Split spacebar",
+        },
+        {
+          id: 2,
+          name: "Split backspace",
+        },
+        {
+          id: 1,
+          name: "Split right shift",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Which keyboard size is right for me?",
+      subchapters: [],
+    },
+    {
+      id: 5,
+      name: "What about the layout?",
+      subchapters: [],
+    },
+    {
+      id: 6,
+      name: "Conclusion",
+      subchapters: [],
+    },
+  ];
+
   return (
     <PageContainer>
       <PageTitle>Layouts and Sizes</PageTitle>
@@ -95,90 +189,7 @@ export default function LayoutsAndSizes() {
         </PageParagraph>
       </PageSection>
 
-      <TableOfContents>
-        <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
-        <ul>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#layouts-and-sizes-1">1. Sizes</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#layouts-and-sizes-1.1">1.1. Full-size</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-1.2">1.2. Tenkeyless (TKL) / 80%</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-1.3">1.3. 75%</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-1.4">1.4. 60%</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-1.5">1.5. 65%</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-1.6">1.6. 40%</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#layouts-and-sizes-2">2. Layouts</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#layouts-and-sizes-2.1">2.1. ANSI, ISO and JIS</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-2.2">
-                  2.2. HHKB (Happy Hacking Keyboard)
-                </a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-2.3">2.3. Tsangan</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-2.4">2.4. Winkeyless</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-2.5">2.5. Dvorak</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-2.6">2.6. Colemak</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#layouts-and-sizes-3">3. Layout customisations</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#layouts-and-sizes-3.1">3.1. Split spacebar</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-3.2">3.2. Split backspace</a>
-              </li>
-              <li>
-                <a href="#layouts-and-sizes-3.3">3.3. Split right shift</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#layouts-and-sizes-4">
-              4. Which keyboard size is right for me?
-            </a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#layouts-and-sizes-5">5. What about the layout?</a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#layouts-and-sizes-6">6. Conclusion</a>
-          </TableOfContentsChapter>
-        </ul>
-      </TableOfContents>
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
 
       <PageSection>
         <PageSectionHeading id="layouts-and-sizes-1">Sizes</PageSectionHeading>
@@ -329,7 +340,7 @@ export default function LayoutsAndSizes() {
           <FigureCaption>Minivan keyboard</FigureCaption>
         </Figure>
       </PageSection>
-      
+
       <PageSection>
         <PageSectionHeading id="layouts-and-sizes-2">
           Layouts
@@ -605,7 +616,9 @@ export default function LayoutsAndSizes() {
       </PageSection>
     </PageContainer>
   );
-}
+};
+
+export default LayoutsAndSizes;
 
 const RowFigure = styled(Figure)`
   & > img {

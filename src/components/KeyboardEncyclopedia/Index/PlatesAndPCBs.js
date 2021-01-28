@@ -13,15 +13,12 @@ import {
   PageRow,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
 import Plates from "../../../assets/images/PlatesAndPCBs/plates.jpg";
 import PlateKeyboard from "../../../assets/images/PlatesAndPCBs/plate_keyboard.jpg";
@@ -56,7 +53,115 @@ import NorthFacingSwitch from "../../../assets/images/PlatesAndPCBs/north_facing
 import SouthFacingSwitch from "../../../assets/images/PlatesAndPCBs/south_facing_switches.jpg";
 import SouthFacingSwitchLit from "../../../assets/images/PlatesAndPCBs/south_facing_switches_lighting.jpg";
 
-export default function PlatesAndPCBs() {
+const PlatesAndPCBs = () => {
+  const anchorLink = "plates-and-pcbs";
+  const chapterList = [
+    {
+      id: 1,
+      name: "Plates",
+      subchapters: [
+        {
+          id: 1,
+          name: "Aluminium",
+        },
+        {
+          id: 2,
+          name: "Brass",
+        },
+        {
+          id: 3,
+          name: "Polycarbonate",
+        },
+        {
+          id: 4,
+          name: "Carbon fibre",
+        },
+        {
+          id: 5,
+          name: "Acrylic",
+        },
+        {
+          id: 6,
+          name: "Plate material comparison chart",
+        },
+        {
+          id: 7,
+          name: "Types of plate cuts",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Styles of keyboard mounting",
+      subchapters: [
+        {
+          id: 1,
+          name: "Tray mount",
+        },
+        {
+          id: 2,
+          name: "Top/Bottom mount",
+        },
+        {
+          id: 3,
+          name: "Sandwich mount",
+        },
+        {
+          id: 4,
+          name: "Gasket mount",
+        },
+        {
+          id: 5,
+          name: "Integrated plate",
+        },
+        {
+          id: 6,
+          name: "Plateless mount",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "PCBs",
+      subchapters: [
+        {
+          id: 1,
+          name: "Components of a PCB",
+        },
+        {
+          id: 2,
+          name: "Soldering on a PCB",
+        },
+        {
+          id: 3,
+          name: "Plate-mounted vs PCB-mounted switch",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "PCB variations",
+      subchapters: [
+        {
+          id: 1,
+          name: "Hotswappable PCBs",
+        },
+        {
+          id: 2,
+          name: "Underglow RGB",
+        },
+        {
+          id: 3,
+          name: "Per-key RGB",
+        },
+        {
+          id: 4,
+          name: "North-facing vs. south-facing switches",
+        },
+      ],
+    },
+  ];
+
   return (
     <PageContainer>
       <PageTitle>Plates and PCBs</PageTitle>
@@ -95,110 +200,11 @@ export default function PlatesAndPCBs() {
         a PCB. Lastly, we will look into some PCB modifications such as hotswap
         and RGB lighting.
       </PageParagraph>
-      <TableOfContents>
-        <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
-        <ul>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#pcbs-and-plates-1">1. Plates</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#pcbs-and-plates-1.1">1.1. Materials</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-1.1.1">1.1.1. Aluminium</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-1.1.2">1.1.2. Brass</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-1.1.3">1.1.3. Polycarbonate</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-1.1.4">1.1.4. Carbon fibre</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-1.1.5">1.1.5. Acrylic</a>
-              </li>
-            </TableOfContentsSubChapters>
-            <li>
-              <a href="#pcbs-and-plates-1.2">
-                1.2. Plate material comparison chart
-              </a>
-            </li>
-            <li>
-              <a href="#pcbs-and-plates-1.3">1.3. Types of plate cuts</a>
-            </li>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#pcbs-and-plates-2">2. Styles of keyboard mounting</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#pcbs-and-plates-2.1">2.1. Tray mount</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-2.2">2.2. Top/Bottom mount</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-2.4">2.3. Sandwich mount</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-2.5">2.4. Gasket mount</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-2.6">2.5. Integrated plate</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-2.7">2.6. Plateless mount</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#pcbs-and-plates-3">3. PCBs</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#pcbs-and-plates-3.1">3.1. Components of a PCB</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-3.2">3.2. Soldering on a PCB</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-3.3">
-                  3.3. Plate-mounted vs. PCB-mounted switch
-                </a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#pcbs-and-plates-4">4. PCB variations</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#pcbs-and-plates-4.1">4.1. Hotswappable PCBs</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-4.2">4.2. Underglow RGB</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-4.3">4.3. Per-key RGB</a>
-              </li>
-              <li>
-                <a href="#pcbs-and-plates-4.4">
-                  4.4. North-facing vs. South-facing switches
-                </a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-        </ul>
-      </TableOfContents>
+
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink} />
+
       <PageSection>
-        <PageSectionHeading id="pcbs-and-plates-1">Plates</PageSectionHeading>
+        <PageSectionHeading id="plates-and-pcbs-1">Plates</PageSectionHeading>
         <PageParagraph>
           Although it is not necessary to use a plate for a mechanical keyboard
           to function, it is highly recommended to use a plate. The plate
@@ -255,7 +261,7 @@ export default function PlatesAndPCBs() {
         </PageRow>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="pcbs-and-plates-1.2">
+        <PageSectionHeading id="plates-and-pcbs-1.6">
           Plate material comparison chart
         </PageSectionHeading>
         <PageParagraph>
@@ -310,7 +316,7 @@ export default function PlatesAndPCBs() {
             </tr>
           </tbody>
         </table>
-        <PageSectionSubheading id="pcbs-and-plates-1.3">
+        <PageSectionSubheading id="plates-and-pcbs-1.7">
           Types of plate cuts
         </PageSectionSubheading>
         <PageParagraph>Standard plate, Half plate, WKL plate.</PageParagraph>
@@ -320,7 +326,7 @@ export default function PlatesAndPCBs() {
         </Figure> */}
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="pcbs-and-plates-2">
+        <PageSectionHeading id="plates-and-pcbs-2">
           Styles of keyboard mounting
         </PageSectionHeading>
         <Figure>
@@ -329,7 +335,7 @@ export default function PlatesAndPCBs() {
             Handy little infographic, by Thomas Baart
           </FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-2.1">
+        <PageSectionSubheading id="plates-and-pcbs-2.1">
           Tray mount
         </PageSectionSubheading>
         <Figure>
@@ -338,14 +344,14 @@ export default function PlatesAndPCBs() {
             The TOFU case is a classic tray-mount build
           </FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-2.2">
+        <PageSectionSubheading id="plates-and-pcbs-2.2">
           Top mount/Bottom mount
         </PageSectionSubheading>
         <Figure>
           <Image src={NK65} />
           <FigureCaption>NK65 is a top-mount case</FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-2.3">
+        <PageSectionSubheading id="plates-and-pcbs-2.3">
           Sandwich mount
         </PageSectionSubheading>
         <PageRow>
@@ -363,7 +369,7 @@ export default function PlatesAndPCBs() {
             </FigureCaption>
           </Figure>
         </PageRow>
-        <PageSectionSubheading id="pcbs-and-plates-2.4">
+        <PageSectionSubheading id="plates-and-pcbs-2.4">
           Plateless mount
         </PageSectionSubheading>
         <Figure>
@@ -372,7 +378,7 @@ export default function PlatesAndPCBs() {
             Plateless mounted keyboard (PCB-mounted switches)
           </FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-2.5">
+        <PageSectionSubheading id="plates-and-pcbs-2.5">
           Gasket mount
         </PageSectionSubheading>
         <Figure>
@@ -381,7 +387,7 @@ export default function PlatesAndPCBs() {
         </Figure>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="pcbs-and-plates-3">PCBs</PageSectionHeading>
+        <PageSectionHeading id="plates-and-pcbs-3">PCBs</PageSectionHeading>
         <PageParagraph>
           A <b>printed circuit board</b> (PCB) is what allows your keyboard to
           electrically function and to communicate with your computer or other
@@ -403,7 +409,7 @@ export default function PlatesAndPCBs() {
             </FigureCaption>
           </Figure>
         </PageRow>
-        <PageSectionSubheading id="pcbs-and-plates-3.1">
+        <PageSectionSubheading id="plates-and-pcbs-3.1">
           Components of a PCB
         </PageSectionSubheading>
         <PageUl>
@@ -444,7 +450,7 @@ export default function PlatesAndPCBs() {
             <FigureCaption>Rear view of KBD67 PCB</FigureCaption>
           </Figure>
         </PageRow>
-        <PageSectionSubheading id="pcbs-and-plates-3.2">
+        <PageSectionSubheading id="plates-and-pcbs-3.2">
           Soldering components onto a PCB
         </PageSectionSubheading>
         <PageParagraph>
@@ -497,7 +503,7 @@ export default function PlatesAndPCBs() {
           for soldering is between 350°C (662°F) to 370°C (698°F), depending on
           the ambient temperature.
         </PageParagraph>
-        <PageSectionSubheading id="pcbs-and-plates-3.3">
+        <PageSectionSubheading id="plates-and-pcbs-3.3">
           Plate-mounted vs. PCB-mounted switch
         </PageSectionSubheading>
         <PageParagraph>
@@ -537,10 +543,10 @@ export default function PlatesAndPCBs() {
         </Figure>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="pcbs-and-plates-4">
+        <PageSectionHeading id="plates-and-pcbs-4">
           PCB variations
         </PageSectionHeading>
-        <PageSectionSubheading id="pcbs-and-plates-4.1">
+        <PageSectionSubheading id="plates-and-pcbs-4.1">
           Hotswappable PCBs
         </PageSectionSubheading>
         <PageParagraph>
@@ -625,7 +631,7 @@ export default function PlatesAndPCBs() {
             <FigureCaption>Kailh sockets on a PCB</FigureCaption>
           </Figure>
         </PageRow>
-        <PageSectionSubheading id="pcbs-and-plates-4.2">
+        <PageSectionSubheading id="plates-and-pcbs-4.2">
           Underglow lighting
         </PageSectionSubheading>
         <PageParagraph>
@@ -639,7 +645,7 @@ export default function PlatesAndPCBs() {
           <Image src={KeyboardUnderglow} />
           <FigureCaption>Underglow shines through the case only</FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-4.3">
+        <PageSectionSubheading id="plates-and-pcbs-4.3">
           Backlighting/Per-key lighting
         </PageSectionSubheading>
         <PageParagraph>
@@ -671,7 +677,7 @@ export default function PlatesAndPCBs() {
           <Image src={LogitechRGBKeyboard} />
           <FigureCaption>Logitech keyboard with backlighting</FigureCaption>
         </Figure>
-        <PageSectionSubheading id="pcbs-and-plates-4.4">
+        <PageSectionSubheading id="plates-and-pcbs-4.4">
           North-facing vs. South-facing switches
         </PageSectionSubheading>
         <PageParagraph>
@@ -721,4 +727,6 @@ export default function PlatesAndPCBs() {
       </PageSection>
     </PageContainer>
   );
-}
+};
+
+export default PlatesAndPCBs;

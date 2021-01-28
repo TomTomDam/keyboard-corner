@@ -3,6 +3,19 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Navbar = () => {
+  //Hide navbar on scroll down, show on scroll up
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    var navbar = document.getElementById("navbar");
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      navbar.style.top = "0";
+    } else {
+      navbar.style.top = -navbar.clientHeight;
+    }
+    prevScrollpos = currentScrollPos;
+  };
+
   return (
     <header>
       <NavBarBackground></NavBarBackground>
@@ -31,21 +44,8 @@ const Navbar = () => {
 
 export default Navbar;
 
-//Hide navbar on scroll down, show on scroll up
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var navbar = document.getElementById("navbar");
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    navbar.style.top = "0";
-  } else {
-    navbar.style.top = -navbar.clientHeight;
-  }
-  prevScrollpos = currentScrollPos;
-};
-
 const NavBarBackground = styled.div`
-  display: inline;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 70px;

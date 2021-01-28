@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   PageContainer,
@@ -9,7 +10,7 @@ import {
   PageParagraph,
   PageUl,
   PageOl,
-  PageRow
+  PageRow,
 } from "../../../assets/styles/Layout";
 import {
   TableOfContents,
@@ -19,7 +20,7 @@ import {
   Figure,
   FigureCaption,
   Image,
-  ImageTextContainer
+  ImageTextContainer,
 } from "../../../assets/styles/Modules";
 
 import FullSizeKeyboard from "../../../assets/images/LayoutsAndSizes/fullsizekeyboard_keyboard.png";
@@ -169,9 +170,11 @@ export default function Switches() {
           </TableOfContentsChapter>
         </ul>
       </TableOfContents>
-      
+
       <PageSection>
-        <PageSectionHeading id="switches-1">Mechanical switches</PageSectionHeading>
+        <PageSectionHeading id="switches-1">
+          Mechanical switches
+        </PageSectionHeading>
         <PageSectionSubheading id="switches-1.1">
           Anatomy of a mechanical switch
         </PageSectionSubheading>
@@ -228,7 +231,9 @@ export default function Switches() {
             </p>
           </ImageTextContainer>
         </PageRow>
-        <PageSectionSubheading id="switches-1.2">Glossary</PageSectionSubheading>
+        <PageSectionSubheading id="switches-1.2">
+          Glossary
+        </PageSectionSubheading>
         <PageUl>
           <li>
             <b>Actuation weight/force</b> - the force required to trigger
@@ -307,7 +312,9 @@ export default function Switches() {
         </PageUl>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="switches-2">Types of mechanical switches</PageSectionHeading>
+        <PageSectionHeading id="switches-2">
+          Types of mechanical switches
+        </PageSectionHeading>
         <PageParagraph>
           There are three types of switches - Linear, Tactile and Clicky - and
           they all differ in regards to their feel and even their sound. Do you
@@ -360,11 +367,21 @@ export default function Switches() {
         <PageSectionHeading id="switches-3">
           Mechanical switch brands/manufacturers
         </PageSectionHeading>
-        <PageParagraph>
-          <a href="/keyboard-encyclopedia/switches">
-            Click here for a more detailed list of switches.
-          </a>
-        </PageParagraph>
+        <PageUl>
+          <li>
+            <Link to="/keyboard-encyclopedia/switches/cherry">Cherry</Link>
+          </li>
+          <li>
+            <Link to="/keyboard-encyclopedia/switches/cherry">Gateron</Link>
+          </li>
+          <li>
+            <Link to="/keyboard-encyclopedia/switches/cherry">Kailh</Link>
+          </li>
+
+          <li>
+            <Link to="/keyboard-encyclopedia/switches/cherry">Durock/JWK</Link>
+          </li>
+        </PageUl>
       </PageSection>
       <PageSection>
         <PageSectionHeading id="switches-4">
@@ -460,7 +477,9 @@ export default function Switches() {
         </Figure>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id="switches-8">What switch should I get?</PageSectionHeading>
+        <PageSectionHeading id="switches-8">
+          What switch should I get?
+        </PageSectionHeading>
         <PageParagraph></PageParagraph>
       </PageSection>
     </PageContainer>

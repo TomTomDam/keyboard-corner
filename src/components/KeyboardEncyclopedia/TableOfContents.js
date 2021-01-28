@@ -8,26 +8,34 @@ import {
 } from "../../assets/styles/Modules";
 
 const TableOfContents = (props) => {
-  const chaptersList = props.chaptersList;
+  const chapterList = props.chapterList;
   const anchorLink = "#" + props.anchorLink;
 
-  const chapters = chaptersList.map((chapter) => {
+  const chapters = chapterList.map((chapter) => {
     const chapterLink = anchorLink + "-" + chapter.id;
+    let subchapters = <></>;
+    if (chapter.subchapter !== null) {
+      subchapters = (
+        <SubChapters>
+          {chapter.subchapters.map((subchapter) => (
+            <li>
+              <a href={chapterLink + "." + subchapter.id} key={subchapter.id}>
+                {chapter.id + "." + subchapter.id + ". " + subchapter.name}
+              </a>
+            </li>
+          ))}
+        </SubChapters>
+      );
+    } else {
+      subchapters = <></>
+    }
 
     return (
       <Chapter key={chapter.id}>
         <li>
-          <a href={chapterLink}>{chapter.name}</a>
+          <a href={chapterLink}>{chapter.id + ". " + chapter.name}</a>
         </li>
-        <SubChapters>
-          <li>
-            {chapter.subchapters.map((subchapter) => (
-              <a href={chapterLink + "." + subchapter.id} key={subchapter.id}>
-                {chapter.id + "." + subchapter.id + ". " + subchapter.name}
-              </a>
-            ))}
-          </li>
-        </SubChapters>
+        {subchapters}
       </Chapter>
     );
   });

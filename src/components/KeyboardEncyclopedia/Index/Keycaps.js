@@ -12,15 +12,12 @@ import {
   PageRow,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
 import GMKBento from "../../../assets/images/Keycaps/GMK_Bento.jpeg";
 import KeycapShine from "../../../assets/images/Keycaps/keycap-shine.jpg";
@@ -48,7 +45,104 @@ import GMKSkeletor from "../../../assets/images/Keycaps/gmk_skeletor.jpg";
 import GengarArtisan from "../../../assets/images/Keycaps/artisan_gengar.jpg";
 import SiriusArtisan from "../../../assets/images/Keycaps/artisan_sirius_odyssey.jpg";
 
-export default function Keycaps() {
+const Keycaps = () => {
+  const anchorLink = "keycaps";
+  const chapterList = [
+    {
+      id: 1,
+      name: "Keycap materials",
+      subchapters: [
+        {
+          id: 1,
+          name: "ABS",
+        },
+        {
+          id: 2,
+          name: "PBT",
+        },
+        {
+          id: 3,
+          name: "POM",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Keycap profiles",
+      subchapters: [
+        {
+          id: 1,
+          name: "OEM (Tai-Hao)",
+        },
+        {
+          id: 2,
+          name: "Cherry (GMK, JTK)",
+        },
+        {
+          id: 1,
+          name: "SA",
+        },
+        {
+          id: 1,
+          name: "DSA",
+        },
+        {
+          id: 1,
+          name: "XDA",
+        },
+        {
+          id: 1,
+          name: "KAT",
+        },
+        {
+          id: 1,
+          name: "KAM",
+        },
+        {
+          id: 1,
+          name: "MT3",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Keycap printing",
+      subchapters: [
+        {
+          id: 1,
+          name: "Pad printing",
+        },
+        {
+          id: 2,
+          name: "Laser etching",
+        },
+        {
+          id: 3,
+          name: "Dye sublimation",
+        },
+        {
+          id: 4,
+          name: "Double-shot moulding",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Artisan keycaps",
+      subchapters: [
+        {
+          id: 1,
+          name: "What's the point in artisan keycaps?",
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "Conclusion",
+      subchapters: [],
+    },
+  ];
+
   return (
     <PageContainer>
       <PageTitle>Keycaps</PageTitle>
@@ -69,107 +163,7 @@ export default function Keycaps() {
         how keycaps are printed, and what all of these things mean for you as
         the keyboard user.
       </PageParagraph>
-      <TableOfContents>
-        <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
-        <ul>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#keycaps-1">1. Keycap materials</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#keycaps-1.1">1.1. ABS</a>
-              </li>
-              <li>
-                <a href="#keycaps-1.2">1.2. PBT</a>
-              </li>
-              <li>
-                <a href="#keycaps-1.3">1.3. POM</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#keycaps-2">2. Keycap profiles</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#keycaps-2.1">2.1. OEM</a>
-              </li>
-              <ul>
-                <li>
-                  <a href="#keycaps-2.1.1">2.1.1. Tai-Hao</a>
-                </li>
-              </ul>
-              <li>
-                <a href="#keycaps-2.2">2.2. Cherry</a>
-              </li>
-              <ul>
-                <li>
-                  <a href="#keycaps-2.2.1">2.2.1. GMK</a>
-                </li>
-                <li>
-                  <a href="#keycaps-2.2.2">2.2.2. JTK</a>
-                </li>
-              </ul>
-              <li>
-                <a href="#keycaps-2.3">2.3. SA</a>
-              </li>
-              <li>
-                <a href="#keycaps-2.4">2.4. DSA</a>
-              </li>
-              <li>
-                <a href="#keycaps-2.5">2.5. XDA</a>
-              </li>
-              <li>
-                <a href="#keycaps-2.6">2.6. KAT</a>
-              </li>
-              <li>
-                <a href="#keycaps-2.7">2.7. KAM</a>
-              </li>
-              <li>
-                <a href="#keycaps-2.8">2.8. MT3</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#keycaps-3">3. Keycap printing</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#keycaps-3.1">3.1. Pad printing</a>
-              </li>
-              <li>
-                <a href="#keycaps-3.2">3.2. Laser etching</a>
-              </li>
-              <li>
-                <a href="#keycaps-3.3">3.3. Dye sublimation</a>
-              </li>
-              <li>
-                <a href="#keycaps-3.4">3.4. Double-shot moulding</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#keycaps-4">4. Artisan keycaps</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#keycaps-4.1">
-                  4.1. What's the point in artisan keycaps?
-                </a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#keycaps-5">5. Conclusion</a>
-            </li>
-          </TableOfContentsChapter>
-        </ul>
-      </TableOfContents>
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
       <PageSection>
         <PageSectionHeading id="keycaps-1">Keycap materials</PageSectionHeading>
         <PageParagraph>
@@ -580,3 +574,5 @@ export default function Keycaps() {
     </PageContainer>
   );
 }
+
+export default Keycaps;

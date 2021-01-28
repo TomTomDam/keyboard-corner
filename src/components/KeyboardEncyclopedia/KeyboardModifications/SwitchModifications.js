@@ -25,7 +25,7 @@ import SwitchFilmOnSwitch from "../../../assets/images/SwitchModifications/switc
 
 const SwitchModifications = () => {
   const anchorLink = "switch-modifications";
-  const chaptersList = [
+  const chapterList = [
     {
       id: 1,
       name: "Lubing switches",
@@ -56,10 +56,10 @@ const SwitchModifications = () => {
   return (
     <PageContainer>
       <PageTitle>Switch Modifications</PageTitle>
-      <TableOfContents chaptersList={chaptersList} anchorLink={anchorLink} />
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink} />
       <PageSection>
-        <PageSectionHeading id={anchorLink + "-" + chaptersList[0].id}>
-          {chaptersList[0].name}
+        <PageSectionHeading id={anchorLink + "-" + chapterList[0].id}>
+          {chapterList[0].name}
         </PageSectionHeading>
         <PageParagraph>
           Mechanical keyboard enthusiasts strive to eliminate "scratchiness"
@@ -73,12 +73,12 @@ const SwitchModifications = () => {
           id={
             anchorLink +
             "-" +
-            chaptersList[0].id +
+            chapterList[0].id +
             "." +
-            chaptersList[0].subchapters[0].id
+            chapterList[0].subchapters[0].id
           }
         >
-          {chaptersList[0].subchapters[0].name}
+          {chapterList[0].subchapters[0].name}
         </PageSectionSubheading>
         <PageParagraph>
           Switch lubricants, or lube, can be put into two categories: greases
@@ -132,19 +132,19 @@ const SwitchModifications = () => {
         </PageParagraph>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id={anchorLink + "-" + chaptersList[1].id}>
-          {chaptersList[1].name}
+        <PageSectionHeading id={anchorLink + "-" + chapterList[1].id}>
+          {chapterList[1].name}
         </PageSectionHeading>
         <PageSectionSubheading
           id={
             anchorLink +
             "-" +
-            chaptersList[1].id +
+            chapterList[1].id +
             "." +
-            chaptersList[1].subchapters[0].id
+            chapterList[1].subchapters[0].id
           }
         >
-          {chaptersList[1].subchapters[0].name}
+          {chapterList[1].subchapters[0].name}
         </PageSectionSubheading>
         <PageParagraph>
           There are different types of springs available:
@@ -181,8 +181,8 @@ const SwitchModifications = () => {
         </Figure>
       </PageSection>
       <PageSection>
-        <PageSectionHeading id={anchorLink + "-" + chaptersList[2].id}>
-          {chaptersList[2].name}
+        <PageSectionHeading id={anchorLink + "-" + chapterList[2].id}>
+          {chapterList[2].name}
         </PageSectionHeading>
         <PageParagraph>
           Sometimes, stock switches have wobble between the switch top and

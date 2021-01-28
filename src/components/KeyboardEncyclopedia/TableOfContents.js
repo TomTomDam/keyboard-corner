@@ -9,7 +9,7 @@ import {
 
 const TableOfContents = (props) => {
   const chaptersList = props.chaptersList;
-  const anchorLink = props.anchorLink;
+  const anchorLink = "#" + props.anchorLink;
 
   const chapters = chaptersList.map((chapter) => {
     const chapterLink = anchorLink + "-" + chapter.id;

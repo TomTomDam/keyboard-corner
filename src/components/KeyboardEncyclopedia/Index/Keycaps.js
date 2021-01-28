@@ -441,8 +441,8 @@ export default function Keycaps() {
           <Image src={LaserEtchedKeycaps} />
           <FigureCaption>Laser-etched keycaps</FigureCaption>
         </Figure>
-        <h4 id="keycaps-3.3">Dye sublimation</h4>
-        <p>
+        <PageSectionSubheading id="keycaps-3.3">Dye sublimation</PageSectionSubheading>
+        <PageParagraph>
           Dye sublimation involves applying dye onto the plastic using a heat
           press. This triggers a process known as "sublimation", meaning the dye
           is converted from a solid to a gaseous state without ever becoming a
@@ -451,7 +451,7 @@ export default function Keycaps() {
           It is the preferred printing method for PBT keycaps, due to PBT
           possessing a high resistance to heat, and it is a much safer option
           for printing PBT keycaps than double-shot moulding.
-        </p>
+        </PageParagraph>
         <Figure>
           <Image src={EPBT9009} />
           <FigureCaption>

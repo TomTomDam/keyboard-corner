@@ -13,15 +13,12 @@ import {
   PageRow,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
 import FullSizeKeyboard from "../../../assets/images/LayoutsAndSizes/fullsizekeyboard_keyboard.png";
 import MembraneKeyboardDomes from "../../../assets/images//Switches/membrane_keyboard_domes.png";
@@ -33,7 +30,82 @@ import TypesOfSwitches from "../../../assets/images/Switches/types_of_switches_g
 import TopreSwitch from "../../../assets/images/Switches/topre_switch.jpg";
 import TopreSwitchDiagram from "../../../assets/images/Switches/topre_switch_diagram.png";
 
-export default function Switches() {
+const Switches = () => {
+  const anchorLink = "switches";
+  const chapterList = [
+    {
+      id: 1,
+      name: "Mechanical switches",
+      subchapters: [
+        {
+          id: 1,
+          name: "Anatomy of a mechanical switch"
+        },
+        {
+          id: 2,
+          name: "Glossary"
+        },
+      ]
+    },
+    {
+      id: 2,
+      name: "Types of mechanical switches",
+      subchapters: [
+        {
+          id: 1,
+          name: "Linear"
+        },
+        {
+          id: 2,
+          name: "Tactile"
+        },
+        {
+          id: 3,
+          name: "Clicky"
+        },
+      ]
+    },
+    {
+      id: 3,
+      name: "Mechanical switch brands/manufacturers",
+      subchapters: []
+    },
+    {
+      id: 4,
+      name: "Topre (electro-capacitive) switches",
+      subchapters: []
+    },
+    {
+      id: 5,
+      name: "Alps switches",
+      subchapters: []
+    },
+    {
+      id: 6,
+      name: "Buckling spring switches",
+      subchapters: []
+    },
+    {
+      id: 7,
+      name: "Other types of switches",
+      subchapters: [
+        {
+          id: 1,
+          name: "Logitech Romer G"
+        },
+        {
+          id: 2,
+          name: "Optical switches"
+        },
+      ]
+    },
+    {
+      id: 8,
+      name: "What switch should I get?",
+      subchapters: []
+    },
+  ]
+
   return (
     <PageContainer>
       <PageTitle>Switches</PageTitle>
@@ -108,68 +180,7 @@ export default function Switches() {
         </PageParagraph>
       </PageSection>
 
-      <TableOfContents>
-        <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
-        <ul>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#switches-1">1. Mechanical switches</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#switches-1.1">1.1. Anatomy of a mechanical switch</a>
-              </li>
-              <li>
-                <a href="#switches-1.2">1.2. Glossary</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#switches-2">2. Types of mechanical switches</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#switches-2.1">2.1. Linear</a>
-              </li>
-              <li>
-                <a href="#switches-2.2">2.2. Tactile</a>
-              </li>
-              <li>
-                <a href="#switches-2.3">2.3. Clicky</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#switches-3">3. Mechanical switch brands/manufacturers</a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#switches-4">4. Topre (electro-capacitive) switches</a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#switches-5">5. Alps switches</a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#switches-6">6. Buckling spring switches</a>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#switches-7">7. Other types of switches</a>
-            </li>
-            <TableOfContentsSubChapters>
-              <li>
-                <a href="#switches-7.1">7.1. Logitech Romer G</a>
-              </li>
-              <li>
-                <a href="#switches-7.2">7.2. Optical switches</a>
-              </li>
-            </TableOfContentsSubChapters>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <a href="#switches-8">8. What switch should I get?</a>
-          </TableOfContentsChapter>
-        </ul>
-      </TableOfContents>
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
 
       <PageSection>
         <PageSectionHeading id="switches-1">
@@ -485,3 +496,5 @@ export default function Switches() {
     </PageContainer>
   );
 }
+
+export default Switches;

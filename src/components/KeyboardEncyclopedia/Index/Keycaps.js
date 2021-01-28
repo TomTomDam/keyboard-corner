@@ -163,7 +163,9 @@ const Keycaps = () => {
         how keycaps are printed, and what all of these things mean for you as
         the keyboard user.
       </PageParagraph>
+      
       <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
+      
       <PageSection>
         <PageSectionHeading id="keycaps-1">Keycap materials</PageSectionHeading>
         <PageParagraph>

@@ -11,17 +11,46 @@ import {
   PageOl,
 } from "../../../assets/styles/Layout";
 import {
-  TableOfContents,
-  TableOfContentsTitle,
-  TableOfContentsChapter,
-  TableOfContentsSubChapters,
   Figure,
   FigureCaption,
   Image,
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
+import TableOfContents from "../TableOfContents";
 
-export default function Stabilizers() {
+const Stabilizers = () => {
+  const anchorLink = "stabilizers";
+  const chapterList = [
+    {
+      id: 1,
+      name: "Example of stabilizers required for a layout",
+      subchapters: []
+    },
+    {
+      id: 2,
+      name: "Stabilizer mount",
+      subchapters: [
+        {
+          id: 1,
+          name: "PCB-mount"
+        },
+        {
+          id: 2,
+          name: "Plate-mount"
+        },
+      ]
+    },
+    {
+      id: 3,
+      name: "Stabilizers needed for different form factors",
+      subchapters: []
+    },
+    {
+      id: 4,
+      name: "Lubing stabilizers",
+      subchapters: []
+    },
+  ]
   return (
     <PageContainer>
       <PageTitle>Stabilizers</PageTitle>
@@ -32,45 +61,11 @@ export default function Stabilizers() {
         larger. Larger keycaps include Spacebar, Backspace, Enter, Right Shift,
         ANSI Left Shift. They are also used for the 0 and Enter Numpad keys.
       </PageParagraph>
-      <TableOfContents>
-        <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
-        <ul>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#stabilizers-1">
-                1. Example of stabilizers required for a layout
-              </a>
-            </li>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#stabilizers-2">2. Stabilizer mounts</a>
-            </li>
-          </TableOfContentsChapter>
-          <TableOfContentsSubChapters>
-            <li>
-              <a href="#stabilizers-2.1">2.1. PCB-mount</a>
-            </li>
-            <li>
-              <a href="#stabilizers-2.2">2.2. Plate-mount</a>
-            </li>
-          </TableOfContentsSubChapters>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#stabilizers-3">
-                3. Stabilizers needed for different form factors
-              </a>
-            </li>
-          </TableOfContentsChapter>
-          <TableOfContentsChapter>
-            <li>
-              <a href="#stabilizers-4">4. Lubing stablizers</a>
-            </li>
-          </TableOfContentsChapter>
-        </ul>
-      </TableOfContents>
+
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
+
       <PageSection>
-        <PageSectionHeading>
+        <PageSectionHeading id="stabilizers-1">
           Example of stabilizers required for a layout
         </PageSectionHeading>
         <PageParagraph>
@@ -165,3 +160,5 @@ export default function Stabilizers() {
     </PageContainer>
   );
 }
+
+export default Stabilizers;

@@ -16,6 +16,36 @@ import CherryMXBrownAnimation from "../assets/images/cherry_mx_brown_animation.g
 import CherryMXBlueAnimation from "../assets/images/cherry_mx_blue_animation.gif";
 
 const Home = () => {
+  //Animate switches on hover
+  $(function () {
+    $("#linearSwitch").hover(
+      function () {
+        $(this).attr("src", CherryMXRedAnimation);
+      },
+      function () {
+        $(this).attr("src", CherryMXRed);
+      }
+    );
+
+    $("#tactileSwitch").hover(
+      function () {
+        $(this).attr("src", CherryMXBrownAnimation);
+      },
+      function () {
+        $(this).attr("src", CherryMXBrown);
+      }
+    );
+
+    $("#clickySwitch").hover(
+      function () {
+        $(this).attr("src", CherryMXBlueAnimation);
+      },
+      function () {
+        $(this).attr("src", CherryMXBlue);
+      }
+    );
+  });
+
   return (
     <>
       <Jumbotron>
@@ -60,28 +90,29 @@ const Home = () => {
       </Wrapper2>
       <Wrapper3>
         <Header>
-          <Heading>
-            Types of Switches
-          </Heading>
-          <Wrapper3HeaderText>When people refer to mechanical switches, they are most likely
+          <Heading>Types of Switches</Heading>
+          <Wrapper3HeaderText>
+            When people refer to mechanical switches, they are most likely
             referring to MX-style switches. People also tend to think of those
             loud, clicky switches that are often found in gaming keyboards; in
-            actuality, MX-style mechanical switches come in three types in total:
-            <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.</Wrapper3HeaderText>
+            actuality, MX-style mechanical switches come in three types in
+            total:
+            <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.
+          </Wrapper3HeaderText>
           <Wrapper3ImagesRow>
             <Wrapper3ImageContainer>
               <Wrapper3ImageTitle>Linear</Wrapper3ImageTitle>
-              <LinearSwitchImage id="linearSwitch" src={CherryMXRed}/>
+              <LinearSwitchImage id="linearSwitch" src={CherryMXRed} />
               <p>Smooth all the way down</p>
             </Wrapper3ImageContainer>
             <Wrapper3ImageContainer>
               <Wrapper3ImageTitle>Tactile</Wrapper3ImageTitle>
-              <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown}/>
+              <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown} />
               <p>Tactile bump</p>
             </Wrapper3ImageContainer>
             <Wrapper3ImageContainer>
               <Wrapper3ImageTitle>Clicky</Wrapper3ImageTitle>
-              <ClickySwitchImage id="clickySwitch" src={CherryMXBlue}/>
+              <ClickySwitchImage id="clickySwitch" src={CherryMXBlue} />
               <p>Tactile bump with an audible "click" sound</p>
             </Wrapper3ImageContainer>
           </Wrapper3ImagesRow>
@@ -96,7 +127,9 @@ const Home = () => {
             The Keyboard Encyclopedia is your one stop shop for anything related
             to mechanical keyboards.
           </Wrapper4Text>
-          <Wrapper4Button>The Keyboard Encyclopedia</Wrapper4Button>
+          <Link to="/keyboard-encyclopedia">
+            <Wrapper4Button>The Keyboard Encyclopedia</Wrapper4Button>
+          </Link>
         </Wrapper4Container>
       </Wrapper4>
     </>
@@ -136,11 +169,10 @@ const JumbotronHeader = styled.div`
     left: calc(${(props) => props.left} + 20vw);
   }
 
-  @media only screen 
-      and (min-width: ${(props) => props.theme.media.tablet}) 
-      and (min-width: ${(props) => props.theme.media.laptop}) 
-      and (min-width: ${(props) => props.theme.media.desktop}) 
-  {
+  @media only screen and (min-width: ${(props) =>
+      props.theme.media.tablet}) and (min-width: ${(props) =>
+      props.theme.media.laptop}) and (min-width: ${(props) =>
+      props.theme.media.desktop}) {
     top: ${(props) => props.top};
     left: calc(${(props) => props.left} + 20vw);
   }
@@ -241,9 +273,7 @@ const Wrapper2 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.darkgray};
 `;
 
-const Wrapper2Container = styled.div`
-
-`;
+const Wrapper2Container = styled.div``;
 
 //Wrapper 3
 const Wrapper3 = styled(Wrapper)`
@@ -301,49 +331,16 @@ const Wrapper3ImageTitle = styled.h1`
 `;
 
 const Wrapper3Image = styled.img`
-    max-width: 100%;
-    height: auto;
-    padding: 1rem;
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
 `;
 
-const LinearSwitchImage = styled(Wrapper3Image)`
-`;
+const LinearSwitchImage = styled(Wrapper3Image)``;
 
-const TactileSwitchImage = styled(Wrapper3Image)`
-`;
+const TactileSwitchImage = styled(Wrapper3Image)``;
 
-const ClickySwitchImage = styled(Wrapper3Image)`
-`;
-
-//Animate switches on hover
-$(function() {
-  $("#linearSwitch").hover(
-    function() {
-      $(this).attr("src", CherryMXRedAnimation);
-    },
-    function() {
-      $(this).attr("src", CherryMXRed);
-    }
-  );
-
-  $("#tactileSwitch").hover(
-    function() {
-      $(this).attr("src", CherryMXBrownAnimation);
-    },
-    function() {
-      $(this).attr("src", CherryMXBrown);
-    }
-  );
-
-  $("#clickySwitch").hover(
-    function() {
-      $(this).attr("src", CherryMXBlueAnimation);
-    },
-    function() {
-      $(this).attr("src", CherryMXBlue);
-    }
-  );
-});
+const ClickySwitchImage = styled(Wrapper3Image)``;
 
 //Wrapper 4
 const Wrapper4 = styled(Wrapper)`
@@ -351,14 +348,8 @@ const Wrapper4 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.white};
 `;
 
-const Wrapper4Container = styled.div`
+const Wrapper4Container = styled.div``;
 
-`
+const Wrapper4Text = styled.p``;
 
-const Wrapper4Text = styled.p`
-
-`
-
-const Wrapper4Button = styled(Button)`
-
-`;
+const Wrapper4Button = styled(Button)``;

@@ -67,6 +67,7 @@ export default MyKeyboards;
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   text-align: left;

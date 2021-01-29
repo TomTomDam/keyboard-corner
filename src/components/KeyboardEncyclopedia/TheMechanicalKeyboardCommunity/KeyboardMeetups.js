@@ -18,12 +18,12 @@ import {
 } from "../../../assets/styles/Modules";
 import TableOfContents from "../TableOfContents";
 
-const SolderingGuide = () => {
-  return (
-    <PageContainer>
-      <PageTitle>Soldering Guide</PageTitle>
-    </PageContainer>
-  );
-};
+const KeyboardMeetups = () => {
+    return (
+        <PageContainer>
+            <PageTitle>Keyboard Meetups</PageTitle>
+        </PageContainer>
+    )
+}
 
-export default SolderingGuide;
+export default KeyboardMeetups;

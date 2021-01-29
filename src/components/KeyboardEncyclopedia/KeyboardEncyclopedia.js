@@ -61,6 +61,28 @@ export default function KeyboardEncyclopedia() {
           </StickyNavbarSection>
 
           <StickyNavbarSection>
+            <StickyNavbarTitle>Building a Keyboard</StickyNavbarTitle>
+            <StickyNavbarLink to={`${url}/soldering-guide`}>
+              Soldering Guide
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/build-services`}>
+              Build Services
+            </StickyNavbarLink>
+          </StickyNavbarSection>
+
+          <StickyNavbarSection>
+            <StickyNavbarTitle>
+              The Mechanical Keyboard Community
+            </StickyNavbarTitle>
+            <StickyNavbarLink to={`${url}/group-buys`}>
+              Group Buys
+            </StickyNavbarLink>
+            <StickyNavbarLink to={`${url}/keyboard-meetups`}>
+              Keyboard Meetups
+            </StickyNavbarLink>
+          </StickyNavbarSection>
+
+          <StickyNavbarSection>
             <StickyNavbarTitle>Accessories</StickyNavbarTitle>
             <StickyNavbarLink to={`${url}/custom-cables`}>
               Custom Cables

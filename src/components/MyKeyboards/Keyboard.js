@@ -50,10 +50,11 @@ export default Keyboard;
 
 const Container = styled.div`
   display: flex;
-  flex: 1 0 50%;
+  position: relative;
   align-items: center;
-  margin: 0 auto;
-  padding: 2rem;
+  justify-content: flex-start;
+  padding: 1rem;
+  margin: auto 20%;
 `;
 
 const CoverImage = styled.img`
@@ -74,7 +75,6 @@ const PartsList = styled.ul`
 `;
 
 const Part = styled.div`
-  flex: 1 0 50%;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1.125rem;

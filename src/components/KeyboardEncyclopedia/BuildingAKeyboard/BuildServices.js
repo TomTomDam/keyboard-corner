@@ -18,12 +18,12 @@ import {
 } from "../../../assets/styles/Modules";
 import TableOfContents from "../TableOfContents";
 
-const SolderingGuide = () => {
+const BuildServices = () => {
   return (
     <PageContainer>
-      <PageTitle>Soldering Guide</PageTitle>
+      <PageTitle>Build Services</PageTitle>
     </PageContainer>
   );
 };
 
-export default SolderingGuide;
+export default BuildServices;

@@ -57,7 +57,7 @@ const Navbar = () => {
       <NavBar id="navbar">
         <NavBarLogo to="/">Keyboard Corner</NavBarLogo>
         <NavBarToggle>{toggleIcon}</NavBarToggle>
-        <NavMenu className={mobileMenu ? "active" : ""}>
+        <NavMenu mobileMenu={mobileMenu}>
           {navbarData.map((item) => {
             return (
               <li key={item.id}>
@@ -104,13 +104,6 @@ const NavBarToggle = styled.div`
   font-size: 2rem;
   background: none;
 
-  & .active {
-    left: 0;
-    opacity: 1;
-    transition: all 0.3s ease;
-    z-index: 1;
-  }
-
   @media screen and (max-width: ${(props) => props.theme.media.tablet}) {
     display: block;
     position: absolute;
@@ -139,23 +132,23 @@ const NavMenu = styled.ul`
     padding: 0px 20px;
   }
 
-  & .active {
-    left: 0;
-    opacity: 1;
-    transition: all 0.3s ease;
-    z-index: 1;
-  }
-
   @media screen and (max-width: ${(props) => props.theme.media.tablet}) {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 90vh;
+    margin-top: -16px;
     position: absolute;
     top: 80px;
-    left: -100%;
+    left: ${(props) => props.mobileMenu ? "0" : "-100%"};
     opacity: 1;
     transition: all 0.3s ease;
+
+    & > li {
+      text-align: center;
+      background: ${(props) => props.theme.colours.darkgray};
+      padding: 1rem;
+    }
   }
 `;
 
@@ -188,12 +181,6 @@ const NavLink = styled(Link)`
     top: 65px;
   }
   &:hover:after {
-    width: 100%;
-  }
-
-  @media screen and (max-width: ${(props) => props.theme.media.tablet}) {
-    text-align: center;
-    padding: 2rem;
     width: 100%;
   }
 `;

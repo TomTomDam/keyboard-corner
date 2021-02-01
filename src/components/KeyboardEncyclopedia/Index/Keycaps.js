@@ -163,9 +163,9 @@ const Keycaps = () => {
         how keycaps are printed, and what all of these things mean for you as
         the keyboard user.
       </PageParagraph>
-      
-      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
-      
+
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink} />
+
       <PageSection>
         <PageSectionHeading id="keycaps-1">Keycap materials</PageSectionHeading>
         <PageParagraph>
@@ -437,7 +437,9 @@ const Keycaps = () => {
           <Image src={LaserEtchedKeycaps} />
           <FigureCaption>Laser-etched keycaps</FigureCaption>
         </Figure>
-        <PageSectionSubheading id="keycaps-3.3">Dye sublimation</PageSectionSubheading>
+        <PageSectionSubheading id="keycaps-3.3">
+          Dye sublimation
+        </PageSectionSubheading>
         <PageParagraph>
           Dye sublimation involves applying dye onto the plastic using a heat
           press. This triggers a process known as "sublimation", meaning the dye
@@ -461,11 +463,13 @@ const Keycaps = () => {
           white), or to print on black keycaps (nothing is darker than black).
           However, a process known as <b>reverse dye sublimation</b> has
           recently arisen which can tackle this problem. In this case, the
-          legend is the base colour and everything around it is dyed. Despite
-          its advantages, the reverse dye-sublimation process itself carries a
-          lot of manufacturing risks - it is a very labour-intensive process
-          because the dye and the plastic needs to be aligned perfectly by
-          someone while the heat press is applied. Furthermore, due to manual
+          legend is the base colour and everything around it is dyed.
+        </PageParagraph>
+        <PageParagraph>
+          Despite its advantages, the reverse dye-sublimation process itself
+          carries a lot of manufacturing risks - it is a very labour-intensive
+          process because the dye and the plastic needs to be aligned perfectly
+          by someone while the heat press is applied. Furthermore, due to manual
           application of heat, the process is more prone to human error, which
           can lead to warped keycaps.
         </PageParagraph>
@@ -534,10 +538,10 @@ const Keycaps = () => {
           strictly use the same material unless stated otherwise, e.g. the
           manufacturer ePBT primarily make PBT sets, but they also make ABS
           sets.{" "}
-          <b>
+          <i>
             You are responsible for using this information to guide your
             decisions - be sure to read the product description!
-          </b>
+          </i>
         </PageParagraph>
       </PageSection>
       <PageSection>
@@ -575,6 +579,6 @@ const Keycaps = () => {
       </PageSection>
     </PageContainer>
   );
-}
+};
 
 export default Keycaps;

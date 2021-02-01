@@ -59,7 +59,7 @@ export const Iframe = styled.iframe`
 
 //Keyboard Encyclopedia Page
 export const PageContainer = styled.div`
-  text-align: left;
+  text-align: center;
 `;
 
 export const PageTitle = styled.h1`
@@ -81,13 +81,18 @@ export const PageSectionSubheading = styled.h3`
 `;
 
 export const PageParagraph = styled.p`
-  max-width: 40%;
+  max-width: 50%;
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.8;
 `;
 
 export const PageUl = styled.ul`
-  max-width: 40%;
+  max-width: 50%;
+  text-align: left;
+  margin: 0 auto;
   margin-top: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -98,6 +103,7 @@ export const PageUl = styled.ul`
 `;
 
 export const PageOl = styled.ol`
+  text-align: left;
   margin-top: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -110,6 +116,7 @@ export const PageOl = styled.ol`
 export const PageRow = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 `;

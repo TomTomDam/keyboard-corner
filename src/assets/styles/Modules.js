@@ -33,8 +33,9 @@ export const TableOfContents = styled.div`
   background: #f9f9f9 none repeat scroll 0 0;
   border: 1px solid #aaa;
   display: table;
+  margin: 0 auto;
   margin-bottom: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
   padding: 20px;
   width: auto;
   text-align: left;

@@ -188,20 +188,23 @@ const SwitchModifications = () => {
           Sometimes, stock switches have wobble between the switch top and
           bottom housings. Switch housings can also become looser after
           disassembling a switch in the first place, such as when you open the
-          switch for lubing. Switch films were originally created to tighten the
-          housings for older vintage Cherry MX Blacks as they typically
-          possessed wobbly housings, but they have recently seen use as a
-          recommended switch modification. Switch films help eliminate the
-          clearance between the top and bottom housings, ensuring a tight fit in
-          order to reduce switch wobble. It also changes the sound profile,
-          often making the sound deeper while also removing rattly sounds.
+          switch for lubing.
+        </PageParagraph>
+        <PageParagraph>
+          Switch films were originally created to tighten the housings for older
+          vintage switches as they typically possessed wobbly housings,
+          but they have recently seen use as a recommended switch modification.
+          Switch films help eliminate the clearance between the top and bottom
+          housings, ensuring a tight fit in order to reduce switch wobble. It
+          also changes the sound profile, often making the sound deeper while
+          also removing rattly sounds.
         </PageParagraph>
         <PageParagraph>
           Commonly recommended switches that require filming are Vintage
           (pre-tooled) Cherry MX Blacks, any Zeal switches, and any
           JWK/Everglide/Durock switches. Switches that do not require filming
-          include Holy Pandas and their variations and Novelkey Creams as they
-          have very little to no switch wobble fresh out of the factory.
+          include Panda variations (e.g. Holy, Unholy) and Novelkey Creams as they
+          have very little to no switch wobble by default.
         </PageParagraph>
         <PageRow>
           <Figure>

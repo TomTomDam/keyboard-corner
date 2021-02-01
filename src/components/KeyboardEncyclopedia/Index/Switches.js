@@ -39,13 +39,13 @@ const Switches = () => {
       subchapters: [
         {
           id: 1,
-          name: "Anatomy of a mechanical switch"
+          name: "Anatomy of a mechanical switch",
         },
         {
           id: 2,
-          name: "Glossary"
+          name: "Glossary",
         },
-      ]
+      ],
     },
     {
       id: 2,
@@ -53,37 +53,37 @@ const Switches = () => {
       subchapters: [
         {
           id: 1,
-          name: "Linear"
+          name: "Linear",
         },
         {
           id: 2,
-          name: "Tactile"
+          name: "Tactile",
         },
         {
           id: 3,
-          name: "Clicky"
+          name: "Clicky",
         },
-      ]
+      ],
     },
     {
       id: 3,
       name: "Mechanical switch brands/manufacturers",
-      subchapters: []
+      subchapters: [],
     },
     {
       id: 4,
       name: "Topre (electro-capacitive) switches",
-      subchapters: []
+      subchapters: [],
     },
     {
       id: 5,
       name: "Alps switches",
-      subchapters: []
+      subchapters: [],
     },
     {
       id: 6,
       name: "Buckling spring switches",
-      subchapters: []
+      subchapters: [],
     },
     {
       id: 7,
@@ -91,20 +91,20 @@ const Switches = () => {
       subchapters: [
         {
           id: 1,
-          name: "Logitech Romer G"
+          name: "Logitech Romer G",
         },
         {
           id: 2,
-          name: "Optical switches"
+          name: "Optical switches",
         },
-      ]
+      ],
     },
     {
       id: 8,
       name: "What switch should I get?",
-      subchapters: []
+      subchapters: [],
     },
-  ]
+  ];
 
   return (
     <PageContainer>
@@ -180,7 +180,7 @@ const Switches = () => {
         </PageParagraph>
       </PageSection>
 
-      <TableOfContents chapterList={chapterList} anchorLink={anchorLink}/>
+      <TableOfContents chapterList={chapterList} anchorLink={anchorLink} />
 
       <PageSection>
         <PageSectionHeading id="switches-1">
@@ -189,7 +189,7 @@ const Switches = () => {
         <PageSectionSubheading id="switches-1.1">
           Anatomy of a mechanical switch
         </PageSectionSubheading>
-        <PageParagraph>
+        <PageParagraph style={{ textAlign: "center" }}>
           Let's dissect a mechanical switch and see what it looks like on the
           inside.
         </PageParagraph>
@@ -199,18 +199,20 @@ const Switches = () => {
             <FigureCaption>A disassembled Cherry MX Brown switch</FigureCaption>
           </Figure>
           <ImageTextContainer>
-            <p>
+            <ImageTextContainerParagraph>
               This particular style of switch is an MX-style switch, named by
               one of the original manufacturers of mechanical switches, Cherry,
               after their patented line of Cherry MX switches.
-            </p>
-            <p>
+            </ImageTextContainerParagraph>
+            <ImageTextContainerParagraph>
               Now that their patent has expired, many MX-style clones have been
               created at a much lower price point and are unanimously said to
               offer a smoother keypress and more pleasant sound profiles.
-            </p>
-            <p>A mechanical switch is comprised of these parts:</p>
-            <PageOl>
+            </ImageTextContainerParagraph>
+            <ImageTextContainerParagraph>
+              A mechanical switch is comprised of these parts:
+            </ImageTextContainerParagraph>
+            <ImageTextContainerPageOl>
               <li>
                 <b>Bottom housing</b> - The housing is a case that holds the
                 switch together. This is the bottom half of the switch housing.
@@ -233,13 +235,13 @@ const Switches = () => {
                 and 6. <b>Metal leaves</b> - Responsible for completing the
                 electrical circuit and registering a keypress.
               </li>
-            </PageOl>
-            <p>
+            </ImageTextContainerPageOl>
+            <ImageTextContainerParagraph>
               When a key is pressed using a mechanical switch, the stem and
               spring move down. This pushes one metal leaf against the other,
               allowing the metal leaves to make contact and complete its circuit
               to actuate a key press.
-            </p>
+            </ImageTextContainerParagraph>
           </ImageTextContainer>
         </PageRow>
         <PageSectionSubheading id="switches-1.2">
@@ -495,6 +497,15 @@ const Switches = () => {
       </PageSection>
     </PageContainer>
   );
-}
+};
 
 export default Switches;
+
+const ImageTextContainerParagraph = styled(PageParagraph)`
+  max-width: none;
+  font-size: 1rem;
+`;
+
+const ImageTextContainerPageOl = styled(PageOl)`
+  font-size: 1rem;
+`;

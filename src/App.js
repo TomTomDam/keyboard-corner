@@ -39,8 +39,7 @@ export default class App extends React.Component {
               path="/keyboard-encyclopedia"
               component={KeyboardEncyclopedia}
             />
-            <Route path="/mykeyboards">
-              <MyKeyboards />
+            <Route path="/my-keyboards" component={MyKeyboards}>
             </Route>
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

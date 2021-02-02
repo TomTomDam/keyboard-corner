@@ -82,6 +82,7 @@ const Home = () => {
             daily tasks. Unfortunately, it has become something we now take for
             granted.
           </p>
+          <br/>
           <p>
             Mechanical keyboards can be customised in a variety of ways to suit
             your preferences.
@@ -263,6 +264,7 @@ const Wrapper1Image = styled.img`
 const Wrapper1Text = styled.p`
   flex: 0 0 33%;
   font-size: ${(props) => props.theme.fontSizes.medium};
+  line-height: 1.5;
   text-align: center;
   padding: 1rem;
 `;
@@ -273,7 +275,14 @@ const Wrapper2 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.darkgray};
 `;
 
-const Wrapper2Container = styled.div``;
+const Wrapper2Container = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  font-size: 1.95rem;
+  text-align: center;
+  line-height: 1.5;
+  padding: 1rem;
+`;
 
 //Wrapper 3
 const Wrapper3 = styled(Wrapper)`
@@ -283,8 +292,25 @@ const Wrapper3 = styled(Wrapper)`
 `;
 
 const Wrapper3HeaderText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.95rem;
   margin-top: 2rem;
+  line-height: 1.5;
+
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.tablet}) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.desktop}) {
+    font-size: 1.95rem;
+  }
 `;
 
 const Wrapper3ImagesRow = styled.div`

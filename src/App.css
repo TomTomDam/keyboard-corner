@@ -1,8 +1,8 @@
 /* My Keyboards */
 .carousel-inner > .carousel-item > img {
   display: inline-block;
-  margin: 0 auto;
   width: 80%;
+  margin: 0 auto;
 }
 
 .carousel-control-prev > .carousel-control-prev-icon {

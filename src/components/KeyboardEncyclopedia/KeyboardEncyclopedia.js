@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { Heading } from "../../assets/styles/Layout";
-import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
+import KeyboardEncyclopediaNavbar from "./KeyboardEncyclopediaNavbar";
+
 import Introduction from "./Index/Introduction";
+import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
 
 export default function KeyboardEncyclopedia() {
   const { path, url } = useRouteMatch();
@@ -18,78 +20,8 @@ export default function KeyboardEncyclopedia() {
         </HeaderSectionText>
       </HeaderSection>
       <ContentContainer>
-        <StickyNavbar>
-          <StickyNavbarSection>
-            <StickyNavbarTitle>Getting Started</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/introduction`}>
-              Introduction to Mechanical Keyboards
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches`}>Switches</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/layouts-and-sizes`}>
-              Layouts and Sizes
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/plates-and-pcbs`}>
-              Plates and PCBs
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/keycaps`}>Keycaps</StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/stabilizers`}>
-              Stabilizers
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-
-          <StickyNavbarSection>
-            <StickyNavbarTitle>Keyboard Modifications</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/switch-modifications`}>
-              Switch Modifications
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-
-          <StickyNavbarSection>
-            <StickyNavbarTitle>List of Switches</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/switches/cherry`}>
-              Cherry
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/gateron`}>
-              Gateron
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/kailh`}>
-              Kailh
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/switches/durock-jwk`}>
-              Durock/JWK
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-
-          <StickyNavbarSection>
-            <StickyNavbarTitle>Building a Keyboard</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/soldering-guide`}>
-              Soldering Guide
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/build-services`}>
-              Build Services
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-
-          <StickyNavbarSection>
-            <StickyNavbarTitle>
-              The Mechanical Keyboard Community
-            </StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/group-buys`}>
-              Group Buys
-            </StickyNavbarLink>
-            <StickyNavbarLink to={`${url}/keyboard-meetups`}>
-              Keyboard Meetups
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-
-          <StickyNavbarSection>
-            <StickyNavbarTitle>Accessories</StickyNavbarTitle>
-            <StickyNavbarLink to={`${url}/custom-cables`}>
-              Custom Cables
-            </StickyNavbarLink>
-          </StickyNavbarSection>
-        </StickyNavbar>
-        <StickyNavbarBorder></StickyNavbarBorder>
+        <KeyboardEncyclopediaNavbar url={url} />
+        <NavbarBorder></NavbarBorder>
         <Page>
           <Switch>
             <Route exact path={path} component={Introduction} />
@@ -120,36 +52,7 @@ const ContentContainer = styled.div`
   justify-content: center;
 `;
 
-const StickyNavbar = styled.div`
-  position: sticky;
-  flex: 0 1 15%;
-  background: ${(props) => props.theme.colours.white};
-  padding-top: 1rem;
-`;
-
-const StickyNavbarSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 10px;
-`;
-
-const StickyNavbarTitle = styled.div`
-  font-size: 1.25rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  color: ${(props) => props.theme.colours.darkgray};
-  margin-top: 10px;
-  margin-bottom: 5px;
-`;
-
-const StickyNavbarLink = styled(Link)`
-  margin-top: 5px;
-  color: ${(props) => props.theme.colours.blue};
-`;
-
-const StickyNavbarBorder = styled.div`
+const NavbarBorder = styled.div`
   border: none;
   width: 1px;
   color: black;

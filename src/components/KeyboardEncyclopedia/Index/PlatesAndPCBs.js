@@ -282,11 +282,7 @@ const PlatesAndPCBs = () => {
           other plate materials exist that are being experimented with, such as
           POM or FR4.
         </PageParagraph>
-        <table
-          id="plateMaterialComparisonChartTable"
-          className="text-center table table-striped table-bordered table-responsive-sm"
-          cellspacing="0"
-        >
+        <PlateMaterialComparisonChartTable>
           <thead>
             <tr>
               <th>Material</th>
@@ -315,7 +311,7 @@ const PlatesAndPCBs = () => {
               <td>3.2 GPa</td>
             </tr>
           </tbody>
-        </table>
+        </PlateMaterialComparisonChartTable>
         <PageSectionSubheading id="plates-and-pcbs-1.7">
           Types of plate cuts
         </PageSectionSubheading>
@@ -730,3 +726,17 @@ const PlatesAndPCBs = () => {
 };
 
 export default PlatesAndPCBs;
+
+const PlateMaterialComparisonChartTable = styled.table`
+  padding: 1rem;
+  margin: 0 auto;
+  font-size: 1.1rem;
+
+  & > thead, tbody {
+    margin-top: 0.5em;
+  }
+
+  & > tbody > tr > td {
+    padding-left: 0.5em;
+  }
+`;

@@ -12,12 +12,3 @@
 .carousel-control-next > .carousel-control-next-icon {
   margin-right: 200px;
 }
-
-/* Plate Material Comparison Chart Table */
-#plateMaterialComparisonChartTable {
-  padding: 1rem;
-}
-
-#plateMaterialComparisonChartTable table th td {
-  border: 1px solid black;
-}

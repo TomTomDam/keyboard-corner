@@ -139,8 +139,8 @@ const NavMenu = styled.ul`
     height: 90vh;
     margin-top: -16px;
     position: absolute;
-    top: 80px;
-    left: ${(props) => props.mobileMenu ? "0" : "-100%"};
+    top: ${(props) => props.mobileMenu ? "70px" : "-100vh"};
+    left: 0;
     opacity: 1;
     transition: all 0.3s ease;
 

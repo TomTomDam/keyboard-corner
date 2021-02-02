@@ -189,7 +189,7 @@ const Switches = () => {
         <PageSectionSubheading id="switches-1.1">
           Anatomy of a mechanical switch
         </PageSectionSubheading>
-        <PageParagraph style={{ textAlign: "center" }}>
+        <PageParagraph>
           Let's dissect a mechanical switch and see what it looks like on the
           inside.
         </PageParagraph>

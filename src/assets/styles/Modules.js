@@ -60,6 +60,7 @@ export const TableOfContentsSubChapters = styled.ul`
 `;
 
 export const Figure = styled.figure`
+  text-align: center;
   padding: 1rem;
 `;
 

@@ -138,6 +138,7 @@ const NavMenu = styled.ul`
     width: 100%;
     height: 90vh;
     margin-top: -16px;
+    padding-top: 1rem;
     position: absolute;
     top: ${(props) => props.mobileMenu ? "70px" : "-100vh"};
     left: 0;
@@ -147,7 +148,7 @@ const NavMenu = styled.ul`
     & > li {
       text-align: center;
       background: ${(props) => props.theme.colours.darkgray};
-      padding: 1rem;
+      padding: 1.8rem;
     }
   }
 `;

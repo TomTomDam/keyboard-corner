@@ -17,7 +17,7 @@ import BuildServices from "../components/KeyboardEncyclopedia/BuildingAKeyboard/
 import GroupBuys from "../components/KeyboardEncyclopedia/TheMechanicalKeyboardCommunity/GroupBuys";
 import KeyboardMeetups from "../components/KeyboardEncyclopedia/TheMechanicalKeyboardCommunity/KeyboardMeetups";
 
-function KeyboardEncyclopediaRoutes(props) {
+const KeyboardEncyclopediaRoutes = (props) => {
   const path = props.path;
   const routes = [
     {

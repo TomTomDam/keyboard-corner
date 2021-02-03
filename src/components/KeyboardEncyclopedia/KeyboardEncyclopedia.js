@@ -7,7 +7,7 @@ import KeyboardEncyclopediaNavbar from "./KeyboardEncyclopediaNavbar";
 import Introduction from "./Index/Introduction";
 import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
 
-export default function KeyboardEncyclopedia() {
+const KeyboardEncyclopedia = () => {
   const { path, url } = useRouteMatch();
 
   return (
@@ -32,6 +32,8 @@ export default function KeyboardEncyclopedia() {
     </Container>
   );
 }
+
+export default KeyboardEncyclopedia;
 
 const Container = styled.div``;
 

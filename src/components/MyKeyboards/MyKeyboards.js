@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Keyboard from "./Keyboard";
 import styled from "styled-components";
 import { Heading } from "../../assets/styles/Layout";
 
 const MyKeyboards = () => {
-  const [keyboardsList, setKeyboards] = useState([
+  const keyboardsList = [
     {
       id: 1,
       image: "src\\assets\\images\\MyKeyboards\\Space65 ePBT Kuro Shiro 1.jpg",
@@ -46,7 +46,7 @@ const MyKeyboards = () => {
       stabilizers: "c3Equalz Tiffany Blue",
       description: "",
     },
-  ]);
+  ];
 
   const Keyboards = keyboardsList.map((keyboard) => (
     <Keyboard key={keyboard.id} keyboard={keyboard} />

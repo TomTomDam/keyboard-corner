@@ -41,10 +41,6 @@ const KeyboardEncyclopediaRoutes = (props) => {
       component: Stabilizers,
     },
     {
-      name: "switches",
-      component: Switches,
-    },
-    {
       name: "switches/cherry",
       component: Cherry,
     },
@@ -61,7 +57,7 @@ const KeyboardEncyclopediaRoutes = (props) => {
       component: DurockJWK,
     },
     {
-      name: "switch-modfications",
+      name: "switch-modifications",
       component: SwitchModifications,
     },
     {
@@ -88,6 +84,7 @@ const KeyboardEncyclopediaRoutes = (props) => {
 
   return (
     <>
+      <Route exact path={`${path}/switches`} component={Switches}/>
       {routes.map((route, index) => (
         <Route path={`${path}/${route.name}`} key={index} component={route.component} />
       ))}

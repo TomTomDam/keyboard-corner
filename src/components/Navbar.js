@@ -61,7 +61,7 @@ const Navbar = () => {
           {navbarData.map((item) => {
             return (
               <li key={item.id}>
-                <NavLink to={item.path}>
+                <NavLink to={`/${item.path}`}>
                   <span>{item.title}</span>
                 </NavLink>
               </li>

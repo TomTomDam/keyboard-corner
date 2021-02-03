@@ -17,30 +17,80 @@ import BuildServices from "../components/KeyboardEncyclopedia/BuildingAKeyboard/
 import GroupBuys from "../components/KeyboardEncyclopedia/TheMechanicalKeyboardCommunity/GroupBuys";
 import KeyboardMeetups from "../components/KeyboardEncyclopedia/TheMechanicalKeyboardCommunity/KeyboardMeetups";
 
-const KeyboardEncyclopediaRoutes = (props) => {
+function KeyboardEncyclopediaRoutes(props) {
   const path = props.path;
-  
+  const routes = [
+    {
+      name: "introduction",
+      component: Introduction,
+    },
+    {
+      name: "layouts-and-sizes",
+      component: LayoutsAndSizes,
+    },
+    {
+      name: "plates-and-pcbs",
+      component: PlatesAndPCBs,
+    },
+    {
+      name: "keycaps",
+      component: Keycaps,
+    },
+    {
+      name: "stabilizers",
+      component: Stabilizers,
+    },
+    {
+      name: "switches",
+      component: Switches,
+    },
+    {
+      name: "switches/cherry",
+      component: Cherry,
+    },
+    {
+      name: "switches/gateron",
+      component: Gateron,
+    },
+    {
+      name: "switches/kailh",
+      component: Kailh,
+    },
+    {
+      name: "switches/durock-jwk",
+      component: DurockJWK,
+    },
+    {
+      name: "switch-modfications",
+      component: SwitchModifications,
+    },
+    {
+      name: "soldering-guide",
+      component: SolderingGuide,
+    },
+    {
+      name: "build-services",
+      component: BuildServices,
+    },
+    {
+      name: "group-buys",
+      component: GroupBuys,
+    },
+    {
+      name: "keyboard-meetups",
+      component: KeyboardMeetups,
+    },
+    {
+      name: "custom-cables",
+      component: CustomCables,
+    },
+  ];
+
   return (
     <>
-      <Route path={`${path}/introduction`} component={Introduction} />
-      <Route path={`${path}/layouts-and-sizes`} component={LayoutsAndSizes} />
-      <Route path={`${path}/plates-and-pcbs`} component={PlatesAndPCBs} />
-      <Route path={`${path}/keycaps`} component={Keycaps} />
-      <Route path={`${path}/stabilizers`} component={Stabilizers} />
-      <Route exact path={`${path}/switches`} component={Switches} />
-      <Route path={`${path}/switches/cherry`} component={Cherry} />
-      <Route path={`${path}/switches/gateron`} component={Gateron} />
-      <Route path={`${path}/switches/kailh`} component={Kailh} />
-      <Route path={`${path}/switches/durock-jwk`} component={DurockJWK} />
-      <Route
-        path={`${path}/switch-modifications`}
-        component={SwitchModifications}
-      />
-      <Route path={`${path}/soldering-guide`} component={SolderingGuide} />
-      <Route path={`${path}/build-services`} component={BuildServices} />
-      <Route path={`${path}/group-buys`} component={GroupBuys} />
-      <Route path={`${path}/keyboard-meetups`} component={KeyboardMeetups} />
-      <Route path={`${path}/custom-cables`} component={CustomCables} />
+      {routes.map((route, index) => (
+        <Route path={`${path}/${route.name}`} key={index} component={route.component} />
+      ))}
     </>
   );
 }

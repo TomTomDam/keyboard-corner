@@ -120,7 +120,7 @@ const KeyboardEncyclopediaNavbar = (props) => {
 
   const categories = categoryList.map((category) => {
     let categoryChapters = category.chapters.map((chapter) => (
-      <NavbarLink key={chapter.id} to={url + "/" + chapter.link}>
+      <NavbarLink key={chapter.id} to={`${url}/${chapter.link}`}>
         {chapter.name}
       </NavbarLink>
     ));

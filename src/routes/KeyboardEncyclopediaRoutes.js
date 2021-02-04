@@ -21,75 +21,118 @@ const KeyboardEncyclopediaRoutes = (props) => {
   const path = props.path;
   const routes = [
     {
-      name: "introduction",
+      path: "/introduction",
       component: Introduction,
     },
     {
-      name: "layouts-and-sizes",
+      path: "/layouts-and-sizes",
       component: LayoutsAndSizes,
     },
     {
-      name: "plates-and-pcbs",
+      path: "/plates-and-pcbs",
       component: PlatesAndPCBs,
     },
     {
-      name: "keycaps",
+      path: "/keycaps",
       component: Keycaps,
     },
     {
-      name: "stabilizers",
+      path: "/stabilizers",
       component: Stabilizers,
     },
     {
-      name: "switches/cherry",
-      component: Cherry,
+      path: "/switches",
+      exact: true,
+      component: Switches,
+      routes: [
+        {
+          path: "/cherry",
+          component: Cherry,
+        },
+        {
+          path: "/gateron",
+          component: Gateron,
+        },
+        {
+          path: "/kailh",
+          component: Kailh,
+        },
+        {
+          path: "/durock-jwk",
+          component: DurockJWK,
+        },
+      ],
     },
     {
-      name: "switches/gateron",
-      component: Gateron,
-    },
-    {
-      name: "switches/kailh",
-      component: Kailh,
-    },
-    {
-      name: "switches/durock-jwk",
-      component: DurockJWK,
-    },
-    {
-      name: "switch-modifications",
+      path: "/switch-modifications",
       component: SwitchModifications,
     },
     {
-      name: "soldering-guide",
+      path: "/soldering-guide",
       component: SolderingGuide,
     },
     {
-      name: "build-services",
+      path: "/build-services",
       component: BuildServices,
     },
     {
-      name: "group-buys",
+      path: "/group-buys",
       component: GroupBuys,
     },
     {
-      name: "keyboard-meetups",
+      path: "/keyboard-meetups",
       component: KeyboardMeetups,
     },
     {
-      name: "custom-cables",
+      path: "/custom-cables",
       component: CustomCables,
     },
   ];
 
+  // var switchesRoute;
+  // var allRoutes;
+  // routes.map((route, index) => {
+  //   if (route.path === "/switches") {
+  //     switchesRoute = (
+  //       <Route
+  //         exact={route.exact}
+  //         path={`${path}${routes.find((x) => x.path === "/switches").path}`}
+  //         key={index}
+  //         component={routes.find((x) => x.path === "/switches").component}
+  //       />
+  //     );
+  //   allRoutes = (
+  //     <Route
+  //       path={`${path}${route.path}`}
+  //       key={index}
+  //       component={route.component}
+  //     />
+  //   );
+  // }});
+
   return (
     <>
-      <Route exact path={`${path}/switches`} component={Switches}/>
-      {routes.map((route, index) => (
-        <Route path={`${path}/${route.name}`} key={index} component={route.component} />
-      ))}
+      <Route path={`${path}/introduction`} component={Introduction} />
+      <Route path={`${path}/layouts-and-sizes`} component={LayoutsAndSizes} />
+      <Route path={`${path}/plates-and-pcbs`} component={PlatesAndPCBs} />
+      <Route path={`${path}/keycaps`} component={Keycaps} />
+      <Route path={`${path}/stabilizers`} component={Stabilizers} />
+      <Route exact path={`${path}/switches`} component={Switches} />
+      <Route path={`${path}/switches/cherry`} component={Cherry} />
+      <Route path={`${path}/switches/gateron`} component={Gateron} />
+      <Route path={`${path}/switches/kailh`} component={Kailh} />
+      <Route path={`${path}/switches/durock-jwk`} component={DurockJWK} />
+      <Route
+        path={`${path}/switch-modifications`}
+        component={SwitchModifications}
+      />
+      <Route path={`${path}/soldering-guide`} component={SolderingGuide} />
+      <Route path={`${path}/build-services`} component={BuildServices} />
+      <Route path={`${path}/group-buys`} component={GroupBuys} />
+      <Route path={`${path}/keyboard-meetups`} component={KeyboardMeetups} />
+      <Route path={`${path}/custom-cables`} component={CustomCables} />
     </>
   );
-}
+};
 
 export default KeyboardEncyclopediaRoutes;

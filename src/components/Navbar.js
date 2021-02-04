@@ -8,26 +8,26 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const showMobileMenu = () => setMobileMenu(!mobileMenu);
 
-  const navbarData = [
+  const links = [
     {
       id: 1,
       title: "The Keyboard Encyclopedia",
-      path: "keyboard-encyclopedia",
+      path: "/keyboard-encyclopedia",
     },
     {
       id: 2,
       title: "My Keyboards",
-      path: "my-keyboards",
+      path: "/my-keyboards",
     },
     {
       id: 3,
       title: "About",
-      path: "about",
+      path: "/about",
     },
     {
       id: 4,
       title: "Contact",
-      path: "contact",
+      path: "/contact",
     },
   ];
 
@@ -58,11 +58,11 @@ const Navbar = () => {
         <NavBarLogo to="/">Keyboard Corner</NavBarLogo>
         <NavBarToggle>{toggleIcon}</NavBarToggle>
         <NavMenu mobileMenu={mobileMenu}>
-          {navbarData.map((item) => {
+          {links.map((link) => {
             return (
-              <li key={item.id}>
-                <NavLink to={`/${item.path}`}>
-                  <span>{item.title}</span>
+              <li key={link.id}>
+                <NavLink to={`${link.path}`}>
+                  <span>{link.title}</span>
                 </NavLink>
               </li>
             );

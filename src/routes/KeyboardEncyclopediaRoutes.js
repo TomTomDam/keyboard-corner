@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Introduction from "../components/KeyboardEncyclopedia/Index/Introduction";
-import LayoutsAndSizes from "../components/KeyboardEncyclopedia/Index/LayoutsAndSizes";
-import Switches from "../components/KeyboardEncyclopedia/Index/Switches";
-import PlatesAndPCBs from "../components/KeyboardEncyclopedia/Index/PlatesAndPCBs";
-import Keycaps from "../components/KeyboardEncyclopedia/Index/Keycaps";
-import Stabilizers from "../components/KeyboardEncyclopedia/Index/Stabilizers";
+import Introduction from "../components/KeyboardEncyclopedia/GettingStarted/Introduction";
+import LayoutsAndSizes from "../components/KeyboardEncyclopedia/GettingStarted/LayoutsAndSizes";
+import Switches from "../components/KeyboardEncyclopedia/GettingStarted/Switches";
+import PlatesAndPCBs from "../components/KeyboardEncyclopedia/GettingStarted/PlatesAndPCBs";
+import Keycaps from "../components/KeyboardEncyclopedia/GettingStarted/Keycaps";
+import Stabilizers from "../components/KeyboardEncyclopedia/GettingStarted/Stabilizers";
 import CustomCables from "../components/KeyboardEncyclopedia/Accessories/CustomCables";
 import Cherry from "../components/KeyboardEncyclopedia/ListOfSwitches/Cherry";
 import Gateron from "../components/KeyboardEncyclopedia/ListOfSwitches/Gateron";

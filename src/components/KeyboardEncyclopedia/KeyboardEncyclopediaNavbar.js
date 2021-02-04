@@ -34,6 +34,11 @@ const KeyboardEncyclopediaNavbar = (props) => {
           name: "Stabilizers",
           link: "stabilizers",
         },
+        {
+          id: 6,
+          name: "Case",
+          link: "case",
+        },
       ],
     },
     {

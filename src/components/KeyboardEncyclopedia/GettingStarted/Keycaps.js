@@ -145,7 +145,7 @@ const Keycaps = () => {
 
   return (
     <PageContainer>
-      <PageTitle>Keycaps</PageTitle>
+      <PageTitle id="keycaps">Keycaps</PageTitle>
       <PageParagraph>
         Keycaps are those plastic tops that you are touching with your finger
         when typing. Keycaps are inscribed with <b>legends</b> (the writing on

@@ -4,7 +4,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { Heading } from "../../assets/styles/Layout";
 import KeyboardEncyclopediaNavbar from "./KeyboardEncyclopediaNavbar";
 
-import Introduction from "./Index/Introduction";
+import Introduction from "./GettingStarted/Introduction";
 import KeyboardEncyclopediaRoutes from "../../routes/KeyboardEncyclopediaRoutes";
 
 const KeyboardEncyclopedia = () => {

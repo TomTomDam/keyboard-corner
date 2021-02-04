@@ -170,7 +170,7 @@ const PlatesAndPCBs = () => {
         and the <b>PCB</b>.
       </PageParagraph>
       <PageParagraph>
-        A <b>plate</b> is a layer that switches can be mounted into, providing
+        A <b>plate</b> is a layer that switches can be mounted onto, providing
         your keyboard with a more sturdy construction. It is usually made out of
         a metal, but there are other materials. Each material provides different
         properties, including different acoustics and feel when typing.

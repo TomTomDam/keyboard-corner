@@ -5,6 +5,7 @@ import LayoutsAndSizes from "../components/KeyboardEncyclopedia/GettingStarted/L
 import Switches from "../components/KeyboardEncyclopedia/GettingStarted/Switches";
 import PlatesAndPCBs from "../components/KeyboardEncyclopedia/GettingStarted/PlatesAndPCBs";
 import Keycaps from "../components/KeyboardEncyclopedia/GettingStarted/Keycaps";
+import Case from "../components/KeyboardEncyclopedia/GettingStarted/Case";
 import Stabilizers from "../components/KeyboardEncyclopedia/GettingStarted/Stabilizers";
 import CustomCables from "../components/KeyboardEncyclopedia/Accessories/CustomCables";
 import Cherry from "../components/KeyboardEncyclopedia/ListOfSwitches/Cherry";
@@ -35,6 +36,10 @@ const KeyboardEncyclopediaRoutes = (props) => {
     {
       path: "/keycaps",
       component: Keycaps,
+    },
+    {
+      path: "/case",
+      component: Case,
     },
     {
       path: "/stabilizers",
@@ -112,16 +117,17 @@ const KeyboardEncyclopediaRoutes = (props) => {
 
   return (
     <>
-      <Route path={`${path}/introduction`} component={Introduction} />
+      <Route path={`${path}/introduction`} component={() => <Introduction path={path}/>} />
       <Route path={`${path}/layouts-and-sizes`} component={LayoutsAndSizes} />
       <Route path={`${path}/plates-and-pcbs`} component={PlatesAndPCBs} />
       <Route path={`${path}/keycaps`} component={Keycaps} />
+      <Route path={`${path}/case`} component={Case} />
       <Route path={`${path}/stabilizers`} component={Stabilizers} />
-      <Route exact path={`${path}/switches`} component={Switches} />
       <Route path={`${path}/switches/cherry`} component={Cherry} />
       <Route path={`${path}/switches/gateron`} component={Gateron} />
       <Route path={`${path}/switches/kailh`} component={Kailh} />
       <Route path={`${path}/switches/durock-jwk`} component={DurockJWK} />
+      <Route exact path={`${path}/switches`} component={Switches} />
       <Route
         path={`${path}/switch-modifications`}
         component={SwitchModifications}

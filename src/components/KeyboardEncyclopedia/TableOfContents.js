@@ -18,9 +18,9 @@ const TableOfContents = (props) => {
       subchapters = (
         <SubChapters>
           {chapter.subchapters.map((subchapter) => (
-            <li>
-              <a href={chapterLink + "." + subchapter.id} key={subchapter.id}>
-                {chapter.id + "." + subchapter.id + ". " + subchapter.name}
+            <li key={chapter.id}>
+              <a href={`${chapterLink}.${subchapter.id}`}>
+                {`${chapter.id}.${subchapter.id}. ${subchapter.name}`}
               </a>
             </li>
           ))}
@@ -33,7 +33,7 @@ const TableOfContents = (props) => {
     return (
       <Chapter key={chapter.id}>
         <li>
-          <a href={chapterLink}>{chapter.id + ". " + chapter.name}</a>
+          <a href={chapterLink}>{`${chapter.id}. ${chapter.name}`}</a>
         </li>
         {subchapters}
       </Chapter>

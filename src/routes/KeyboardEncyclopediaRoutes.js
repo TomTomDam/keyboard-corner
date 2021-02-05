@@ -13,6 +13,7 @@ import Gateron from "../components/KeyboardEncyclopedia/ListOfSwitches/Gateron";
 import Kailh from "../components/KeyboardEncyclopedia/ListOfSwitches/Kailh";
 import DurockJWK from "../components/KeyboardEncyclopedia/ListOfSwitches/DurockJWK";
 import SwitchModifications from "../components/KeyboardEncyclopedia/KeyboardModifications/SwitchModifications";
+import Foam from "../components/KeyboardEncyclopedia/KeyboardModifications/Foam";
 import SolderingGuide from "../components/KeyboardEncyclopedia/BuildingAKeyboard/SolderingGuide";
 import BuildServices from "../components/KeyboardEncyclopedia/BuildingAKeyboard/BuildServices";
 import GroupBuys from "../components/KeyboardEncyclopedia/TheMechanicalKeyboardCommunity/GroupBuys";
@@ -86,26 +87,31 @@ const KeyboardEncyclopediaRoutes = (props) => {
     },
     {
       id: 13,
+      path: "/foam",
+      component: Foam,
+    },
+    {
+      id: 14,
       path: "/soldering-guide",
       component: SolderingGuide,
     },
     {
-      id: 14,
+      id: 15,
       path: "/build-services",
       component: BuildServices,
     },
     {
-      id: 15,
+      id: 16,
       path: "/group-buys",
       component: GroupBuys,
     },
     {
-      id: 16,
+      id: 17,
       path: "/keyboard-meetups",
       component: KeyboardMeetups,
     },
     {
-      id: 17,
+      id: 18,
       path: "/custom-cables",
       component: CustomCables,
     },
@@ -152,6 +158,7 @@ const KeyboardEncyclopediaRoutes = (props) => {
         path={`${path}/switch-modifications`}
         component={SwitchModifications}
       />
+      <Route path={`${path}/foam`} component={Foam} />
       <Route path={`${path}/soldering-guide`} component={SolderingGuide} />
       <Route path={`${path}/build-services`} component={BuildServices} />
       <Route path={`${path}/group-buys`} component={GroupBuys} />

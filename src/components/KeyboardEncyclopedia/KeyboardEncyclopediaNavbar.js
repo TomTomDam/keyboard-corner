@@ -74,7 +74,7 @@ const KeyboardEncyclopediaNavbar = (props) => {
         {
           id: 3,
           name: "Kailh",
-          link: "switches/cherry",
+          link: "switches/kailh",
         },
         {
           id: 4,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import {
   PageContainer,
@@ -15,16 +15,28 @@ import {
   FigureCaption,
   Image,
   ImageTextContainer,
-} from "../../../assets/styles/Modules"
+} from "../../../assets/styles/Modules";
 import TableOfContents from "../TableOfContents";
+import SwitchTable from "../SwitchTable";
 
 const Gateron = () => {
+  const data = useMemo(() => [
+    {
+      name: "Gateron Yellow",
+      brandManufacturer: "Gateron",
+      type: "Linear",
+      mount: "PCB 5 pin",
+      materials: "Nylon",
+      spring: "62g (slow)",
+    },
+  ]);
+
   return (
     <PageContainer>
       <PageTitle>Gateron</PageTitle>
-      <PageSection></PageSection>
+      <SwitchTable data={data} />
     </PageContainer>
   );
-}
+};
 
 export default Gateron;

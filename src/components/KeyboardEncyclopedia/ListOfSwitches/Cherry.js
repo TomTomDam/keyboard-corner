@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import {
   PageContainer,
@@ -17,14 +17,26 @@ import {
   ImageTextContainer,
 } from "../../../assets/styles/Modules";
 import TableOfContents from "../TableOfContents";
+import SwitchTable from "../SwitchTable";
 
 const Cherry = () => {
+  const data = useMemo(() => [
+    {
+      name: "Cherry MX Red",
+      brandManufacturer: "Cherry",
+      type: "Linear",
+      mount: "PCB 5 pin",
+      materials: "Nylon",
+      spring: "60g",
+    },
+  ]);
+
   return (
     <PageContainer>
       <PageTitle>Cherry</PageTitle>
-      <PageSection></PageSection>
+      <SwitchTable data={data} />
     </PageContainer>
   );
-}
+};
 
 export default Cherry;

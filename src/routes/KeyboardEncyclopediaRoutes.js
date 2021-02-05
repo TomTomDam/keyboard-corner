@@ -22,73 +22,90 @@ const KeyboardEncyclopediaRoutes = (props) => {
   const path = props.path;
   const routes = [
     {
+      id: 1,
       path: "/introduction",
       component: Introduction,
     },
     {
+      id: 2,
       path: "/layouts-and-sizes",
       component: LayoutsAndSizes,
     },
     {
+      id: 3,
       path: "/plates-and-pcbs",
       component: PlatesAndPCBs,
     },
     {
+      id: 4,
       path: "/keycaps",
       component: Keycaps,
     },
     {
+      id: 5,
       path: "/case",
       component: Case,
     },
     {
+      id: 6,
       path: "/stabilizers",
       component: Stabilizers,
     },
     {
+      id: 7,
       path: "/switches",
       exact: true,
       component: Switches,
       routes: [
         {
+          id: 8,
           path: "/cherry",
           component: Cherry,
         },
         {
+          id: 9,
           path: "/gateron",
           component: Gateron,
         },
         {
+          id: 10,
           path: "/kailh",
           component: Kailh,
         },
         {
+          id: 11,
           path: "/durock-jwk",
           component: DurockJWK,
         },
       ],
     },
     {
+      id: 12,
       path: "/switch-modifications",
       component: SwitchModifications,
     },
     {
+      id: 13,
       path: "/soldering-guide",
       component: SolderingGuide,
     },
     {
+      id: 14,
       path: "/build-services",
       component: BuildServices,
     },
     {
+      id: 15,
       path: "/group-buys",
       component: GroupBuys,
     },
     {
+      id: 16,
       path: "/keyboard-meetups",
       component: KeyboardMeetups,
     },
     {
+      id: 17,
       path: "/custom-cables",
       component: CustomCables,
     },
@@ -96,20 +113,20 @@ const KeyboardEncyclopediaRoutes = (props) => {
 
   // var switchesRoute;
   // var allRoutes;
-  // routes.map((route, index) => {
-  //   if (route.path === "/switches") {
+  // routes.map((route) => {
+  //   if (route.path === "/switches" || route.id === 7) {
   //     switchesRoute = (
   //       <Route
   //         exact={route.exact}
   //         path={`${path}${routes.find((x) => x.path === "/switches").path}`}
-  //         key={index}
+  //         key={route.id}
   //         component={routes.find((x) => x.path === "/switches").component}
   //       />
   //     );
   //   allRoutes = (
   //     <Route
   //       path={`${path}${route.path}`}
-  //       key={index}
+  //       key={route.id}
   //       component={route.component}
   //     />
   //   );
@@ -117,7 +134,10 @@ const KeyboardEncyclopediaRoutes = (props) => {
 
   return (
     <>
-      <Route path={`${path}/introduction`} component={() => <Introduction path={path}/>} />
+      <Route
+        path={`${path}/introduction`}
+        component={() => <Introduction path={path} />}
+      />
       <Route path={`${path}/layouts-and-sizes`} component={LayoutsAndSizes} />
       <Route path={`${path}/plates-and-pcbs`} component={PlatesAndPCBs} />
       <Route path={`${path}/keycaps`} component={Keycaps} />

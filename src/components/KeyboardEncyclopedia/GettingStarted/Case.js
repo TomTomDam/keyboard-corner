@@ -50,7 +50,9 @@ const Case = () => {
         <PageSectionHeading>Case materials</PageSectionHeading>
         <PageSectionSubheading>Aluminium</PageSectionSubheading>
         <PageParagraph></PageParagraph>
-        <PageSectionHeading>Polycarbonate</PageSectionHeading>
+        <PageSectionSubheading>Polycarbonate</PageSectionSubheading>
+        <PageParagraph></PageParagraph>
+        <PageSectionSubheading>Acrylic</PageSectionSubheading>
         <PageParagraph></PageParagraph>
       </PageSection>
     </PageContainer>

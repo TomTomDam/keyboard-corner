@@ -21,7 +21,6 @@ import TableOfContents from "../TableOfContents";
 
 export default function Introduction(props) {
   const path = props.path;
-  console.log(path);
   const anchorLink = "introduction";
   const chapterList = [
     {

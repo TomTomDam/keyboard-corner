@@ -50,6 +50,11 @@ const KeyboardEncyclopediaNavbar = (props) => {
           name: "Switch Modifications",
           link: "switch-modifications",
         },
+        {
+          id: 2,
+          name: "Foam",
+          link: "foam",
+        },
       ],
     },
     {

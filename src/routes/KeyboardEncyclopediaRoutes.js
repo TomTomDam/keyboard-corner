@@ -145,7 +145,7 @@ const KeyboardEncyclopediaRoutes = (props) => {
         component={() => <Introduction path={path} />}
       />
       <Route path={`${path}/layouts-and-sizes`} component={LayoutsAndSizes} />
-      <Route path={`${path}/plates-and-pcbs`} component={PlatesAndPCBs} />
+      <Route path={`${path}/plates-and-pcbs`} component={() => <PlatesAndPCBs path={path} />} />
       <Route path={`${path}/keycaps`} component={Keycaps} />
       <Route path={`${path}/case`} component={Case} />
       <Route path={`${path}/stabilizers`} component={Stabilizers} />

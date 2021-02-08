@@ -68,3 +68,4 @@ const SwitchTable = (props) => {
 };
 
 export default SwitchTable;
+

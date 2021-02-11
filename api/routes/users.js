@@ -1,11 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../../users");
+const users = require("../users");
+const usersService = require("../services/usersService");
 
 const idFilter = (req) => (user) => user.id === parseInt(req.params.id);
 
 //Get all Users
-router.get("/", (req, res) => res.json(users));
+router.get("/", (req, res) => {
+  let users = usersService.getAll();
+  if(users.success === false) {
+    return res.status(400).json({msg: "Could not perform /user/getAll."});
+  }
+  
+  return res.json(users);
+})
 
 //Get User by id
 router.get("/:id", (req, res) => {

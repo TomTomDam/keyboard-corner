@@ -1,0 +1,16 @@
+-- CREATE TABLE Users (
+--     id INTEGER NOT NULL PRIMARY KEY, 
+--     firstName TEXT NOT NULL, 
+--     lastName TEXT NOT NULL, 
+--     username TEXT NOT NULL UNIQUE, 
+--     email TEXT NOT NULL UNIQUE, 
+--     password TEXT NOT NULL);
+
+-- INSERT INTO Users (firstName, lastName, username, email, password) 
+-- VALUES (
+--     Tom,
+--     Dam,
+--     tomdam,
+--     tomdam@keyboardcorner.com,
+--     hellothere
+-- );

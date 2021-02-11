@@ -7,8 +7,8 @@ const app = express();
 //Middleware
 //app.use(logger);
 //Body Parser
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
 
 //Home
 app.get("/", (req, res) => {
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 //User Route
-app.use("/api/users", require("./routes/api/users"));
+app.use("/api/users", require("./routes/users"));
 
 const port = process.env.port || 3000;
 app.listen(port);

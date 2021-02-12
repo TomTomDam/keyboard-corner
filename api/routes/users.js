@@ -115,13 +115,14 @@ router.post("/", (req, res) => {
       }
     });
 
-    let sql = `INSERT INTO ${tableName} (firstName, lastName, email, username, password) VALUES ($firstName, $lastName, $email, $username, $password)`;
+    let sql = `INSERT INTO ${tableName} (firstName, lastName, email, username, password) 
+    VALUES ($firstName, $lastName, $email, $username, $password)`;
     let params = {
       $firstName: req.body.firstName,
       $lastName: req.body.lastName,
       $email: req.body.email,
       $username: req.body.username,
-      $password: req.body.password
+      $password: req.body.password,
     };
 
     //Object.values() passes request body values into an array
@@ -143,11 +144,7 @@ router.post("/", (req, res) => {
 //Update User
 router.put("/:id", (req, res) => {
   let sql = `UPDATE ${tableName} 
-  SET firstName = $firstName,
-  lastName = $lastName,
-  email = $email,
-  username = $username,
-  password = $password
+  SET firstName = $firstName, lastName = $lastName, email = $email, username = $username, password = $password
   WHERE id = $id`;
   let data = {
     $id: req.params.id,

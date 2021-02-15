@@ -20,6 +20,8 @@ import About from "./components/About";
 import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import Contact from "./components/Contact";
+import Login from "./components/User/Login";
+import Register from "./components/User/Register";
 
 export default class App extends React.Component {
   state = {};
@@ -41,6 +43,8 @@ export default class App extends React.Component {
           <Route path="/my-keyboards" component={MyKeyboards}></Route>
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
         </Main>
         <Footer />
       </Container>

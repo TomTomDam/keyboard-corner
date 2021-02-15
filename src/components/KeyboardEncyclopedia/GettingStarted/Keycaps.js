@@ -209,18 +209,28 @@ const Keycaps = () => {
         </Figure>
         <PageSectionSubheading id="keycaps-1.2">PBT</PageSectionSubheading>
         <PageParagraph>
-          Short for "polybutylene terephthalate", is a more durable
+          Short for "polybutylene terephthalate", PBT is a more durable
           thermoplastic compared to ABS. There are many differences when
-          comparing ABS to PBT: firstly, PBT is denser and thicker which
-          contributes to its deeper sound when typing compared to ABS; secondly,
-          PBT feels rougher to the touch compared to ABS; finally, where ABS
-          keycaps take a few years to develop shine, PBT keycaps may only begin
-          to exhibit shine after multiple decades. Its greater resiliency is
-          lended to its higher tolerance for heat. However, this makes it a lot
-          more difficult to perform moulding processes with it, e.g. double-shot
-          moulding. Therefore, manufacturers are unable to produce vibrant
-          colours in PBT keycaps like they can in ABS keycaps.
+          comparing ABS to PBT:
         </PageParagraph>
+        <PageOl>
+          <li>
+            PBT is denser and thicker which contributes to its deeper sound when
+            typing compared to ABS.
+          </li>
+          <li>PBT feels rougher to the touch compared to ABS.</li>
+          <li>
+            Where ABS keycaps take a few years to develop shine, PBT keycaps may
+            only begin to exhibit shine after multiple decades.
+          </li>
+          <li>
+            Its greater resiliency is lended to its higher tolerance for heat.
+            However, this makes it a lot more difficult to perform moulding
+            processes with it, e.g. double-shot moulding. Therefore,
+            manufacturers are unable to produce vibrant colours in PBT keycaps
+            like they can in ABS keycaps.
+          </li>
+        </PageOl>
         <PageParagraph>
           Due to its higher melting point, when the PBT keycaps are printed
           using double-shot moulding, this can sometimes cause warped keycaps,

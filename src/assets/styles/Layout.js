@@ -73,7 +73,7 @@ export const PageSection = styled.section`
 `;
 
 export const PageSectionHeading = styled.h2`
-    max-width: 50%;
+  max-width: 50%;
   margin: 0 auto;
   font-size: 1.95rem;
   margin-top: 1rem;
@@ -109,7 +109,9 @@ export const PageUl = styled.ul`
 `;
 
 export const PageOl = styled.ol`
+  max-width: 50%;
   text-align: left;
+  margin: 0 auto;
   margin-top: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.8;

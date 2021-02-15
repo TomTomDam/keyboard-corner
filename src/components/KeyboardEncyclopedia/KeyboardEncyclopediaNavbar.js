@@ -13,6 +13,7 @@ const KeyboardEncyclopediaNavbar = (props) => {
           id: 1,
           name: "Introduction to Mechanical Keyboards",
           link: "introduction",
+          
         },
         {
           id: 2,
@@ -26,16 +27,21 @@ const KeyboardEncyclopediaNavbar = (props) => {
         },
         {
           id: 4,
+          name: "Keycaps",
+          link: "keycaps",
+        },
+        {
+          id: 5,
           name: "Plates and PCBs",
           link: "plates-and-pcbs",
         },
         {
-          id: 5,
+          id: 6,
           name: "Stabilizers",
           link: "stabilizers",
         },
         {
-          id: 6,
+          id: 7,
           name: "Case",
           link: "case",
         },

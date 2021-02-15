@@ -29,6 +29,11 @@ const Navbar = () => {
       title: "Contact",
       path: "/contact",
     },
+    {
+      id: 5,
+      title: "Login",
+      path: "/login"
+    }
   ];
 
   let toggleIcon;

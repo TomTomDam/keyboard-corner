@@ -79,11 +79,12 @@ const Foam = () => {
         There are two types of foam that can be placed inside of a keyboard: in
         the case below the PCB, or sandwiched between the plate and PCB.
         Although foam is a great way to eliminate hollowness, too much of it can
-        actually make your keyboard sound muted. Also, keyboards that are
-        designed well enough do not produce any noticeable hollowness, and so
-        they do not require foam at all. Therefore, when you are deciding to add
+        actually make your keyboard sound muted. Also, higher-end keyboards that
+        are designed well enough do not produce any noticeable hollowness, and
+        so they do not require foam at all. Therefore, if you do decide to add
         foam to your chosen keyboard, it is important to experiment and see what
-        types of foam produce the best sound profile to your ears.
+        types of foam you want to include and to see what produces the best
+        sound profile to your ears.
       </PageParagraph>
       <PageParagraph>
         There are several materials of foam you can use as well: neoprene,
@@ -123,9 +124,33 @@ const Foam = () => {
       <PageSection>
         <PageSectionHeading>Obtaining foam</PageSectionHeading>
         <PageSectionSubheading>DIY</PageSectionSubheading>
-        <PageParagraph>A</PageParagraph>
-        <PageSectionSubheading>Commission</PageSectionSubheading>
-        <PageParagraph>A</PageParagraph>
+        <PageParagraph>
+          If you have ever done crafts in school, cutting your own case foam is
+          as easy as that. You can measure the dimensions by simply eyeing it
+          and using a pair of scissors to cut out a sheet that fits in your
+          case. For a tray mount keyboard, you'll have to make holes in the foam
+          where the mounting posts go to allow you to screw your PCB into place.
+        </PageParagraph>
+        <PageParagraph>
+          Unless you have access to a laser-cutter, it is not possible to cut
+          your own plate foam by hand like you would with case foam. Therefore,
+          for the average person,{" "}
+          <a href="#foam-3.2">
+            you'll need to place an order for a commission.
+          </a>
+        </PageParagraph>
+        <PageSectionSubheading id="foam-3.2">Commission</PageSectionSubheading>
+        <PageParagraph>
+          This is the option you go for if you need plate foam. Some companies
+          provide services provide services for custom foam. You can find foam
+          in-stock for the common keyboards on the market such as the KBDFans
+          boards (e.g. TOFU, KBD67). If they do not have foam in-stock for your
+          chosen board, you can create a request for custom foam to be cut.
+          However, the company requires a plate file so that the laser-cutter
+          can cut the foam to your board's specifications. The company may
+          already possess the plate file, but if not, you can send it in
+          yourself online.
+        </PageParagraph>
       </PageSection>
     </PageContainer>
   );

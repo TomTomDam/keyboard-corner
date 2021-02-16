@@ -12,7 +12,7 @@ const Register = () => {
     password: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const api = "http://localhost:3000/api/users";
+  const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {});
 

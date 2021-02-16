@@ -4,31 +4,6 @@ const db = require("../database/sqlite");
 
 const tableName = "Users";
 
-//Login
-router.get("/login", (req, res) => {
-  let sql = `SELECT * FROM ${tableName} WHERE email = ? && password = ?`;
-  let params = [req.body.email, req.body.password];
-  db.get(sql, params, (err, row) => {
-    if (err)
-      return res.status(400).json({
-        statusCode: 400,
-        msg: err,
-      });
-
-    return row
-      ? res.json({
-          statusCode: 200,
-          msg: "Successfully logged in User.",
-          data: row,
-        })
-      : res.json({
-          statusCode: 404,
-          msg: `User could not be logged in.`,
-          data: row,
-        });
-  });
-});
-
 //Get all Users
 router.get("/", (req, res) => {
   let sql = `SELECT * FROM ${tableName}`;
@@ -81,7 +56,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-//Register/Create User
+//Create User
 router.post("/", (req, res) => {
   let errors = [];
   if (!req.body.firstName) {

@@ -12,8 +12,8 @@ const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const { username, password, rememberMe } = inputs;
   //TODO: LoggedIn state
-  //const [loggedIn, setLoggedIn] = useState(false);
-  const api = "http://localhost:3000/api/users";
+  //const [loggedIn, setLoggedIn] = useState(isLoggedIn function using JWT token);
+  const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {});
 
@@ -26,16 +26,16 @@ const Login = () => {
     e.preventDefault();
     setSubmitted(true);
     if (username && password) {
+      //TODO: If login is successful, redirect to home page and change state to LoggedIn = true
       axios
-        .get(`${api}/login`)
+        .get(`${accountApi}/login`)
         .then((res) => {
-          console.log(res);
+          //Get return url from location state or default to home page
+          const { from } = location.state || { from: { pathname: "/" } };
         })
         .catch((err) => {
           console.log(err);
         });
-
-      //TODO: If login is successful, redirect to home page and change state to LoggedIn = true
     }
   }
 

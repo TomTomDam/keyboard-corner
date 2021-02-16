@@ -1,23 +1,77 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const api = "http://localhost:3000/api/users";
+
+  useEffect(() => {});
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setUser((user) => ({ ...user, [name]: value }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+    if (user.firstName && user.lastName && user.username && user.password) {
+    }
+  }
+
   return (
     <Container>
       <h1>Register</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
+        <FormRow>
+          <FormLabel>First Name</FormLabel>
+          <NameInput
+            type="text"
+            value={user.firstName}
+            onChange={handleChange}
+          />
+          {submitted && !user.firstName && <div>First Name is required.</div>}
+        </FormRow>
+        <FormRow>
+          <FormLabel>Last Name</FormLabel>
+          <NameInput
+            type="text"
+            value={user.lastName}
+            onChange={handleChange}
+          />
+          {submitted && !user.lastName && <div>Last Name is required.</div>}
+        </FormRow>
         <FormRow>
           <FormLabel>Username</FormLabel>
-          <UsernameInput type="text" />
+          <UsernameInput
+            type="text"
+            value={user.username}
+            onChange={handleChange}
+          />
+          {submitted && !user.username && <div>Username is required.</div>}
         </FormRow>
         <FormRow>
           <FormLabel>Email</FormLabel>
-          <EmailInput type="email" />
+          <EmailInput type="email" value={user.email} onChange={handleChange} />
+          {submitted && !user.email && <div>Email is required.</div>}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
-          <PasswordInput type="password" />
+          <PasswordInput
+            type="password"
+            value={user.password}
+            onChange={handleChange}
+          />
+          {submitted && !user.password && <div>Password is required.</div>}
         </FormRow>
         <FormRow>
           <RegisterButton type="button">Register</RegisterButton>
@@ -50,6 +104,8 @@ const FormLabel = styled.label`
 `;
 
 const Input = styled.input``;
+
+const NameInput = styled(Input)``;
 
 const UsernameInput = styled(Input)``;
 

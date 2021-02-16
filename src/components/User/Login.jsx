@@ -1,24 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Register from "./Register";
+import axios from "axios";
 
 const Login = () => {
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+    rememberMe: false,
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const { username, password, rememberMe } = inputs;
+  //TODO: LoggedIn state
+  //const [loggedIn, setLoggedIn] = useState(false);
+  const api = "http://localhost:3000/api/users";
+
+  useEffect(() => {});
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setInputs((inputs) => ({ ...inputs, [name]: value }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+    if (username && password) {
+      axios
+        .get(`${api}/login`)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      //TODO: If login is successful, redirect to home page and change state to LoggedIn = true
+    }
+  }
+
   return (
     <Container>
       <h1>Login</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <FormRow>
           <FormLabel>Username</FormLabel>
-          <UsernameInput type="text" />
+          <UsernameInput type="text" value={username} onChange={handleChange} />
+          {/* TODO: Split out validation message to a component */}
+          {submitted && !username && (
+            <ValidationMessage>Username is required.</ValidationMessage>
+          )}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
-          <PasswordInput type="password" />
+          <PasswordInput
+            type="password"
+            value={password}
+            onChange={handleChange}
+          />
+          {submitted && !password && (
+            <ValidationMessage>Password is required.</ValidationMessage>
+          )}
         </FormRow>
         <FormRow>
           <RememberMe>
-            <RememberMeCheckbox type="checkbox" />
+            <RememberMeCheckbox
+              type="checkbox"
+              value={rememberMe}
+              onChange={handleChange}
+            />
             <RememberMeLabel>Remember me on this computer</RememberMeLabel>
           </RememberMe>
         </FormRow>
@@ -76,4 +126,8 @@ const SignInButton = styled.button`
 
 const RegisterLink = styled(Link)`
   margin-top: 1rem;
+`;
+
+const ValidationMessage = styled.div`
+  color: red;
 `;

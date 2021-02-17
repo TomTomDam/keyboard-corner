@@ -9,74 +9,94 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  const [submitted, setSubmitted] = useState(false);
   const { username, password, rememberMe } = inputs;
-  //TODO: LoggedIn state
-  //const [loggedIn, setLoggedIn] = useState(isLoggedIn function using JWT token);
   const accountApi = "http://localhost:3000/api/account";
 
-  useEffect(() => {});
+  //TESTING IF API WORKS
+  const [loginStatus, setLoginStatus] = useState("");
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs((inputs) => ({ ...inputs, [name]: value }));
-  }
+  };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitted(true);
+  const handleSubmit = (e) => {
+    console.log("You are in handleSubmit()");
     if (username && password) {
-      //TODO: If login is successful, redirect to home page and change state to LoggedIn = true
       axios
         .get(`${accountApi}/login`)
         .then((res) => {
           //Get return url from location state or default to home page
-          const { from } = location.state || { from: { pathname: "/" } };
+          //const { from } = location.state || { from: { pathname: "/" } };
+
+          //TESTING IF API WORKS
+          if (res.data.message) {
+            setLoginStatus(alert("User successfully logged in!"));
+          } else {
+            setLoginStatus(alert(response.data.msg));
+          }
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }
+  };
 
   return (
     <Container>
       <h1>Login</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <FormRow>
           <FormLabel>Username</FormLabel>
-          <UsernameInput type="text" value={username} onChange={handleChange} />
+          <UsernameInput
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleChange}
+          />
           {/* TODO: Split out validation message to a component */}
-          {submitted && !username && (
+          {/* {!username && (
             <ValidationMessage>Username is required.</ValidationMessage>
-          )}
+          )} */}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
           <PasswordInput
             type="password"
+            name="password"
             value={password}
             onChange={handleChange}
           />
-          {submitted && !password && (
+          {/* {!password && (
             <ValidationMessage>Password is required.</ValidationMessage>
-          )}
+          )} */}
         </FormRow>
         <FormRow>
           <RememberMe>
             <RememberMeCheckbox
               type="checkbox"
+              name="rememberMe"
               value={rememberMe}
-              onChange={handleChange}
+              onChange={(e) => {
+                handleChange({
+                  target: {
+                    name: e.target.name,
+                    value: e.target.checked,
+                  },
+                });
+              }}
             />
             <RememberMeLabel>Remember me on this computer</RememberMeLabel>
           </RememberMe>
         </FormRow>
         <FormRow>
-          <SignInButton type="button">Sign In</SignInButton>
+          <SignInButton type="button" onClick={handleSubmit}>Sign In</SignInButton>
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
       </Form>
+      <div>{inputs.username}</div>
+      <div>{inputs.password}</div>
+      <div>{inputs.rememberMe ? "True!" : "False!"}</div>
     </Container>
   );
 };
@@ -84,7 +104,7 @@ const Login = () => {
 export default Login;
 
 const Container = styled.div`
-  max-width: 10%;
+  max-width: 20%;
   margin: 0 auto;
 `;
 

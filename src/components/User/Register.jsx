@@ -16,17 +16,26 @@ const Register = () => {
 
   useEffect(() => {});
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((user) => ({ ...user, [name]: value }));
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     if (user.firstName && user.lastName && user.username && user.password) {
+      axios
+        .post(`${accountApi}/register`)
+        .then((res) => {
+          //Get return url from location state or default to home page
+          const { from } = location.state || { from: { pathname: "/" } };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  }
+  };
 
   return (
     <Container>

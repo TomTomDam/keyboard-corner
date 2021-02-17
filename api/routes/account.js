@@ -6,8 +6,9 @@ const tableName = "Users";
 
 //Login
 router.get("/login", (req, res) => {
-  let sql = `SELECT * FROM ${tableName} WHERE email = ? && password = ?`;
-  let params = [req.body.email, req.body.password];
+  console.log("You hit /api/account/login");
+  let sql = `SELECT * FROM ${tableName} WHERE username = ? && password = ?`;
+  let params = [req.body.username, req.body.password];
   db.get(sql, params, (err, row) => {
     if (err)
       return res.status(400).json({
@@ -15,28 +16,15 @@ router.get("/login", (req, res) => {
         msg: err,
       });
 
-    let payload = {username = username};
-    let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-        algorithm: "HS256",
-        expiresIn: process.env.ACCESS_TOKEN_SECRET
-    });
-    let refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
-        algorithm: "HS256",
-        expiresIn: process.env.REFRESH_TOKEN_SECRET
-    });
-
-    row.refreshToken = refreshToken;
-    res.cookie("jwt", accessToken, {secure: true, httpOnly: true});
-
     return row
       ? res.json({
           statusCode: 200,
-          msg: "Successfully logged in User.",
+          msg: "User was found.",
           data: row,
         })
       : res.json({
           statusCode: 404,
-          msg: `User could not be logged in.`,
+          msg: `Invalid User username and password combination.`,
           data: row,
         });
   });
@@ -126,3 +114,5 @@ router.post("/register", (req, res) => {
     });
   });
 });
+
+module.exports = router;

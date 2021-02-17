@@ -21,25 +21,25 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log("You are in handleSubmit()");
-    if (username && password) {
-      axios
-        .get(`${accountApi}/login`)
-        .then((res) => {
-          //Get return url from location state or default to home page
-          //const { from } = location.state || { from: { pathname: "/" } };
+    axios
+      .post(`${accountApi}/login`, {
+        username: inputs.username,
+        password: inputs.password,
+      })
+      .then((res) => {
+        //Get return url from location state or default to home page
+        //const { from } = location.state || { from: { pathname: "/" } };
 
-          //TESTING IF API WORKS
-          if (res.data.message) {
-            setLoginStatus(alert("User successfully logged in!"));
-          } else {
-            setLoginStatus(alert(response.data.msg));
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+        //TESTING IF API WORKS
+        if (res.data.message) {
+          setLoginStatus(alert("User successfully logged in!"));
+        } else {
+          setLoginStatus(alert(response.data.msg));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -90,10 +90,13 @@ const Login = () => {
           </RememberMe>
         </FormRow>
         <FormRow>
-          <SignInButton type="button" onClick={handleSubmit}>Sign In</SignInButton>
+          <SignInButton type="button" onClick={handleSubmit}>
+            Sign In
+          </SignInButton>
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
       </Form>
+      {/* TESTING STATE FOR INPUTS */}
       <div>{inputs.username}</div>
       <div>{inputs.password}</div>
       <div>{inputs.rememberMe ? "True!" : "False!"}</div>

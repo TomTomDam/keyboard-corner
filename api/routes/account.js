@@ -5,15 +5,15 @@ const db = require("../database/sqlite");
 const tableName = "Users";
 
 //Login
-router.get("/login", (req, res) => {
-  console.log("You hit /api/account/login");
-  let sql = `SELECT * FROM ${tableName} WHERE username = ? && password = ?`;
+router.post("/login", (req, res) => {
+  let sql = `SELECT * FROM ${tableName} WHERE username = ? AND password = ?`;
   let params = [req.body.username, req.body.password];
   db.get(sql, params, (err, row) => {
     if (err)
       return res.status(400).json({
         statusCode: 400,
-        msg: err,
+        err: err,
+        msg: err.message,
       });
 
     return row

@@ -15,4 +15,4 @@ A website for showing off the world of mechanical keyboards using React.
 
 TODO:
 - **Client** - Implement login system
-- **Server** - Authentication using JWT (JSON Web Token), authorization via User roles (Admin, Member)
+- **API** - Authentication using JWT (JSON Web Token), authorization via User roles (Admin, Member)

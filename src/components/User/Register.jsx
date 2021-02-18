@@ -11,7 +11,6 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const [submitted, setSubmitted] = useState(false);
   const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {});
@@ -22,68 +21,82 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    if (user.firstName && user.lastName && user.username && user.password) {
-      axios
-        .post(`${accountApi}/register`)
-        .then((res) => {
-          //Get return url from location state or default to home page
-          const { from } = location.state || { from: { pathname: "/" } };
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    axios
+      .post(`${accountApi}/register`, {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      })
+      .then((res) => {
+        // //Get return url from location state or default to home page
+        // const { from } = location.state || { from: { pathname: "/" } };
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <Container>
       <h1>Register</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <FormRow>
           <FormLabel>First Name</FormLabel>
           <NameInput
             type="text"
+            name="firstName"
             value={user.firstName}
             onChange={handleChange}
           />
-          {submitted && !user.firstName && <div>First Name is required.</div>}
+          {/* TODO: Split out validation message to a component */}
+          {/* {!user.firstName && <div>First Name is required.</div>} */}
         </FormRow>
         <FormRow>
           <FormLabel>Last Name</FormLabel>
           <NameInput
             type="text"
+            name="lastName"
             value={user.lastName}
             onChange={handleChange}
           />
-          {submitted && !user.lastName && <div>Last Name is required.</div>}
+          {/* {!user.lastName && <div>Last Name is required.</div>} */}
         </FormRow>
         <FormRow>
           <FormLabel>Username</FormLabel>
           <UsernameInput
             type="text"
+            name="username"
             value={user.username}
             onChange={handleChange}
           />
-          {submitted && !user.username && <div>Username is required.</div>}
+          {/* {!user.username && <div>Username is required.</div>} */}
         </FormRow>
         <FormRow>
           <FormLabel>Email</FormLabel>
-          <EmailInput type="email" value={user.email} onChange={handleChange} />
-          {submitted && !user.email && <div>Email is required.</div>}
+          <EmailInput
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+          />
+          {/* {!user.email && <div>Email is required.</div>} */}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
           <PasswordInput
             type="password"
+            name="password"
             value={user.password}
             onChange={handleChange}
           />
-          {submitted && !user.password && <div>Password is required.</div>}
+          {/* {!user.password && <div>Password is required.</div>} */}
         </FormRow>
         <FormRow>
-          <RegisterButton type="button">Register</RegisterButton>
+          <RegisterButton type="button" onClick={handleSubmit}>
+            Register
+          </RegisterButton>
         </FormRow>
         <LoginLink to="/login">Already have an account?</LoginLink>
       </Form>
@@ -123,7 +136,6 @@ const EmailInput = styled(Input)``;
 const PasswordInput = styled(Input)``;
 
 const RegisterButton = styled.button`
-  width: 5vw;
   padding: 5px 10px;
   margin: 0 auto;
 `;

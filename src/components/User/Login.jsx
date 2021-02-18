@@ -9,11 +9,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  const { username, password, rememberMe } = inputs;
   const accountApi = "http://localhost:3000/api/account";
-
-  //TESTING IF API WORKS
-  const [loginStatus, setLoginStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,16 +22,9 @@ const Login = () => {
         username: inputs.username,
         password: inputs.password,
       })
-      .then((res) => {
+      .then(function(res) {
         //Get return url from location state or default to home page
         //const { from } = location.state || { from: { pathname: "/" } };
-
-        //TESTING IF API WORKS
-        if (res.data.message) {
-          setLoginStatus(alert("User successfully logged in!"));
-        } else {
-          setLoginStatus(alert(response.data.msg));
-        }
       })
       .catch((err) => {
         console.log(err);
@@ -51,7 +40,7 @@ const Login = () => {
           <UsernameInput
             type="text"
             name="username"
-            value={username}
+            value={inputs.username}
             onChange={handleChange}
           />
           {/* TODO: Split out validation message to a component */}
@@ -64,7 +53,7 @@ const Login = () => {
           <PasswordInput
             type="password"
             name="password"
-            value={password}
+            value={inputs.password}
             onChange={handleChange}
           />
           {/* {!password && (
@@ -76,7 +65,7 @@ const Login = () => {
             <RememberMeCheckbox
               type="checkbox"
               name="rememberMe"
-              value={rememberMe}
+              value={inputs.rememberMe}
               onChange={(e) => {
                 handleChange({
                   target: {
@@ -96,10 +85,6 @@ const Login = () => {
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
       </Form>
-      {/* TESTING STATE FOR INPUTS */}
-      <div>{inputs.username}</div>
-      <div>{inputs.password}</div>
-      <div>{inputs.rememberMe ? "True!" : "False!"}</div>
     </Container>
   );
 };
@@ -142,15 +127,10 @@ const RememberMeLabel = styled.div`
 `;
 
 const SignInButton = styled.button`
-  width: 5vw;
   padding: 5px 10px;
   margin: 0 auto;
 `;
 
 const RegisterLink = styled(Link)`
   margin-top: 1rem;
-`;
-
-const ValidationMessage = styled.div`
-  color: red;
 `;

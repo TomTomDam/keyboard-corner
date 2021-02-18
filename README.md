@@ -9,9 +9,9 @@ A website for showing off the world of mechanical keyboards using React.
 - [styled-components](https://styled-components.com/docs/basics) - CSS-in-JS styling
 - Axios - to consume the API
 
-### Backend
-- **API**: Node.js with Express.js framework
-- **Database**: SQLite
+### API
+- Node.js with Express.js framework
+- SQLite database
 
 TODO:
 - **Client** - Implement login system

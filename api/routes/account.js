@@ -25,7 +25,6 @@ router.post("/login", (req, res) => {
       : res.json({
           statusCode: 404,
           msg: `Invalid User username and password combination.`,
-          data: row,
         });
   });
 });
@@ -84,6 +83,7 @@ router.post("/register", (req, res) => {
 
       if (row != null) {
         return res.status(404).json({
+          statusCode: 404,
           msg: `User with username ${req.body.username} already exists.`,
         });
       }

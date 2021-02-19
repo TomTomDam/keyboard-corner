@@ -46,7 +46,13 @@ router.get("/:id", (req, res) => {
       ? res.json({
           statusCode: 200,
           msg: "Successfully retrieved a User.",
-          data: row,
+          data: {
+            id: row.id,
+            firstName: row.firstName,
+            lastName: row.lastName,
+            username: row.username,
+            email: row.email
+          },
         })
       : res.json({
           statusCode: 404,

@@ -1,11 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 const db = require("../database/sqlite");
 
 const tableName = "Users";
 
 //Login
 router.post("/login", (req, res) => {
+  const user = {
+    username: req.body.username,
+    password: req.body.password,
+  };
+
+  //Generate JWT
   let sql = `SELECT * FROM ${tableName} WHERE username = ? AND password = ?`;
   let params = [req.body.username, req.body.password];
   db.get(sql, params, (err, row) => {
@@ -16,21 +25,32 @@ router.post("/login", (req, res) => {
         msg: err.message,
       });
 
-    return row
-      ? res.json({
-          statusCode: 200,
-          msg: "User was found.",
-          data: row,
-        })
-      : res.json({
-          statusCode: 404,
-          msg: `Invalid User username and password combination.`,
-        });
+    // const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
+    // if (!passwordIsValid)
+    //   return res.status(401).json({
+    //     statusCode: 401,
+    //     msg: "Unauthorized - Invalid username and password combination.",
+    //     data: row,
+    //   });
+
+    jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
+      return row
+        ? res.json({
+            statusCode: 200,
+            msg: "Succesful login attempt!",
+            data: row,
+            token: token,
+          })
+        : res.json({
+            statusCode: 404,
+            msg: "User could not be found.",
+          });
+    });
   });
 });
 
 //Register
-router.post("/register", (req, res) => {
+router.post("/register", auth.verifyToken, (req, res) => {
   let errors = [];
   if (!req.body.firstName) {
     errors.push("No firstName was specified.");
@@ -54,6 +74,16 @@ router.post("/register", (req, res) => {
       msg: errors,
     });
   }
+
+  jwt.verify(req.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+    if (err)
+      return res.status(403).json({
+        statusCode: 403,
+        msg: "Forbidden - token is invalid.",
+      });
+
+    return;
+  });
 
   db.serialize(function () {
     //Check if user with email or username already exists
@@ -89,6 +119,7 @@ router.post("/register", (req, res) => {
       }
     });
 
+    const hashedPassword = bcrypt.hashSync(req.body.password, 8);
     let sql = `INSERT INTO ${tableName} (firstName, lastName, email, username, password) 
       VALUES ($firstName, $lastName, $email, $username, $password)`;
     let params = {
@@ -96,7 +127,7 @@ router.post("/register", (req, res) => {
       $lastName: req.body.lastName,
       $email: req.body.email,
       $username: req.body.username,
-      $password: req.body.password,
+      $password: hashedPassword,
     };
 
     //Object.values() passes request body values into an array

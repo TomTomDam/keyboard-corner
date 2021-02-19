@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ValidationMessage from "./Validation/ValidationMessage";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -50,8 +51,7 @@ const Register = () => {
             value={user.firstName}
             onChange={handleChange}
           />
-          {/* TODO: Split out validation message to a component */}
-          {/* {!user.firstName && <div>First Name is required.</div>} */}
+          {!user.firstName && <ValidationMessage input={"First Name"}/>}
         </FormRow>
         <FormRow>
           <FormLabel>Last Name</FormLabel>
@@ -61,7 +61,7 @@ const Register = () => {
             value={user.lastName}
             onChange={handleChange}
           />
-          {/* {!user.lastName && <div>Last Name is required.</div>} */}
+          {!user.lastName && <ValidationMessage input={"Last Name"}/>}
         </FormRow>
         <FormRow>
           <FormLabel>Username</FormLabel>
@@ -71,7 +71,7 @@ const Register = () => {
             value={user.username}
             onChange={handleChange}
           />
-          {/* {!user.username && <div>Username is required.</div>} */}
+          {!user.username && <ValidationMessage input={"Username"}/>}
         </FormRow>
         <FormRow>
           <FormLabel>Email</FormLabel>
@@ -81,7 +81,7 @@ const Register = () => {
             value={user.email}
             onChange={handleChange}
           />
-          {/* {!user.email && <div>Email is required.</div>} */}
+          {!user.email && <ValidationMessage input={"Email"}/>}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
@@ -91,7 +91,7 @@ const Register = () => {
             value={user.password}
             onChange={handleChange}
           />
-          {/* {!user.password && <div>Password is required.</div>} */}
+          {!user.password && <ValidationMessage input={"Password"}/>}
         </FormRow>
         <FormRow>
           <RegisterButton type="button" onClick={handleSubmit}>

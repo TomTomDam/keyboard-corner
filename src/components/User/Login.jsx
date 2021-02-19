@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ValidationMessage from "./Validation/ValidationMessage";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -43,10 +44,9 @@ const Login = () => {
             value={inputs.username}
             onChange={handleChange}
           />
-          {/* TODO: Split out validation message to a component */}
-          {/* {!username && (
-            <ValidationMessage>Username is required.</ValidationMessage>
-          )} */}
+          {!inputs.username && (
+            <ValidationMessage input={"Username"} />
+          )}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
@@ -56,9 +56,9 @@ const Login = () => {
             value={inputs.password}
             onChange={handleChange}
           />
-          {/* {!password && (
-            <ValidationMessage>Password is required.</ValidationMessage>
-          )} */}
+          {!inputs.password && (
+            <ValidationMessage input={"Password"}/>
+          )}
         </FormRow>
         <FormRow>
           <RememberMe>

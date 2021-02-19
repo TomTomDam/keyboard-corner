@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
 const db = require("../database/sqlite");
 
 const tableName = "Users";
@@ -29,7 +28,6 @@ router.post("/login", (req, res) => {
       return res.status(401).json({
         statusCode: 401,
         msg: "Unauthorized - Invalid username and password combination.",
-        data: row,
       });
 
     //Generate JWT
@@ -43,7 +41,7 @@ router.post("/login", (req, res) => {
           })
         : res.json({
             statusCode: 404,
-            msg: "User could not be found.",
+            msg: "User could not be found. Please try a different username and/or password.",
           });
     });
   });

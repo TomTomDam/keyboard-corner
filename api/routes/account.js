@@ -14,9 +14,8 @@ router.post("/login", (req, res) => {
     password: req.body.password,
   };
 
-  //Generate JWT
-  let sql = `SELECT * FROM ${tableName} WHERE username = ? AND password = ?`;
-  let params = [req.body.username, req.body.password];
+  let sql = `SELECT * FROM ${tableName} WHERE username = ?`;
+  let params = [req.body.username];
   db.get(sql, params, (err, row) => {
     if (err)
       return res.status(400).json({
@@ -25,14 +24,15 @@ router.post("/login", (req, res) => {
         msg: err.message,
       });
 
-    // const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
-    // if (!passwordIsValid)
-    //   return res.status(401).json({
-    //     statusCode: 401,
-    //     msg: "Unauthorized - Invalid username and password combination.",
-    //     data: row,
-    //   });
+    const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
+    if (!passwordIsValid)
+      return res.status(401).json({
+        statusCode: 401,
+        msg: "Unauthorized - Invalid username and password combination.",
+        data: row,
+      });
 
+    //Generate JWT
     jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
       return row
         ? res.json({
@@ -49,8 +49,36 @@ router.post("/login", (req, res) => {
   });
 });
 
+//Logout
+router.post("/logout", (req, res) => {
+  let sql = `SELECT * FROM ${tableName} WHERE username = ?`;
+  let params = [req.body.username];
+  db.get(sql, params, (err, row) => {
+    if (err)
+      return res.status(400).json({
+        statusCode: 400,
+        err: err,
+        msg: err.message,
+      });
+
+    const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
+    if (!passwordIsValid)
+      return res.status(401).json({
+        statusCode: 401,
+        msg: "Unauthorized - Invalid username and password combination.",
+        data: row,
+      });
+
+      return res.status(200).json({
+        statusCode: 200,
+        msg: "Successfully logged out User.",
+        token: null,
+      });
+  });
+});
+
 //Register
-router.post("/register", auth.verifyToken, (req, res) => {
+router.post("/register", (req, res) => {
   let errors = [];
   if (!req.body.firstName) {
     errors.push("No firstName was specified.");
@@ -74,16 +102,6 @@ router.post("/register", auth.verifyToken, (req, res) => {
       msg: errors,
     });
   }
-
-  jwt.verify(req.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
-    if (err)
-      return res.status(403).json({
-        statusCode: 403,
-        msg: "Forbidden - token is invalid.",
-      });
-
-    return;
-  });
 
   db.serialize(function () {
     //Check if user with email or username already exists
@@ -119,7 +137,8 @@ router.post("/register", auth.verifyToken, (req, res) => {
       }
     });
 
-    const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+    const salt = bcrypt.genSaltSync(8);
+    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
     let sql = `INSERT INTO ${tableName} (firstName, lastName, email, username, password) 
       VALUES ($firstName, $lastName, $email, $username, $password)`;
     let params = {
@@ -138,10 +157,18 @@ router.post("/register", auth.verifyToken, (req, res) => {
           msg: err.message,
         });
 
-      return res.json({
-        statusCode: 200,
-        msg: "Successfully created a User.",
-      });
+      //Generate token
+      jwt.sign(
+        { user: params },
+        process.env.ACCESS_TOKEN_SECRET,
+        (err, authData) => {
+          return res.json({
+            statusCode: 200,
+            msg: "Successfully created a User.",
+            authData: authData,
+          });
+        }
+      );
     });
   });
 });

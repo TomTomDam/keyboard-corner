@@ -32,28 +32,25 @@ const Navbar = () => {
     {
       id: 5,
       title: "Login",
-      path: "/login"
-    }
+      path: "/login",
+    },
   ];
 
   let toggleIcon;
-  if (mobileMenu === false) {
-    toggleIcon = <FaIcons.FaBars onClick={showMobileMenu} />;
-  } else {
-    toggleIcon = <AiIcons.AiOutlineClose onClick={showMobileMenu} />;
-  }
+  mobileMenu
+    ? (toggleIcon = <AiIcons.AiOutlineClose onClick={showMobileMenu} />)
+    : (toggleIcon = <FaIcons.FaBars onClick={showMobileMenu} />);
 
   //Hide navbar on scroll down, show on scroll up
-  var prevScrollpos = window.pageYOffset;
+  let prevScrollPos = window.pageYOffset;
   window.onscroll = function () {
-    var navbar = document.getElementById("navbar");
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      navbar.style.top = "0";
-    } else {
-      navbar.style.top = -navbar.clientHeight;
-    }
-    prevScrollpos = currentScrollPos;
+    let navbar = document.getElementById("navbar");
+    let currentScrollPos = window.pageYOffset;
+    prevScrollPos > currentScrollPos
+      ? (navbar.style.top = "0")
+      : (navbar.style.top = -navbar.clientHeight);
+
+    prevScrollPos = currentScrollPos;
   };
 
   return (
@@ -72,6 +69,7 @@ const Navbar = () => {
               </li>
             );
           })}
+          {/*Component to show logged in User, with dropdown*/}
         </NavMenu>
       </NavBar>
     </header>
@@ -145,7 +143,7 @@ const NavMenu = styled.ul`
     margin-top: -16px;
     padding-top: 1rem;
     position: absolute;
-    top: ${(props) => props.mobileMenu ? "70px" : "-100vh"};
+    top: ${(props) => (props.mobileMenu ? "70px" : "-100vh")};
     left: 0;
     opacity: 1;
     transition: all 0.3s ease;

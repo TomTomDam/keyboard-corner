@@ -11,6 +11,7 @@ const Login = () => {
     rememberMe: false,
   });
   const accountApi = "http://localhost:3000/api/account";
+  const [loginStatus, setLoginStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,12 +24,14 @@ const Login = () => {
         username: inputs.username,
         password: inputs.password,
       })
-      .then(function(res) {
+      .then(function (res) {
         //Get return url from location state or default to home page
         //const { from } = location.state || { from: { pathname: "/" } };
+        setLoginStatus("Successfully logged in!");
       })
       .catch((err) => {
         console.log(err);
+        setLoginStatus("Could not log in. Please try again later.");
       });
   };
 
@@ -44,9 +47,7 @@ const Login = () => {
             value={inputs.username}
             onChange={handleChange}
           />
-          {!inputs.username && (
-            <ValidationMessage input={"Username"} />
-          )}
+          {!inputs.username && <ValidationMessage input={"Username"} />}
         </FormRow>
         <FormRow>
           <FormLabel>Password</FormLabel>
@@ -56,9 +57,7 @@ const Login = () => {
             value={inputs.password}
             onChange={handleChange}
           />
-          {!inputs.password && (
-            <ValidationMessage input={"Password"}/>
-          )}
+          {!inputs.password && <ValidationMessage input={"Password"} />}
         </FormRow>
         <FormRow>
           <RememberMe>
@@ -84,6 +83,7 @@ const Login = () => {
           </SignInButton>
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
+        <div>{loginStatus}</div>
       </Form>
     </Container>
   );
@@ -132,5 +132,9 @@ const SignInButton = styled.button`
 `;
 
 const RegisterLink = styled(Link)`
+  margin-top: 1rem;
+`;
+
+const LoginStatus = styled.div`
   margin-top: 1rem;
 `;

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import LoginNavbar from "./Login";
+import UserNavbar from "./User";
+import { UserContext } from "../../UserContext";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const showMobileMenu = () => setMobileMenu(!mobileMenu);
+  const [user, setUser] = useContext(UserContext);
 
   const links = [
     {
@@ -36,6 +40,19 @@ const Navbar = () => {
     },
   ];
 
+  const linksMap = links
+    .filter((x) => x.id !== 5)
+    .map((link) => {
+      return (
+        <li key={link.id}>
+          <NavLink to={`${link.path}`}>
+            <span>{link.title}</span>
+          </NavLink>
+        </li>
+      );
+    });
+  const loginLink = links.find((x) => x.id === 5);
+
   let toggleIcon;
   mobileMenu
     ? (toggleIcon = <AiIcons.AiOutlineClose onClick={showMobileMenu} />)
@@ -60,16 +77,8 @@ const Navbar = () => {
         <NavBarLogo to="/">Keyboard Corner</NavBarLogo>
         <NavBarToggle>{toggleIcon}</NavBarToggle>
         <NavMenu mobileMenu={mobileMenu}>
-          {links.map((link) => {
-            return (
-              <li key={link.id}>
-                <NavLink to={`${link.path}`}>
-                  <span>{link.title}</span>
-                </NavLink>
-              </li>
-            );
-          })}
-          {/*Component to show logged in User, with dropdown*/}
+          {linksMap}
+          Hello, {user.username}
         </NavMenu>
       </NavBar>
     </header>

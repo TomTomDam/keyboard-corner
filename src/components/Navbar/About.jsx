@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading } from "../assets/styles/Layout";
+import { Heading } from "../../assets/styles/Layout";
 
 const About = () => {
   return (

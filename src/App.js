@@ -33,16 +33,19 @@ const App = (props) => {
       <GlobalTheme />
       <UserProvider>
         <Navbar />
+        <Main>
+          <Route exact path="/" component={Home} />
+          <Route
+            path="/keyboard-encyclopedia"
+            component={KeyboardEncyclopedia}
+          />
+          <Route path="/my-keyboards" component={MyKeyboards}></Route>
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
+        </Main>
       </UserProvider>
-      <Main>
-        <Route exact path="/" component={Home} />
-        <Route path="/keyboard-encyclopedia" component={KeyboardEncyclopedia} />
-        <Route path="/my-keyboards" component={MyKeyboards}></Route>
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/login" component={Login}></Route>
-        <Route path="/register" component={Register}></Route>
-      </Main>
       <Footer />
     </Container>
   );

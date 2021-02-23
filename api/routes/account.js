@@ -3,8 +3,33 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../database/sqlite");
+const auth = require("../middleware/auth");
 
 const tableName = "Users";
+
+//Verify Token
+router.get("/token", (req, res) => {
+  const token = auth.verifyToken(req);
+  if (token === null) {
+    jwt.sign(
+      { user: req.body },
+      process.env.ACCESS_TOKEN_SECRET,
+      (err, authData) => {
+        return res.json({
+          statusCode: 200,
+          msg: "Successfully created a new Token.",
+          authData: authData,
+        });
+      }
+    );
+  }
+
+  return res.json({
+    statusCode: 200,
+    msg: "Token validation was successful.",
+    token: token,
+  });
+});
 
 //Login
 router.post("/login", (req, res) => {
@@ -41,7 +66,8 @@ router.post("/login", (req, res) => {
           })
         : res.json({
             statusCode: 404,
-            msg: "User could not be found. Please try a different username and/or password.",
+            msg:
+              "User could not be found. Please try a different username and/or password.",
           });
     });
   });
@@ -67,11 +93,11 @@ router.post("/logout", (req, res) => {
         data: row,
       });
 
-      return res.status(200).json({
-        statusCode: 200,
-        msg: "Successfully logged out User.",
-        token: null,
-      });
+    return res.status(200).json({
+      statusCode: 200,
+      msg: "Successfully logged out User.",
+      token: null,
+    });
   });
 });
 

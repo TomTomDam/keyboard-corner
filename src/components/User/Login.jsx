@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import ValidationMessage from "./Validation/ValidationMessage";
+import { UserContext } from "../../UserContext";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -10,8 +10,8 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  const accountApi = "http://localhost:3000/api/account";
-  const [loginStatus, setLoginStatus] = useState("");
+  // const [isAuthenticated, setIsAuthenticated] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,20 +19,7 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    axios
-      .post(`${accountApi}/login`, {
-        username: inputs.username,
-        password: inputs.password,
-      })
-      .then(function (res) {
-        //Get return url from location state or default to home page
-        //const { from } = location.state || { from: { pathname: "/" } };
-        setLoginStatus("Successfully logged in!");
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoginStatus("Could not log in. Please try again later.");
-      });
+    setUser((inputs) => ({...inputs}));
   };
 
   return (
@@ -83,7 +70,7 @@ const Login = () => {
           </SignInButton>
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
-        <div>{loginStatus}</div>
+        {/* <LoginStatus>{isAuthenticated}</LoginStatus> */}
       </Form>
     </Container>
   );

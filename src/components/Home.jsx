@@ -388,6 +388,9 @@ const Wrapper4Text = styled.p`
 `;
 
 const Wrapper4Button = styled(Button)`
+  color: ${(props) => props.theme.colours.white};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   margin-top: 2rem;
-  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;

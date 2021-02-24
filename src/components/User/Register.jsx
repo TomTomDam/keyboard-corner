@@ -14,8 +14,6 @@ const Register = () => {
   });
   const accountApi = "http://localhost:3000/api/account";
 
-  useEffect(() => {});
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((user) => ({ ...user, [name]: value }));

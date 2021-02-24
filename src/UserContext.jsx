@@ -41,7 +41,7 @@ export const UserProvider = (props) => {
         options
       )
       .then((res) => {
-        //setUser(res.data);
+        //setUser(res.data.data);
         //setIsAuthenticated(true);
       })
       .catch((err) => {

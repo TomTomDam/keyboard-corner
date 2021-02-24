@@ -372,17 +372,25 @@ const ClickySwitchImage = styled(Wrapper3Image)``;
 const Wrapper4 = styled(Wrapper)`
   background: ${(props) => props.theme.colours.darkgray};
   color: ${(props) => props.theme.colours.white};
+  position: relative;
 `;
 
 const Wrapper4Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 30vh;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 40vh;
 `;
 
-const Wrapper4Text = styled.p``;
+const Wrapper4Text = styled.p`
+
+`;
 
 const Wrapper4Button = styled(Button)`
+  color: ${(props) => props.theme.colours.white};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   margin-top: 2rem;
-  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;

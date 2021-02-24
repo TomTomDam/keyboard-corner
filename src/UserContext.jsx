@@ -1,10 +1,18 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-export const UserContext = createContext(null);
+export const UserContext = createContext();
 
 export const UserProvider = (props) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    id: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "jwt",
+    password: "jwt",
+    rememberMe: false,
+  });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const accountApi = "http://localhost:3000/api/account";
 
@@ -13,20 +21,32 @@ export const UserProvider = (props) => {
     //Then send a post request to verify if token is valid
     //If token is valid, get user from response and pass to setUser() and setIsAuthenticated(true)
 
-    //setUser();
-    // axios
-    //   .post(`${accountApi}/login`, {
-    //     username: user.username,
-    //     password: user.password,
-    //   })
-    //   .then(function (res) {
-    //     //Get return url from location state or default to home page
-    //     //const { from } = location.state || { from: { pathname: "/" } };
-    //     setIsAuthenticated(true);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    //Axios is making double request: one for OPTIONS and another for POST. 
+    //POST request becomes invalid when calling setUser() for some reason.
+
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    };
+
+    return axios
+      .post(
+        `${accountApi}/login`,
+        {
+          username: user.username,
+          password: user.password,
+        },
+        options
+      )
+      .then((res) => {
+        //setUser(res.data);
+        //setIsAuthenticated(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 
   return (

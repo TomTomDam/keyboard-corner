@@ -38,6 +38,16 @@ router.post("/login", (req, res) => {
     password: req.body.password,
   };
 
+  //TESTING
+  console.log(user);
+
+  if (!req.body.username || !req.body.password === "") {
+    return res.status(400).json({
+      statusCode: 400,
+      msg: "Username or password was not provided.",
+    });
+  }
+
   let sql = `SELECT * FROM ${tableName} WHERE username = ?`;
   let params = [req.body.username];
   db.get(sql, params, (err, row) => {

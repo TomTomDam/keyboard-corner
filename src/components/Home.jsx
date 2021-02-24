@@ -82,7 +82,7 @@ const Home = () => {
             daily tasks. Unfortunately, it has become something we now take for
             granted.
           </p>
-          <br/>
+          <br />
           <p>
             Mechanical keyboards can be customised in a variety of ways to suit
             your preferences.
@@ -100,24 +100,24 @@ const Home = () => {
             total:
             <b> Linear</b>, <b>Tactile</b> and <b>Clicky</b>.
           </Wrapper3HeaderText>
-          <Wrapper3ImagesRow>
-            <Wrapper3ImageContainer>
-              <Wrapper3ImageTitle>Linear</Wrapper3ImageTitle>
-              <LinearSwitchImage id="linearSwitch" src={CherryMXRed} />
-              <p>Smooth all the way down</p>
-            </Wrapper3ImageContainer>
-            <Wrapper3ImageContainer>
-              <Wrapper3ImageTitle>Tactile</Wrapper3ImageTitle>
-              <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown} />
-              <p>Tactile bump</p>
-            </Wrapper3ImageContainer>
-            <Wrapper3ImageContainer>
-              <Wrapper3ImageTitle>Clicky</Wrapper3ImageTitle>
-              <ClickySwitchImage id="clickySwitch" src={CherryMXBlue} />
-              <p>Tactile bump with an audible "click" sound</p>
-            </Wrapper3ImageContainer>
-          </Wrapper3ImagesRow>
         </Header>
+        <Wrapper3ImagesRow>
+          <Wrapper3ImageContainer>
+            <Wrapper3ImageTitle>Linear</Wrapper3ImageTitle>
+            <LinearSwitchImage id="linearSwitch" src={CherryMXRed} />
+            <p>Smooth all the way down</p>
+          </Wrapper3ImageContainer>
+          <Wrapper3ImageContainer>
+            <Wrapper3ImageTitle>Tactile</Wrapper3ImageTitle>
+            <TactileSwitchImage id="tactileSwitch" src={CherryMXBrown} />
+            <p>Tactile bump</p>
+          </Wrapper3ImageContainer>
+          <Wrapper3ImageContainer>
+            <Wrapper3ImageTitle>Clicky</Wrapper3ImageTitle>
+            <ClickySwitchImage id="clickySwitch" src={CherryMXBlue} />
+            <p>Tactile bump with an audible "click" sound</p>
+          </Wrapper3ImageContainer>
+        </Wrapper3ImagesRow>
       </Wrapper3>
       <Wrapper4>
         <Header>
@@ -374,8 +374,15 @@ const Wrapper4 = styled(Wrapper)`
   color: ${(props) => props.theme.colours.white};
 `;
 
-const Wrapper4Container = styled.div``;
+const Wrapper4Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30vh;
+`;
 
 const Wrapper4Text = styled.p``;
 
-const Wrapper4Button = styled(Button)``;
+const Wrapper4Button = styled(Button)`
+  margin-top: 2rem;
+  color: black;
+`;

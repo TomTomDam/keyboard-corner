@@ -8,9 +8,9 @@ const auth = require("../middleware/auth");
 const tableName = "Users";
 
 //Verify Token
-router.get("/token", (req, res) => {
-  const token = auth.verifyToken(req);
-  if (token === null) {
+//auth.verifyToken middleware goes in this function
+router.get("/verifyToken", (req, res) => {
+  if (req.headers["Authorization"] === null) {
     jwt.sign(
       { user: req.body },
       process.env.ACCESS_TOKEN_SECRET,
@@ -27,7 +27,7 @@ router.get("/token", (req, res) => {
   return res.json({
     statusCode: 200,
     msg: "Token validation was successful.",
-    token: token,
+    token: req.headers["Authorization"],
   });
 });
 

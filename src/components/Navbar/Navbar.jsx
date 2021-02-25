@@ -78,11 +78,11 @@ const Navbar = (props) => {
         <NavBarToggle>{toggleIcon}</NavBarToggle>
         <NavMenu mobileMenu={mobileMenu}>
           {linksMap}
-          {user !== null ? (
+          {/* {user !== null ? (
             <UserNavbar loggedInUser={user} />
           ) : (
             <LoginNavbar link={loginLink} />
-          )}
+          )} */}
         </NavMenu>
       </NavBar>
     </header>

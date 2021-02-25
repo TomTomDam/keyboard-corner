@@ -20,9 +20,10 @@ import About from "./components/Navbar/About";
 import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import Contact from "./components/Navbar/Contact";
+import { UserProvider } from "./UserContext";
 import Login from "./components/User/Login";
 import Register from "./components/User/Register";
-import { UserProvider } from "./UserContext";
+import Users from "./components/User/Admin/Index";
 
 const App = (props) => {
   return (
@@ -39,11 +40,12 @@ const App = (props) => {
             path="/keyboard-encyclopedia"
             component={KeyboardEncyclopedia}
           />
-          <Route path="/my-keyboards" component={MyKeyboards}></Route>
+          <Route path="/my-keyboards" component={MyKeyboards} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/users" component={Users} />
         </Main>
       </UserProvider>
       <Footer />

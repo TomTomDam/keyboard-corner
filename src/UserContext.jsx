@@ -17,37 +17,53 @@ export const UserProvider = (props) => {
   const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {
-    //First get the token from .env file
-    //Then send a post request to verify if token is valid
+    //First get a new token when logging in
+    //When entering an authorized route, send:
+    //header: { "authorization": Bearer ${accessToken}" } to auth.verifyToken()
+    //auth.verifyToken() checks if token is valid
     //If token is valid, get user from response and pass to setUser() and setIsAuthenticated(true)
 
-    //Axios is making double request: one for OPTIONS and another for POST. 
+    //Axios is making double request: one for OPTIONS and another for POST.
     //POST request becomes invalid when calling setUser() for some reason.
-
-    const options = {
+    const loginConfig = {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
     };
 
-    return axios
+    axios
       .post(
         `${accountApi}/login`,
         {
           username: user.username,
           password: user.password,
         },
-        options
+        loginConfig
       )
       .then((res) => {
-        //setUser(res.data.data);
-        //setIsAuthenticated(true);
+        //localStorage.setItem("token", res.data.token);
+
+        const authConfig = {
+          headers: {
+            "authorization": `Bearer ${res.data.token}`,
+          },
+        };
+
+        axios
+        .get(`${accountApi}/verifyToken`, authConfig)
+        .then((res) => {
+        setIsAuthenticated(true);
+        setUser(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <UserContext.Provider value={[user, setUser]}>

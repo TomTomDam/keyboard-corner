@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config({
   path: __dirname + "/config/.env",
 });
+const auth = require("./middleware/auth");
 
 const app = express();
 

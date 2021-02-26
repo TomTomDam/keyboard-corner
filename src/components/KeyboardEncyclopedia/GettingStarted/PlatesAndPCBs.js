@@ -314,6 +314,7 @@ const PlatesAndPCBs = (props) => {
         <PageSectionSubheading id="plates-and-pcbs-1.7">
           Types of plate cuts
         </PageSectionSubheading>
+        {/* TODO: This section */}
         <PageParagraph>Standard plate, Half plate, WKL plate.</PageParagraph>
         {/* <Figure>
           <Image src={} />

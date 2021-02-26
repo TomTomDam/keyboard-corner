@@ -7,8 +7,8 @@ const User = (props) => {
 
   return (
     <li key={user.id}>
-      <NavLink to={`${user.path}`}>
-        <span>Hello, {user.name}</span>
+      <NavLink to={`${user.id}`}>
+        <span>Hello, {user.username}</span>
       </NavLink>
     </li>
   );

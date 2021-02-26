@@ -51,7 +51,7 @@ const Navbar = (props) => {
         </li>
       );
     });
-  //const loginLink = links.find((x) => x.id === 5);
+  const loginLink = links.find((x) => x.id === 5);
 
   let toggleIcon;
   mobileMenu
@@ -78,11 +78,11 @@ const Navbar = (props) => {
         <NavBarToggle>{toggleIcon}</NavBarToggle>
         <NavMenu mobileMenu={mobileMenu}>
           {linksMap}
-          {/* {user !== null ? (
+          {user !== null ? (
             <UserNavbar loggedInUser={user} />
           ) : (
             <LoginNavbar link={loginLink} />
-          )} */}
+          )}
         </NavMenu>
       </NavBar>
     </header>

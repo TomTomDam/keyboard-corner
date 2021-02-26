@@ -117,8 +117,8 @@ const KeyboardEncyclopediaRoutes = (props) => {
     },
   ];
 
-  // var switchesRoute;
-  // var allRoutes;
+  // let switchesRoute;
+  // let allRoutes;
   // routes.map((route) => {
   //   if (route.path === "/switches" || route.id === 7) {
   //     switchesRoute = (

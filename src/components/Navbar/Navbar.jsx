@@ -51,7 +51,7 @@ const Navbar = (props) => {
         </li>
       );
     });
-  const loginLink = links.find((x) => x.id === 5);
+  //const loginLink = links.find((x) => x.id === 5);
 
   let toggleIcon;
   mobileMenu

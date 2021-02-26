@@ -340,40 +340,37 @@ const Switches = () => {
             Linear, Tactile and Clicky switches in action
           </FigureCaption>
         </Figure>
+        <PageSectionSubheading id="switches-2.1">Linear</PageSectionSubheading>
         <PageParagraph>
-          <h3 id="switches-2.1">Linear</h3>
-          <p>
-            Linear stems are completely flat and have no protrusions unlike
-            tactile and clicky stems. There is no tactile feedback to let you
-            know when the key has been actuated. Linears are popular among
-            gamers who are often rapidly pressing the same key and wish to
-            activate a switch repeatedly without the bump getting "stuck" when
-            releasing the key press. However, this is down to the individual as
-            to whether or not you like to game with linears or tactiles.
-          </p>
-          <h3 id="switches-2.2">Tactile</h3>
-          <p>
-            On tactile stems, there are protrusions on them that collide with
-            and move over the metal leaf, giving the switch a distinctive "bump"
-            feeling. This type of switch is the most similar to your typical
-            membrane keyboard, but many tactile switches on the market offer
-            completely different tactile profiles. Tactile switches range from
-            very sharp bumps that happen right at the top of the key press e.g.
-            Zealios, to more recessed, rounded bumps that have some pre-travel
-            before the bump is felt e.g. Holy Panda.
-          </p>
-          <h3 id="switches-2.3">Clicky</h3>
-          <p>
-            Clicky switches have a click jacket that surrounds the stem, and now
-            the click jacket passes across the metal leaf and pops down. This
-            creates a very audible "click" when actuated, hence the name. This
-            also produces a very sharp bump when pressing down on a clicky
-            switch. Because clickys are very loud, they are not recommended for
-            those who type in a public environment. Or for those who do not wish
-            to wake up their next door neighbours <small>/s</small>.
-            Nevertheless, they provide a sharp tactile feeling that many find
-            appealing.
-          </p>
+          Linear stems are completely flat and have no protrusions unlike
+          tactile and clicky stems. There is no tactile feedback to let you know
+          when the key has been actuated. Linears are popular among gamers who
+          are often rapidly pressing the same key and wish to activate a switch
+          repeatedly without the bump getting "stuck" when releasing the key
+          press. However, this is down to the individual as to whether or not
+          you like to game with linears or tactiles.
+        </PageParagraph>
+        <PageSectionSubheading id="switches-2.2">Tactile</PageSectionSubheading>
+        <PageParagraph>
+          On tactile stems, there are protrusions on them that collide with and
+          move over the metal leaf, giving the switch a distinctive "bump"
+          feeling. This type of switch is the most similar to your typical
+          membrane keyboard, but many tactile switches on the market offer
+          completely different tactile profiles. Tactile switches range from
+          very sharp bumps that happen right at the top of the key press e.g.
+          Zealios, to more recessed, rounded bumps that have some pre-travel
+          before the bump is felt e.g. Holy Panda.
+        </PageParagraph>
+        <PageSectionSubheading id="switches-2.3">Clicky</PageSectionSubheading>
+        <PageParagraph>
+          Clicky switches have a click jacket that surrounds the stem, and now
+          the click jacket passes across the metal leaf and pops down. This
+          creates a very audible "click" when actuated, hence the name. This
+          also produces a very sharp bump when pressing down on a clicky switch.
+          Because clickys are very loud, they are not recommended for those who
+          type in a public environment. Or for those who do not wish to wake up
+          their next door neighbours <small>/s</small>. Nevertheless, they
+          provide a sharp tactile feeling that many find appealing.
         </PageParagraph>
       </PageSection>
       <PageSection>

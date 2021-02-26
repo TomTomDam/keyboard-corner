@@ -124,7 +124,7 @@ const LayoutsAndSizes = () => {
           name: "Split backspace",
         },
         {
-          id: 1,
+          id: 3,
           name: "Split right shift",
         },
       ],

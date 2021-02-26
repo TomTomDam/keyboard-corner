@@ -79,27 +79,27 @@ const Keycaps = () => {
           name: "Cherry (GMK, JTK)",
         },
         {
-          id: 1,
+          id: 3,
           name: "SA",
         },
         {
-          id: 1,
+          id: 4,
           name: "DSA",
         },
         {
-          id: 1,
+          id: 5,
           name: "XDA",
         },
         {
-          id: 1,
+          id: 6,
           name: "KAT",
         },
         {
-          id: 1,
+          id: 7,
           name: "KAM",
         },
         {
-          id: 1,
+          id: 8,
           name: "MT3",
         },
       ],

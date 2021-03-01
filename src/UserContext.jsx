@@ -17,6 +17,7 @@ export const UserProvider = (props) => {
   const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {
+    //Get a new token when app is started/refreshed
     const loginConfig = {
       headers: {
         "Content-Type": "application/json",
@@ -34,23 +35,9 @@ export const UserProvider = (props) => {
         loginConfig
       )
       .then((res) => {
-        //Save token as httpOnly cookie here
-
-        const authConfig = {
-          headers: {
-            authorization: `Bearer ${res.data.token}`,
-          },
-        };
-
-        axios
-          .get(`${accountApi}/verifyToken`, authConfig)
-          .then((res) => {
-            setIsAuthenticated(true);
-            setUser(res.data.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        //Since httpOnly cookie cannot be read in front-end,
+        //it must be read and validated in the back-end
+        setIsAuthenticated(true);
       })
       .catch((err) => {
         console.log(err);
@@ -59,7 +46,7 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider value={[user, setUser]}>
-      {props.children}
+      {isAuthenticated ? props.children : null}
     </UserContext.Provider>
   );
 };

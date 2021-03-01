@@ -8,17 +8,19 @@ const auth = require("../middleware/auth");
 const tableName = "Users";
 
 //Verify Token
-//auth.verifyToken middleware goes in this function
-router.get("/verifyToken", (req, res) => {
-  if (req.headers["Authorization"] === null) {
+router.get("/verifyToken", auth.verifyToken, (req, res) => {
+  if (req.cookies.token === null) {
+    //Create new token if it doesn't exist
     jwt.sign(
       { user: req.body },
       process.env.ACCESS_TOKEN_SECRET,
-      (err, authData) => {
+      (err, token) => {
+        //Set token as httpOnly cookie
+        res.cookie('token', token, { httpOnly: true });
+
         return res.json({
           statusCode: 200,
           msg: "Successfully created a new Token.",
-          authData: authData,
         });
       }
     );
@@ -27,7 +29,6 @@ router.get("/verifyToken", (req, res) => {
   return res.json({
     statusCode: 200,
     msg: "Token validation was successful.",
-    token: req.headers["Authorization"],
   });
 });
 
@@ -67,12 +68,14 @@ router.post("/login", (req, res) => {
 
     //Generate JWT
     jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
+      //Set token as a httpOnly cookie
+      res.cookie('token', token, { httpOnly: true });
+
       return row
         ? res.json({
             statusCode: 200,
             msg: "Succesful login attempt!",
             data: row,
-            token: token,
           })
         : res.json({
             statusCode: 404,

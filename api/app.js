@@ -5,17 +5,19 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config({
   path: __dirname + "/config/.env",
 });
+const cookieParser = require("cookie-parser");
 const auth = require("./middleware/auth");
 
 const app = express();
 
 //Middleware
-//app.use(logger);
 //Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //Enable CORS
 app.use(cors());
+//Cookie Parser
+app.use(cookieParser());
 
 //Home
 app.get("/", (req, res) => {

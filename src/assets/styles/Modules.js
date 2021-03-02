@@ -83,3 +83,19 @@ export const ImageTextContainer = styled.div`
     margin-left: 2rem;
   }
 `;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const FormRow = styled.div`
+  margin-top: 1rem;
+`;
+
+export const FormLabel = styled.label`
+  text-align: left;
+`;
+
+export const Input = styled.input``;

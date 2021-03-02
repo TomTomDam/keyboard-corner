@@ -8,7 +8,7 @@ const auth = require("../middleware/auth");
 const tableName = "Users";
 
 //Verify Token
-router.get("/verifyToken", auth.verifyToken, (req, res) => {
+router.get("/verifyToken", (req, res) => {
   if (req.cookies.token === null) {
     //Create new token if it doesn't exist
     jwt.sign(
@@ -16,9 +16,7 @@ router.get("/verifyToken", auth.verifyToken, (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       (err, token) => {
         //Set token as httpOnly cookie
-        res.cookie('token', token, { httpOnly: true });
-
-        return res.json({
+        return res.cookie("token", token, { httpOnly: true }).json({
           statusCode: 200,
           msg: "Successfully created a new Token.",
         });
@@ -26,7 +24,7 @@ router.get("/verifyToken", auth.verifyToken, (req, res) => {
     );
   }
 
-  return res.json({
+  return res.cookie("token", req.cookies.token, { httpOnly: true }).json({
     statusCode: 200,
     msg: "Token validation was successful.",
   });
@@ -68,11 +66,9 @@ router.post("/login", (req, res) => {
 
     //Generate JWT
     jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
-      //Set token as a httpOnly cookie
-      res.cookie('token', token, { httpOnly: true });
-
+      //Set access token as a httpOnly cookie
       return row
-        ? res.json({
+        ? res.cookie("token", token, { httpOnly: true }).json({
             statusCode: 200,
             msg: "Succesful login attempt!",
             data: row,
@@ -106,10 +102,15 @@ router.post("/logout", (req, res) => {
         data: row,
       });
 
-    return res.status(200).json({
+    return res.status(200)
+    .clearCookie("token", "", {
+      expires: new Date(0),
+      domain: 'localhost',
+      path: "/"
+    })
+    .json({
       statusCode: 200,
       msg: "Successfully logged out User.",
-      token: null,
     });
   });
 });

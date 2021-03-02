@@ -17,7 +17,8 @@ export const UserProvider = (props) => {
   const accountApi = "http://localhost:3000/api/account";
 
   useEffect(() => {
-    //Get a new token when app is started/refreshed
+    //If login is successful, create new access token as HttpOnly cookie
+    //If user is not logged in and trying to access authorized route, redirect them to login page
     const loginConfig = {
       headers: {
         "Content-Type": "application/json",

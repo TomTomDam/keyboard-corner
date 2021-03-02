@@ -11,8 +11,11 @@ const Create = () => {
     email: "",
     password: "",
   });
-
   const accountApi = "http://localhost:3000/api/account";
+
+  useEffect(() => {
+    
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

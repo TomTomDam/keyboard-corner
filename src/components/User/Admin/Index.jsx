@@ -16,7 +16,7 @@ const Index = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [users]);
+  }, []);
 
   const usersList = users.map((user) => (
     <Container key={user.id}>

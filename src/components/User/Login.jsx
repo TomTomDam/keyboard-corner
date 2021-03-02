@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ValidationMessage from "./Validation/ValidationMessage";
 import { UserContext } from "../../UserContext";
+import { Form, FormRow, FormLabel } from "../../assets/styles/Modules";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -82,22 +83,6 @@ const Container = styled.div`
   max-width: 20%;
   margin: 0 auto;
 `;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const FormRow = styled.div`
-  margin-top: 1rem;
-`;
-
-const FormLabel = styled.label`
-  text-align: left;
-`;
-
-const Input = styled.input``;
 
 const UsernameInput = styled(Input)``;
 

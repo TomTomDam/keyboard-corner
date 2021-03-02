@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ValidationMessage from "./Validation/ValidationMessage";
+import { Form, FormRow, FormLabel } from "../../assets/styles/Modules";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -108,22 +109,6 @@ const Container = styled.div`
   max-width: 10%;
   margin: 0 auto;
 `;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const FormRow = styled.div`
-  margin-top: 1rem;
-`;
-
-const FormLabel = styled.label`
-  text-align: left;
-`;
-
-const Input = styled.input``;
 
 const NameInput = styled(Input)``;
 

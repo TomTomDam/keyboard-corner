@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ValidationMessage from "./Validation/ValidationMessage";
 import { UserContext } from "../../UserContext";
-import { Form, FormRow, FormLabel } from "../../assets/styles/Modules";
+import { Form, FormRow, FormLabel, Input } from "../../assets/styles/Modules";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -11,8 +11,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  // const [isAuthenticated, setIsAuthenticated] = useContext(UserContext);
-  const [user, setUser] = useContext(UserContext);
+  const { login } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +19,7 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    setUser((inputs) => ({...inputs}));
+    login(inputs);
   };
 
   return (

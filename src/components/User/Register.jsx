@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import ValidationMessage from "./Validation/ValidationMessage";
-import { Form, FormRow, FormLabel } from "../../assets/styles/Modules";
+import { Form, FormRow, FormLabel, Input } from "../../assets/styles/Modules";
+import { UserContext } from "../../UserContext";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -13,7 +13,7 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const accountApi = "http://localhost:3000/api/account";
+  const { register } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,21 +21,7 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    axios
-      .post(`${accountApi}/register`, {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        username: user.username,
-        email: user.email,
-        password: user.password,
-      })
-      .then((res) => {
-        // //Get return url from location state or default to home page
-        // const { from } = location.state || { from: { pathname: "/" } };
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    register(user);
   };
 
   return (

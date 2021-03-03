@@ -10,7 +10,7 @@ import { UserContext } from "../../UserContext";
 const Navbar = (props) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const showMobileMenu = () => setMobileMenu(!mobileMenu);
-  const [user, setUser] = useContext(UserContext);
+  //const [user, setUser] = useContext(UserContext);
 
   const links = [
     {
@@ -78,11 +78,11 @@ const Navbar = (props) => {
         <NavBarToggle>{toggleIcon}</NavBarToggle>
         <NavMenu mobileMenu={mobileMenu}>
           {linksMap}
-          {user !== null ? (
+          {/* {user !== null ? (
             <UserNavbar loggedInUser={user} />
           ) : (
             <LoginNavbar link={loginLink} />
-          )}
+          )} */}
         </NavMenu>
       </NavBar>
     </header>

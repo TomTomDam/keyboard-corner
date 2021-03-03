@@ -57,18 +57,22 @@ router.post("/login", (req, res) => {
         msg: err.message,
       });
 
-    const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
-    if (!passwordIsValid)
-      return res.status(401).json({
-        statusCode: 401,
-        msg: "Unauthorized - Invalid username and password combination.",
-      });
+    try {
+      bcrypt.compareSync(req.body.password, row.password);
+    } catch (error) {
+      if (error)
+        return res.status(401).json({
+          statusCode: 401,
+          msg: "Unauthorized - Invalid username and password combination.",
+        });
+    }
 
     //Generate JWT
     jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
-      //Set access token as a httpOnly cookie
+      //Assign access token to a httpOnly cookie
+      //Set to last for 15 minutes
       return row
-        ? res.cookie("token", token, { httpOnly: true }).json({
+        ? res.cookie("token", token, { httpOnly: true, maxAge: 900000 }).json({
             statusCode: 200,
             msg: "Succesful login attempt!",
             data: row,
@@ -94,24 +98,27 @@ router.post("/logout", (req, res) => {
         msg: err.message,
       });
 
-    const passwordIsValid = bcrypt.compareSync(req.body.password, row.password);
-    if (!passwordIsValid)
-      return res.status(401).json({
-        statusCode: 401,
-        msg: "Unauthorized - Invalid username and password combination.",
-        data: row,
-      });
+    try {
+      bcrypt.compareSync(req.body.password, row.password);
+    } catch (error) {
+      if (error)
+        return res.status(401).json({
+          statusCode: 401,
+          msg: "Unauthorized - Invalid username and password combination.",
+        });
+    }
 
-    return res.status(200)
-    .clearCookie("token", "", {
-      expires: new Date(0),
-      domain: 'localhost',
-      path: "/"
-    })
-    .json({
-      statusCode: 200,
-      msg: "Successfully logged out User.",
-    });
+    return res
+      .status(200)
+      .clearCookie("token", "", {
+        expires: new Date(0),
+        domain: "localhost",
+        path: "/",
+      })
+      .json({
+        statusCode: 200,
+        msg: "Successfully logged out User.",
+      });
   });
 });
 

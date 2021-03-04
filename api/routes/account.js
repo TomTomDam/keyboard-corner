@@ -58,9 +58,15 @@ router.post("/login", (req, res) => {
       });
 
     try {
-      bcrypt.compareSync(req.body.password, row.password);
-    } catch (error) {
-      if (error)
+      const passwordIsValid = bcrypt.compareSync(
+        req.body.password,
+        row.password
+      );
+      if (!passwordIsValid) {
+        throw new Error;
+      }
+    } catch (err) {
+      if (err)
         return res.status(401).json({
           statusCode: 401,
           msg: "Unauthorized - Invalid username and password combination.",
@@ -99,9 +105,15 @@ router.post("/logout", (req, res) => {
       });
 
     try {
-      bcrypt.compareSync(req.body.password, row.password);
-    } catch (error) {
-      if (error)
+      const passwordIsValid = bcrypt.compareSync(
+        req.body.password,
+        row.password
+      );
+      if (!passwordIsValid) {
+        throw new Error();
+      }
+    } catch (err) {
+      if (err)
         return res.status(401).json({
           statusCode: 401,
           msg: "Unauthorized - Invalid username and password combination.",

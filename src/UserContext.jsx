@@ -16,6 +16,7 @@ export const UserProvider = (props) => {
   });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const accountApi = "http://localhost:3000/api/account";
+  const authApi = "http://localhost:3000/api/auth";
 
   //If user is not logged in and trying to access authorized route, redirect them to login page
   const login = (user) => {
@@ -40,7 +41,7 @@ export const UserProvider = (props) => {
       .then((res) => {
         //Redirect to previous page or homepage
         if (res.data.statusCode === 200) {
-          window.location = "/";
+          // window.location = "/";
           setIsAuthenticated(true);
         }
       })
@@ -65,27 +66,33 @@ export const UserProvider = (props) => {
     setUser(user);
 
     axios
-    .post(`${accountApi}/register`, {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      username: user.username,
-      email: user.email,
-      password: user.password,
-    })
-    .then((res) => {
-      // //Get return url from location state or default to home page
-      // const { from } = location.state || { from: { pathname: "/" } };
-      setIsAuthenticated(true);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .post(`${accountApi}/register`, {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      })
+      .then((res) => {
+        // //Get return url from location state or default to home page
+        // const { from } = location.state || { from: { pathname: "/" } };
+        setIsAuthenticated(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {}, []);
 
   return (
-    <UserContext.Provider value={([user, setUser], { login, logout, register })}>
+    <UserContext.Provider
+      value={
+        ([user, setUser],
+        [isAuthenticated, setIsAuthenticated],
+        { login, logout, register })
+      }
+    >
       {/* {isAuthenticated ? props.children : null} */}
       {props.children}
     </UserContext.Provider>

@@ -6,14 +6,17 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import App from "./App";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "./assets/styles/Theme";
+import { UserProvider } from "./UserContext";
 
 ReactDOM.render(
   <ThemeProvider theme={Theme}>
-    <Router>
-      <Switch>
-        <App />
-      </Switch>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Switch>
+          <App />
+        </Switch>
+      </Router>
+    </UserProvider>
   </ThemeProvider>,
   document.querySelector("#root")
 );

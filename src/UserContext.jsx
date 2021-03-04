@@ -38,11 +38,10 @@ export const UserProvider = (props) => {
         loginConfig
       )
       .then((res) => {
-        setIsAuthenticated(true);
-
         //Redirect to previous page or homepage
         if (res.data.statusCode === 200) {
           window.location = "/";
+          setIsAuthenticated(true);
         }
       })
       .catch((err) => {
@@ -76,6 +75,7 @@ export const UserProvider = (props) => {
     .then((res) => {
       // //Get return url from location state or default to home page
       // const { from } = location.state || { from: { pathname: "/" } };
+      setIsAuthenticated(true);
     })
     .catch((err) => {
       console.log(err);

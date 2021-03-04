@@ -10,7 +10,7 @@ import { UserContext } from "../../UserContext";
 const Navbar = (props) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const showMobileMenu = () => setMobileMenu(!mobileMenu);
-  //const [user, setUser] = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const links = [
     {

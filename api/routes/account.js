@@ -7,29 +7,6 @@ const auth = require("../middleware/auth");
 
 const tableName = "Users";
 
-//Verify Token
-router.get("/verifyToken", (req, res) => {
-  if (req.cookies.token === null) {
-    //Create new token if it doesn't exist
-    jwt.sign(
-      { user: req.body },
-      process.env.ACCESS_TOKEN_SECRET,
-      (err, token) => {
-        //Set token as httpOnly cookie
-        return res.cookie("token", token, { httpOnly: true }).json({
-          statusCode: 200,
-          msg: "Successfully created a new Token.",
-        });
-      }
-    );
-  }
-
-  return res.cookie("token", req.cookies.token, { httpOnly: true }).json({
-    statusCode: 200,
-    msg: "Token validation was successful.",
-  });
-});
-
 //Login
 router.post("/login", (req, res) => {
   const user = {
@@ -63,7 +40,7 @@ router.post("/login", (req, res) => {
         row.password
       );
       if (!passwordIsValid) {
-        throw new Error;
+        throw new Error();
       }
     } catch (err) {
       if (err)
@@ -74,21 +51,42 @@ router.post("/login", (req, res) => {
     }
 
     //Generate JWT
-    jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, (err, token) => {
-      //Assign access token to a httpOnly cookie
-      //Set to last for 15 minutes
-      return row
-        ? res.cookie("token", token, { httpOnly: true, maxAge: 900000 }).json({
-            statusCode: 200,
-            msg: "Succesful login attempt!",
-            data: row,
-          })
-        : res.json({
-            statusCode: 404,
-            msg:
-              "User could not be found. Please try a different username and/or password.",
-          });
-    });
+    //Assign access token and refresh token to a httpOnly cookie
+    //Set access token to last for 15 minutes
+    jwt.sign(
+      { user: user },
+      process.env.ACCESS_TOKEN_SECRET,
+      (err, accessToken) => {
+        res.cookie("accessToken", accessToken, {
+          httpOnly: true,
+          maxAge: process.env.ACCESS_TOKEN_LIFE,
+        });
+
+        //Set refresh token to last for 1 day
+        jwt.sign(
+          { user: user },
+          process.env.REFRESH_TOKEN_SECRET,
+          (err, refreshToken) => {
+            res.cookie("refreshToken", refreshToken, {
+              httpOnly: true,
+              maxAge: process.env.REFRESH_TOKEN_LIFE,
+            });
+
+            return row
+              ? res.json({
+                  statusCode: 200,
+                  msg: "Succesful login attempt!",
+                  data: row,
+                })
+              : res.json({
+                  statusCode: 404,
+                  msg:
+                    "User could not be found. Please try a different username and/or password.",
+                });
+          }
+        );
+      }
+    );
   });
 });
 

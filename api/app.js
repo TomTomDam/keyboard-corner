@@ -28,6 +28,8 @@ app.get("/", (req, res) => {
 app.use("/api/users", require("./routes/users"));
 //Account Route
 app.use("/api/account", require("./routes/account"));
+//Auth Route
+app.use("/api/auth", require("./routes/auth"));
 
 const port = process.env.port || 3000;
 app.listen(port);

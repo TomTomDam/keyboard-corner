@@ -11,7 +11,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-  const { login } = useContext(UserContext);
+  const { login, isAuthenticated } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +70,7 @@ const Login = () => {
           </SignInButton>
         </FormRow>
         <RegisterLink to="/register">Join GameSource</RegisterLink>
-        {/* <LoginStatus>{isAuthenticated}</LoginStatus> */}
+        <LoginStatus>{isAuthenticated ? "Authenticated!" : "Unauthenticated" }</LoginStatus>
       </Form>
     </Container>
   );

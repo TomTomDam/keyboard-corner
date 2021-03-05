@@ -83,7 +83,29 @@ export const UserProvider = (props) => {
       });
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setInterval(() => {
+      //Verify access token every 15 minutes
+      axios.post(`${authApi}/verify-token`).catch((err) => {
+        console.log(err);
+      });
+    }, 900000);
+
+    setTimeout(() => {
+      //Verify refresh token after 1 week
+      axios
+        .post(`${authApi}/refresh-token`)
+        .then((res) => {
+          //If refresh token is expired, logout the user
+          axios.get(`${accountApi}/logout`).catch((err) => {
+            console.log(err);
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 86400000);
+  }, []);
 
   return (
     <UserContext.Provider

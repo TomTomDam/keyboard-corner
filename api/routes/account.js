@@ -3,9 +3,45 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../database/sqlite");
-const auth = require("../middleware/auth");
 
 const tableName = "Users";
+
+//TESTING
+// router.post("/testing", async (req, res) => {
+//   let sql = `SELECT * FROM ${tableName} WHERE username = ?`;
+//   let params = [req.body.username];
+//   db.get(sql, params, (err, row) => {
+//     if (err)
+//       return res.status(400).json({
+//         statusCode: 400,
+//         err: err,
+//         msg: err.message,
+//       });
+
+//     const passwordIsValid = await bcrypt.compare(req.body.password, row.password);
+//     if (!passwordIsValid)
+//       return res.status(401).json({
+//         statusCode: 401,
+//         msg: "Unauthorized - Invalid username and password combination.",
+//       });
+//     });
+
+//   return res.status(200).json({
+//     statusCode: 200,
+//     msg: "Testing successful!",
+//   });
+// });
+
+//TESTING
+router.post("/testing", async (req, res) => {
+  const result = async () => {
+    res.send("Hello");
+  };
+
+  await result();
+
+  return await result();
+});
 
 //Login
 router.post("/login", (req, res) => {

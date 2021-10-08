@@ -2,6 +2,10 @@
 
 A website for showing off the world of mechanical keyboards using React.
 
+## How to use
+Visual Studio Code:
+1. Run the command: npm start 
+
 ## Features
 
 ### Client

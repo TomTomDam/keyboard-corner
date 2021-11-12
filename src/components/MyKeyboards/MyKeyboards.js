@@ -2,6 +2,7 @@ import React from "react";
 import Keyboard from "./Keyboard";
 import styled from "styled-components";
 import { Heading } from "../../assets/styles/Layout";
+import AddNewKeyboard from "./AddNewKeyboard";
 
 const MyKeyboards = () => {
   const keyboardsList = [
@@ -37,11 +38,11 @@ const MyKeyboards = () => {
       id: 3,
       image: "src\\assets\\images\\MyKeyboards\\mr_suit_tkl.jpg",
       title: "Mr Suit",
-      switches: "ThicThock Marshmallow - Krytox 205g0, 105 on springs, White Deskey switch films",
+      switches: "Lavender - Stock",
       plate: "POM",
       keycaps: "GMK Blue Samurai",
       case: "Blue",
-      mods: "PE foam, case foam",
+      mods: "PE foam, plate foam and case foam",
       layout: "TKL (WKL)",
       stabilizers: "Owlstabs",
       description: "",
@@ -52,12 +53,22 @@ const MyKeyboards = () => {
     <Keyboard key={keyboard.id} keyboard={keyboard} />
   ));
 
+  const [showNewKeyboardForm, setShowNewKeyboardForm] = React.useState(false);
+  const addNewKeyboardClick = () => {
+    if (showNewKeyboardForm === false) { setShowNewKeyboardForm(true); }
+    else if (showNewKeyboardForm === true) { setShowNewKeyboardForm(false); }
+  }
+
   return (
     <>
       <header>
         <Heading>My Keyboards</Heading>
         <p>This is a list of my keyboards that I've purchased or built.</p>
       </header>
+      <ButtonRow onClick={addNewKeyboardClick}>
+        <AddNewKeyboardButton>Add a new Keyboard</AddNewKeyboardButton>
+      </ButtonRow>
+      {showNewKeyboardForm ? <AddNewKeyboard showNewKeyboardForm={this.setShowNewKeyboardForm}></AddNewKeyboard> : false}
       <Container>{Keyboards}</Container>
     </>
   );
@@ -75,4 +86,12 @@ const Container = styled.div`
   margin: 0 auto;
   padding-top: 1rem;
   padding-bottom: 2rem;
+`;
+
+const ButtonRow = styled.div`
+  margin-top: 1rem;
+`;
+
+const AddNewKeyboardButton = styled.button`
+
 `;

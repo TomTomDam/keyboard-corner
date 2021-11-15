@@ -4,7 +4,8 @@ A website for showing off the world of mechanical keyboards using React.
 
 ## How to use
 Visual Studio Code:
-1. Run the command: npm start 
+1. To run the project, run the command: npm run start
+2. To run the API, open a separate CLI instance and run the command: npm run server
 
 ## Features
 

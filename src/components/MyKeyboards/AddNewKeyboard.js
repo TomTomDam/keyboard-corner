@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const AddNewKeyboard = (props) => {
   const [inputs, setInputs] = useState({
@@ -7,14 +8,17 @@ const AddNewKeyboard = (props) => {
     title: "",
     image: "",
     switches: "",
+    switchModifications: "",
     plate: "",
     keycaps: "",
+    designer: "",
     case: "",
-    mods: "",
+    modifications: "",
     layout: "",
     stabilizers: "",
     description: "",
   });
+  const keyboardApi = "http://localhost:3000/api/keyboard";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,11 +26,44 @@ const AddNewKeyboard = (props) => {
   };
 
   const handleCreate = (e) => {
-    newKeyboardForm.setState(false);
+    e.preventDefault();
+
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    };
+    
+    axios
+    .post(
+      `${keyboardApi}`, {
+        title: inputs.title,
+        image: inputs.image,
+        switches: inputs.switches,
+        switchModifications: inputs.switchModifications,
+        plate: inputs.plate,
+        keycaps: inputs.keycaps,
+        designer: inputs.designer,
+        case: inputs.case,
+        modifications: inputs.modifications,
+        layout: inputs.layout,
+        stabilizers: inputs.stabilizers,
+        description: inputs.description
+      },
+      options
+    )
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
   const handleDiscard = (e) => {
-    this.props.setShowNewKeyboardForm(false);
+    e.preventDefault();
+    props.setShowNewKeyboardForm(false);
   };
 
   return (
@@ -59,6 +96,15 @@ const AddNewKeyboard = (props) => {
         ></input>
       </LabelGroup>
       <LabelGroup>
+        <LabelTitle>Switch Modifications</LabelTitle>
+        <input
+          type="text"
+          name="switchModifications"
+          value={inputs.switchModifications}
+          onChange={handleChange}
+        ></input>
+      </LabelGroup>
+      <LabelGroup>
         <LabelTitle>Plate</LabelTitle>
         <input
           type="text"
@@ -77,6 +123,15 @@ const AddNewKeyboard = (props) => {
         ></input>
       </LabelGroup>
       <LabelGroup>
+        <LabelTitle>Designer</LabelTitle>
+        <input
+          type="text"
+          name="designer"
+          value={inputs.designer}
+          onChange={handleChange}
+        ></input>
+      </LabelGroup>
+      <LabelGroup>
         <LabelTitle>Case</LabelTitle>
         <input
           type="text"
@@ -86,11 +141,11 @@ const AddNewKeyboard = (props) => {
         ></input>
       </LabelGroup>
       <LabelGroup>
-        <LabelTitle>Mods</LabelTitle>
+        <LabelTitle>Modifications</LabelTitle>
         <input
           type="text"
-          name="mods"
-          value={inputs.mods}
+          name="modifications"
+          value={inputs.modifications}
           onChange={handleChange}
         ></input>
       </LabelGroup>

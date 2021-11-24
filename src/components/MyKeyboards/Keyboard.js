@@ -3,43 +3,44 @@ import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
 
 const Keyboard = (props) => {
+
   return (
     <Container>
-      <CoverImage src={props.keyboard.image} />
+      <CoverImage src={`./src/assets/images/MyKeyboards/${props.keyboard.Image}`} />
       <TextContainer>
         <Header>
-          <Heading>{props.keyboard.title}</Heading>
+          <Heading>{props.keyboard.Title}</Heading>
         </Header>
         <PartsList>
           <li>
             <Part>Layout</Part>
-            {props.keyboard.layout}
+            {props.keyboard.Layout}
           </li>
           <li>
             <Part>Keycaps</Part>
-            {props.keyboard.keycaps}
+            {props.keyboard.Keycaps}
           </li>
           <li>
             <Part>Switches</Part>
-            {props.keyboard.switches}
+            {props.keyboard.Switches}
           </li>
           <li>
             <Part>Case</Part>
-            {props.keyboard.case}
+            {props.keyboard.Case}
           </li>
           <li>
             <Part>Plate</Part>
-            {props.keyboard.plate}
+            {props.keyboard.Plate}
           </li>
           <li>
             <Part>Stabilizers</Part>
-            {props.keyboard.stabilizers}
+            {props.keyboard.Stabilizers}
           </li>
           <li>
             <Part>Other mods</Part>
-            {props.keyboard.mods}
+            {props.keyboard.Mods}
           </li>
-          <li>{props.keyboard.description}</li>
+          <li>{props.keyboard.Description}</li>
         </PartsList>
       </TextContainer>
     </Container>

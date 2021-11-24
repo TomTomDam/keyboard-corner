@@ -29,6 +29,8 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/account", require("./routes/account"));
 //Auth Route
 app.use("/api/auth", require("./routes/auth"));
+//Keyboard Route
+app.use("/api/keyboard", require("./routes/keyboard"));
 
 const port = process.env.port || 3000;
 app.listen(port);

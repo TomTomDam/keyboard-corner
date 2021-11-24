@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Keyboard from "./Keyboard";
 import styled from "styled-components";
 import { Heading } from "../../assets/styles/Layout";
@@ -50,19 +50,19 @@ const MyKeyboards = () => {
   // ];
 
   const keyboardApi = "http://localhost:3000/api/keyboard";
-  let keyboardsList = axios
-    .get(`${keyboardApi}`)
-    .then((res) => {
-      return res.data.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const [keyboardsList, setKeyboardsList] = useState([]);
 
-  console.log(keyboardsList);
+  useEffect(async () => {
+    const data = await axios
+      .get(keyboardApi)
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+
+      setKeyboardsList(data);
+  }, []);
 
   const Keyboards = keyboardsList.map((keyboard) => (
-    <Keyboard key={keyboard.id} keyboard={keyboard} />
+    <Keyboard key={keyboard.Id} keyboard={keyboard} />
   ));
 
   const [showNewKeyboardForm, setShowNewKeyboardForm] = useState(false);

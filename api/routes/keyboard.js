@@ -17,11 +17,7 @@ router.get("/", (req, res) => {
     }
 
     return rows
-      ? res.json({
-          statusCode: 200,
-          msg: "Successfully retrieved a list of Keyboards.",
-          data: rows,
-        })
+      ? res.json(rows)
       : res.json({
           statusCode: 404,
           msg: "No Keyboards were found.",

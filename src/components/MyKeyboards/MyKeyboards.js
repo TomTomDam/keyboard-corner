@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Keyboard from "./Keyboard";
+import KeyboardPreview from "./KeyboardPreview"
 import styled from "styled-components";
 import { Heading } from "../../assets/styles/Layout";
 import AddNewKeyboard from "./AddNewKeyboard";
@@ -23,7 +24,7 @@ const MyKeyboards = () => {
   }, []);
 
   const Keyboards = keyboardsList.map((keyboard) => (
-    <Keyboard key={keyboard.Id} keyboard={keyboard} />
+    <KeyboardPreview key={keyboard.Id} keyboard={keyboard} />
   ));
 
   //Add new keyboard

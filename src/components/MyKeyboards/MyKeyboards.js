@@ -76,14 +76,13 @@ export default MyKeyboards;
 
 const Container = styled.div`
   display: flex;
-  position: relative;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  text-align: left;
-  max-width: 80%;
-  margin: 0 auto;
-  padding-top: 1rem;
+  position: relative;
+  padding-top: 2rem;
   padding-bottom: 2rem;
+  min-height: 100%;
 `;
 
 const ButtonRow = styled.div`

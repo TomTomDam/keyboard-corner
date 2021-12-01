@@ -13,10 +13,10 @@ const KeyboardPreview = (props) => {
         setShowTitle({ display: "none" });
       }}
     >
-      <Title style={showTitle}>{props.keyboard.Title}</Title>
-      <CoverImage
-        src={`./src/assets/images/MyKeyboards/${props.keyboard.Image}`}
-      />
+      <CoverImageWrapper>
+        <CoverImage></CoverImage>
+        <Title style={showTitle}>{props.keyboard.Title}</Title>
+      </CoverImageWrapper>
     </Container>
   );
 };
@@ -32,14 +32,39 @@ const Container = styled.div`
   padding: 1rem;
 `;
 
-const CoverImage = styled.img`
+const CoverImageWrapper = styled.div`
+  position: relative;
   width: 700px;
   height: 600px;
 `;
 
+const CoverImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: black; /* fallback color */
+  background-image: url("src/assets/images/MyKeyboards/space65_gmk_laser.JPG");
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+
+  &:hover, &:focus {
+    transform: scale(1.2);
+  }
+`;
+
 const Title = styled.h1`
-  display: flex;
+  z-index: 9999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
   align-items: center;
   text-align: center;
   font-weight: bold;
+
+  &:hover {
+    transition: all 0.5s;
+    letter-spacing: 1px;
+  }
 `;

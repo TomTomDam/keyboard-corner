@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Keyboard from "./Keyboard";
 import KeyboardPreview from "./KeyboardPreview"
 import styled from "styled-components";
 import { Heading } from "../../assets/styles/Layout";

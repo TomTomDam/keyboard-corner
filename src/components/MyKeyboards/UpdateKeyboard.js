@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const AddNewKeyboard = (props) => {
+const UpdateKeyboard = () => {
   const [inputs, setInputs] = useState({
     Id: 0,
     Title: "",
@@ -25,7 +25,7 @@ const AddNewKeyboard = (props) => {
     setInputs((inputs) => ({ ...inputs, [name]: value }));
   };
 
-  const handleCreate = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
     const options = {
@@ -34,36 +34,37 @@ const AddNewKeyboard = (props) => {
         "Access-Control-Allow-Origin": "*",
       },
     };
-    
+
     axios
-    .post(
-      `${keyboardApi}`, {
-        title: inputs.Title,
-        image: inputs.Image,
-        switches: inputs.Switches,
-        switchModifications: inputs.SwitchModifications,
-        plate: inputs.Plate,
-        keycaps: inputs.Keycaps,
-        designer: inputs.Designer,
-        case: inputs.Case,
-        modifications: inputs.Modifications,
-        layout: inputs.Layout,
-        stabilizers: inputs.Stabilizers,
-        description: inputs.Description,
-      },
-      options
-    )
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .put(
+        `${keyboardApi}/${props.Id}`,
+        {
+          title: inputs.Title,
+          image: inputs.Image,
+          switches: inputs.Switches,
+          switchModifications: inputs.SwitchModifications,
+          plate: inputs.Plate,
+          keycaps: inputs.Keycaps,
+          designer: inputs.Designer,
+          case: inputs.Case,
+          modifications: inputs.Modifications,
+          layout: inputs.Layout,
+          stabilizers: inputs.Stabilizers,
+          description: inputs.Description,
+        },
+        options
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleDiscard = (e) => {
     e.preventDefault();
-    props.setShowNewKeyboardForm(false);
+    props.setShowUpdateKeyboard(false);
   };
 
   return (
@@ -177,14 +178,14 @@ const AddNewKeyboard = (props) => {
         ></input>
       </LabelGroup>
       <ButtonRow>
-        <CreateButton onClick={handleCreate}>Create</CreateButton>
+        <UpdateButton onClick={handleUpdate}>Update</UpdateButton>
         <DiscardButton onClick={handleDiscard}>Discard</DiscardButton>
       </ButtonRow>
     </form>
   );
 };
 
-export default AddNewKeyboard;
+export default UpdateKeyboard;
 
 const LabelGroup = styled.div``;
 
@@ -200,6 +201,6 @@ const ButtonRow = styled.div`
   margin-top: 1rem;
 `;
 
-const CreateButton = styled.button``;
+const UpdateButton = styled.button``;
 
 const DiscardButton = styled.button``;

@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
 
 const Keyboard = (props) => {
-
   return (
     <Container>
-      <CoverImage src={`./src/assets/images/MyKeyboards/${props.keyboard.Image}`} />
+      <CoverImage
+        src={`./src/assets/images/MyKeyboards/${props.keyboard.Image}`}
+      />
       <TextContainer>
         <Header>
           <Heading>{props.keyboard.Title}</Heading>

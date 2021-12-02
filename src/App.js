@@ -18,6 +18,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Navbar/Footer";
 import About from "./components/Navbar/About";
 import MyKeyboards from "./components/MyKeyboards/MyKeyboards";
+import Keyboard from "./components/MyKeyboards/Keyboard";
 import KeyboardEncyclopedia from "./components/KeyboardEncyclopedia/KeyboardEncyclopedia";
 import Contact from "./components/Navbar/Contact";
 import Login from "./components/User/Login";
@@ -41,6 +42,7 @@ const App = (props) => {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/users" component={Users} />
+        <Route path="/keyboard/:id" component={Keyboard} />
       </Main>
       <Footer />
     </Container>

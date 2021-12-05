@@ -14,7 +14,7 @@ const KeyboardPreview = (props) => {
         setShowTitle({ display: "none" });
       }}
     >
-      <CoverImageWrapper to={"/keyboard/" + props.keyboard.Id}>
+      <CoverImageWrapper to={`/keyboard/${props.keyboard.Id}`}>
         <CoverImage style={{ backgroundImage: "url(" + `src/assets/images/MyKeyboards/${props.keyboard.Image}` + ")" }}></CoverImage>
         <Title style={showTitle}>{props.keyboard.Title}</Title>
       </CoverImageWrapper>

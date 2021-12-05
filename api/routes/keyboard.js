@@ -40,12 +40,19 @@ router.get("/:id", (req, res) => {
 
     return row
       ? res.json({
-          statusCode: 200,
-          msg: "Successfully retrieved a Keyboard.",
-          data: {
-            id: row.id,
-
-          },
+          id: row.Id,
+          title: row.Title,
+          image: row.Image,
+          switches: row.Switches,
+          switchModifications: row.SwitchModifications,
+          plate: row.Plate,
+          keycaps: row.Keycaps,
+          designer: row.Designer,
+          case: row.Case,
+          modifications: row.Modifications,
+          layout: row.Layout,
+          stabilizers: row.Stabilizers,
+          description: row.Description
         })
       : res.json({
           statusCode: 404,
@@ -57,7 +64,6 @@ router.get("/:id", (req, res) => {
 //Create Keyboard
 router.post("/", (req, res) => {
   db.serialize(function () {
-
     let sql = `INSERT INTO ${tableName} (
       title, 
       image, 
@@ -98,7 +104,7 @@ router.post("/", (req, res) => {
       $modifications: req.body.modifications,
       $layout: req.body.layout,
       $stabilizers: req.body.stabilizers,
-      $description: req.body.description
+      $description: req.body.description,
     };
 
     //Object.values() passes request body values into an array
@@ -138,7 +144,7 @@ router.put("/:id", (req, res) => {
     $modifications: req.body.modifications,
     $layout: req.body.layout,
     $stabilizers: req.body.stabilizers,
-    $description: req.body.description
+    $description: req.body.description,
   };
 
   //Object.values() passes request body values into an array

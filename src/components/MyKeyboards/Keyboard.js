@@ -1,47 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
+import axios from "axios";
 
 const Keyboard = (props) => {
+  const keyboardApi = "http://localhost:3000/api/keyboard";
+  const [keyboard, setKeyboard] = useState({});
+
+  useEffect(async () => {
+    const data = await axios
+      .get(`${keyboardApi}/${props.match.params.id}`)
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+
+    if (data === null || data === undefined) {
+      setKeyboard({});
+    } else {
+      setKeyboard(data);
+    }
+  }, []);
+
   return (
     <Container>
-      <CoverImage
-        src={`./src/assets/images/MyKeyboards/${props.keyboard.Image}`}
-      />
+      <CoverImage src={`src/assets/images/MyKeyboards/${keyboard.Image}`} />
       <TextContainer>
         <Header>
-          <Heading>{props.keyboard.Title}</Heading>
+          <Heading>{keyboard.title}</Heading>
         </Header>
         <PartsList>
           <li>
             <Part>Layout</Part>
-            {props.keyboard.Layout}
+            {keyboard.layout}
           </li>
           <li>
             <Part>Keycaps</Part>
-            {props.keyboard.Keycaps}
+            {keyboard.keycaps}
           </li>
           <li>
             <Part>Switches</Part>
-            {props.keyboard.Switches}
+            {keyboard.switches}
           </li>
           <li>
             <Part>Case</Part>
-            {props.keyboard.Case}
+            {keyboard.case}
           </li>
           <li>
             <Part>Plate</Part>
-            {props.keyboard.Plate}
+            {keyboard.plate}
           </li>
           <li>
             <Part>Stabilizers</Part>
-            {props.keyboard.Stabilizers}
+            {keyboard.stabilizers}
           </li>
           <li>
             <Part>Other mods</Part>
-            {props.keyboard.Mods}
+            {keyboard.modifications}
           </li>
-          <li>{props.keyboard.Description}</li>
+          <li>{keyboard.description}</li>
         </PartsList>
       </TextContainer>
     </Container>
@@ -54,9 +69,9 @@ const Container = styled.div`
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: flex-start;
+  text-align: left;
+  justify-content: center;
   padding: 1rem;
-  margin: auto 20%;
 `;
 
 const CoverImage = styled.img`
@@ -70,6 +85,7 @@ const TextContainer = styled.div`
 
 const Heading = styled.h1`
   margin-top: 0rem;
+  padding-bottom: 0.5rem;
 `;
 
 const PartsList = styled.ul`

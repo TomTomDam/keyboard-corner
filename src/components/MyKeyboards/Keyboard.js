@@ -17,12 +17,13 @@ const Keyboard = (props) => {
       setKeyboard({});
     } else {
       setKeyboard(data);
+      
     }
   }, []);
 
   return (
     <Container>
-      <CoverImage src={`src/assets/images/MyKeyboards/${keyboard.Image}`} />
+      <CoverImage src={`/src/assets/images/MyKeyboards/${keyboard.image}`} />
       <TextContainer>
         <Header>
           <Heading>{keyboard.title}</Heading>

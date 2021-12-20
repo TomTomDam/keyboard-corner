@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Alert from "../Toast";
 
 const AddNewKeyboard = (props) => {
   const [inputs, setInputs] = useState({

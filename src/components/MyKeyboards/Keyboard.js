@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const Keyboard = (props) => {
   const keyboardApi = "http://localhost:3000/api/keyboard";
@@ -20,6 +21,10 @@ const Keyboard = (props) => {
       setKeyboard(data);
     }
   }, []);
+
+  const toastNotification = () => {
+    toast("Successfully saved changes!");
+  };
 
   return (
     <>
@@ -83,7 +88,7 @@ const Keyboard = (props) => {
       {!editable && <></>}
       {editable && (
         <ButtonContainer>
-          <Button>Save</Button>
+          <Button onClick={() => toastNotification()}>Save</Button>
           <Button onClick={() => setEditable(!editable)}>Discard</Button>
         </ButtonContainer>
       )}

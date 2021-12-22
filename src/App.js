@@ -45,7 +45,7 @@ const App = () => {
         <Route path="/register" component={Register} />
         <Route path="/users" component={Users} />
         <Route path="/keyboard/:id" component={Keyboard} />
-        <ToastContainer />
+        <ToastContainer position="top-right" />
       </Main>
       <Footer />
     </Container>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
 import axios from "axios";
@@ -7,6 +7,21 @@ import { toast } from 'react-toastify';
 const Keyboard = (props) => {
   const keyboardApi = "http://localhost:3000/api/keyboard";
   const [keyboard, setKeyboard] = useState({});
+  const [inputs, setInputs] = useState({
+    id: 0,
+    title: "",
+    image: "",
+    switches: "",
+    switchModifications: "",
+    plate: "",
+    keycaps: "",
+    designer: "",
+    case: "",
+    modifications: "",
+    layout: "",
+    stabilizers: "",
+    description: "",
+  });
   const [editable, setEditable] = useState(false);
 
   useEffect(async () => {
@@ -22,8 +37,45 @@ const Keyboard = (props) => {
     }
   }, []);
 
-  const toastNotification = () => {
-    toast("Successfully saved changes!");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((inputs) => ({ ...inputs, [name]: value }));
+  };
+
+  const handleSave = async () => {
+    const successToast = () => {
+      toast.success("Successfully saved changes!", { theme: "colored" });
+    };
+  
+    const errorToast = () => {
+      toast.error("Could not save changes.", { theme: "colored" });
+    };
+
+    const response = await axios
+    .post(`${keyboardApi}/${props.match.params.id}`,
+    {
+      title: inputs.title,
+      image: inputs.image,
+      switches: inputs.switches,
+      switchModifications: inputs.switchModifications,
+      plate: inputs.plate,
+      keycaps: inputs.keycaps,
+      designer: inputs.designer,
+      case: inputs.case,
+      modifications: inputs.modifications,
+      layout: inputs.layout,
+      stabilizers: inputs.stabilizers,
+      description: inputs.description,
+    })
+    .then((res) => {
+      successToast();
+    })
+    .catch((err) => {
+      console.log(err);
+      errorToast();
+    });
+
+    console.log(response);
   };
 
   return (
@@ -45,42 +97,42 @@ const Keyboard = (props) => {
             <li>
               <Part>Layout</Part>
               {!editable && keyboard.layout}
-              {editable && <EditableInput value={keyboard.layout} />}
+              {editable && <EditableInput value={keyboard.layout} onChange={handleChange} />}
             </li>
             <li>
               <Part>Keycaps</Part>
               {!editable && keyboard.keycaps}
-              {editable && <EditableInput value={keyboard.keycaps} />}
+              {editable && <EditableInput value={keyboard.keycaps} onChange={handleChange} />}
             </li>
             <li>
               <Part>Switches</Part>
               {!editable && keyboard.switches}
-              {editable && <EditableInput value={keyboard.switches} />}
+              {editable && <EditableInput value={keyboard.switches} onChange={handleChange} />}
             </li>
             <li>
               <Part>Case</Part>
               {!editable && keyboard.case}
-              {editable && <EditableInput value={keyboard.case} />}
+              {editable && <EditableInput value={keyboard.case} onChange={handleChange} />}
             </li>
             <li>
               <Part>Plate</Part>
               {!editable && keyboard.plate}
-              {editable && <EditableInput value={keyboard.switches} />}
+              {editable && <EditableInput value={keyboard.switches} onChange={handleChange} />}
             </li>
             <li>
               <Part>Stabilizers</Part>
               {!editable && keyboard.stabilizers}
-              {editable && <EditableInput value={keyboard.stabilizers} />}
+              {editable && <EditableInput value={keyboard.stabilizers} onChange={handleChange} />}
             </li>
             <li>
               <Part>Other mods</Part>
               {!editable && keyboard.modifications}
-              {editable && <EditableInput value={keyboard.modifications} />}
+              {editable && <EditableInput value={keyboard.modifications} onChange={handleChange} />}
             </li>
             <li>
               <Part>Description</Part>
               {!editable && keyboard.description}
-              {editable && <EditableInput value={keyboard.description} />}
+              {editable && <EditableInput value={keyboard.description} onChange={handleChange} />}
             </li>
           </PartsList>
         </TextContainer>
@@ -88,7 +140,7 @@ const Keyboard = (props) => {
       {!editable && <></>}
       {editable && (
         <ButtonContainer>
-          <Button onClick={() => toastNotification()}>Save</Button>
+          <Button onClick={() => handleSave()}>Save</Button>
           <Button onClick={() => setEditable(!editable)}>Discard</Button>
         </ButtonContainer>
       )}

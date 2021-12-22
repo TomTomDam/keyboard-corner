@@ -127,7 +127,9 @@ router.post("/", (req, res) => {
 });
 
 //Update Keyboard
-router.put("/:id", (req, res) => {
+router.post("/:id", (req, res) => {
+  console.log("helo there");
+
   let sql = `UPDATE ${tableName} 
   SET column = $column,
   WHERE id = $id`;

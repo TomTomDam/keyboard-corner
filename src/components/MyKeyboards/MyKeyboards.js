@@ -34,15 +34,6 @@ const MyKeyboards = () => {
       : setShowNewKeyboardForm(false);
   };
 
-  //Update keyboard
-  const [showUpdateKeyboardForm, setShowUpdateNewKeyboardForm] =
-    useState(false);
-  const updateKeyboardClick = () => {
-    showUpdateKeyboardForm === false
-      ? setShowUpdateNewKeyboardForm(true)
-      : setShowUpdateNewKeyboardForm(false);
-  };
-
   //Delete keyboard
   const [showDeleteKeyboardForm, setShowDeleteKeyboardForm] = useState(false);
   const deleteKeyboardClick = () => {

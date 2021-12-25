@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const AddNewKeyboard = (props) => {
   const [inputs, setInputs] = useState({
-    Id: 0,
-    Title: "",
-    Image: "",
-    Switches: "",
-    SwitchModifications: "",
-    Plate: "",
-    Keycaps: "",
-    Designer: "",
-    Case: "",
-    Modifications: "",
-    Layout: "",
-    Stabilizers: "",
-    Description: "",
+    id: 0,
+    title: "",
+    image: "",
+    switches: "",
+    switchModifications: "",
+    plate: "",
+    keycaps: "",
+    designer: "",
+    case: "",
+    modifications: "",
+    layout: "",
+    stabilizers: "",
+    description: "",
   });
   const keyboardApi = "http://localhost:3000/api/keyboard";
 
@@ -39,26 +40,28 @@ const AddNewKeyboard = (props) => {
       .post(
         `${keyboardApi}`,
         {
-          title: inputs.Title,
-          image: inputs.Image,
-          switches: inputs.Switches,
-          switchModifications: inputs.SwitchModifications,
-          plate: inputs.Plate,
-          keycaps: inputs.Keycaps,
-          designer: inputs.Designer,
-          case: inputs.Case,
-          modifications: inputs.Modifications,
-          layout: inputs.Layout,
-          stabilizers: inputs.Stabilizers,
-          description: inputs.Description,
+          title: inputs.title,
+          image: inputs.image,
+          switches: inputs.switches,
+          switchModifications: inputs.switchModifications,
+          plate: inputs.plate,
+          keycaps: inputs.keycaps,
+          designer: inputs.designer,
+          case: inputs.case,
+          modifications: inputs.modifications,
+          layout: inputs.layout,
+          stabilizers: inputs.stabilizers,
+          description: inputs.description
         },
         options
       )
       .then((res) => {
         console.log(res);
+        toast.success("Successfully created a Keyboard!",  { theme: "colored" });
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Could not create a Keyboard.", { theme: "colored" });
       });
   };
 
@@ -75,8 +78,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Title</LabelTitle>
             <Input
               type="text"
-              name="Title"
-              value={inputs.Title}
+              name="title"
+              value={inputs.title}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -84,8 +87,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Image</LabelTitle>
             <Input
               type="text"
-              name="Image"
-              value={inputs.Image}
+              name="image"
+              value={inputs.image}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -93,8 +96,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Switches</LabelTitle>
             <Input
               type="text"
-              name="Switches"
-              value={inputs.Switches}
+              name="switches"
+              value={inputs.switches}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -102,8 +105,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Switch Modifications</LabelTitle>
             <Input
               type="text"
-              name="SwitchModifications"
-              value={inputs.SwitchModifications}
+              name="switchModifications"
+              value={inputs.switchModifications}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -111,8 +114,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Plate</LabelTitle>
             <Input
               type="text"
-              name="Plate"
-              value={inputs.Plate}
+              name="plate"
+              value={inputs.plate}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -120,8 +123,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Keycaps</LabelTitle>
             <Input
               type="text"
-              name="Keycaps"
-              value={inputs.Keycaps}
+              name="keycaps"
+              value={inputs.keycaps}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -129,8 +132,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Designer</LabelTitle>
             <Input
               type="text"
-              name="Designer"
-              value={inputs.Designer}
+              name="designer"
+              value={inputs.designer}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -138,8 +141,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Case</LabelTitle>
             <Input
               type="text"
-              name="Case"
-              value={inputs.Case}
+              name="case"
+              value={inputs.case}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -147,8 +150,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Modifications</LabelTitle>
             <Input
               type="text"
-              name="Modifications"
-              value={inputs.Modifications}
+              name="modifications"
+              value={inputs.modifications}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -156,8 +159,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Layout</LabelTitle>
             <Input
               type="text"
-              name="Layout"
-              value={inputs.Layout}
+              name="layout"
+              value={inputs.layout}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -165,8 +168,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Stabilizers</LabelTitle>
             <Input
               type="text"
-              name="Stabilizers"
-              value={inputs.Stabilizers}
+              name="stabilizers"
+              value={inputs.stabilizers}
               onChange={handleChange}
             ></Input>
           </LabelGroup>
@@ -174,8 +177,8 @@ const AddNewKeyboard = (props) => {
             <LabelTitle>Description</LabelTitle>
             <Input
               type="text"
-              name="Description"
-              value={inputs.Description}
+              name="description"
+              value={inputs.description}
               onChange={handleChange}
             ></Input>
           </LabelGroup>

@@ -65,18 +65,18 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   db.serialize(function () {
     let sql = `INSERT INTO ${tableName} (
-      title, 
-      image, 
-      switches, 
-      switchModifications, 
-      plate, 
-      keycaps,
-      designer, 
-      [case], 
-      modifications, 
-      layout, 
-      stabilizers, 
-      description
+      Title, 
+      Image, 
+      Switches, 
+      SwitchModifications, 
+      Plate, 
+      Keycaps,
+      Designer, 
+      [Case], 
+      Modifications, 
+      Layout, 
+      Stabilizers, 
+      Description
     ) 
     VALUES (
       $title, 
@@ -128,10 +128,20 @@ router.post("/", (req, res) => {
 
 //Update Keyboard
 router.post("/:id", (req, res) => {
-  console.log("helo there");
-
   let sql = `UPDATE ${tableName} 
-  SET column = $column,
+  SET 
+    Title = $title, 
+    Image = $image, 
+    Switches = $switches, 
+    SwitchModifications = $switchModifications,
+    Plate = $plate, 
+    Keycaps = $keycaps, 
+    Designer = $designer, 
+    [Case] = $case, 
+    Modifications = $modifications, 
+    Layout = $layout, 
+    Stabilizers = $stabilizers, 
+    Description = $description
   WHERE id = $id`;
   let data = {
     $id: req.params.id,
@@ -149,13 +159,18 @@ router.post("/:id", (req, res) => {
     $description: req.body.description,
   };
 
+  console.log(data);
+
   //Object.values() passes request body values into an array
   db.run(sql, Object.values(data), function (err) {
-    if (err)
+    if (err) {
+      console.log(err);
+
       return res.status(400).json({
         statusCode: 400,
         msg: err.message,
       });
+    }
 
     return res.json({
       statusCode: 200,

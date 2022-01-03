@@ -141,10 +141,9 @@ router.post("/:id", (req, res) => {
     Modifications = $modifications, 
     Layout = $layout, 
     Stabilizers = $stabilizers, 
-    Description = $description
+    Description = $description 
   WHERE id = $id`;
   let data = {
-    $id: req.params.id,
     $title: req.body.title,
     $image: req.body.image,
     $switches: req.body.switches,
@@ -157,10 +156,9 @@ router.post("/:id", (req, res) => {
     $layout: req.body.layout,
     $stabilizers: req.body.stabilizers,
     $description: req.body.description,
+    $id: req.params.id
   };
-
-  console.log(data);
-
+  
   //Object.values() passes request body values into an array
   db.run(sql, Object.values(data), function (err) {
     if (err) {

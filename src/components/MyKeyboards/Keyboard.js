@@ -67,14 +67,13 @@ const Keyboard = (props) => {
       description: keyboard.description
     })
     .then((res) => {
+      console.log(res);
       successToast();
     })
     .catch((err) => {
       console.log(err);
       errorToast();
     });
-
-    console.log(response);
   };
 
   return (

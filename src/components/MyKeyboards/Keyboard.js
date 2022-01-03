@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import DeleteKeyboardConfirmation from './DeleteKeyboardConfirmation';
 
 const Keyboard = (props) => {
   const [keyboard, setKeyboard] = useState({
@@ -50,7 +51,7 @@ const Keyboard = (props) => {
       toast.error("Could not save changes.", { theme: "colored" });
     };
 
-    const response = await axios
+    await axios
     .post(`${keyboardApi}/${props.match.params.id}`,
     {
       title: keyboard.title,
@@ -69,6 +70,29 @@ const Keyboard = (props) => {
     .then((res) => {
       console.log(res);
       successToast();
+      setEditable(!editable);
+    })
+    .catch((err) => {
+      console.log(err);
+      errorToast();
+    });
+  };
+
+  const handleDelete = async () => {
+    const successToast = () => {
+      toast.success("Successfully deleted the keyboard!", { theme: "colored" });
+    };
+  
+    const errorToast = () => {
+      toast.error("Could not delete the keyboard.", { theme: "colored" });
+    };
+
+    await axios
+    .delete(`${keyboardApi}/${props.match.params.id}`)
+    .then((res) => {
+      console.log(res);
+      successToast();
+      setEditable(!editable);
     })
     .catch((err) => {
       console.log(err);
@@ -78,11 +102,12 @@ const Keyboard = (props) => {
 
   return (
     <>
+      <DeleteKeyboardConfirmation />
       {editable && <></>}
       {!editable && (
         <ButtonContainer>
           <Button onClick={() => setEditable(!editable)}>Edit</Button>
-          <Button>Delete</Button>
+          <Button onClick={() => handleDelete()}>Delete</Button>
         </ButtonContainer>
       )}
       <Container>

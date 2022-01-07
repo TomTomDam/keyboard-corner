@@ -22,6 +22,7 @@ const Keyboard = (props) => {
     description: "",
   });
   const [editable, setEditable] = useState(false);
+  const [deleteKeyboard, setDeleteKeyboard] = useState(false);
   const keyboardApi = "http://localhost:3000/api/keyboard";
 
   useEffect(async () => {
@@ -79,30 +80,12 @@ const Keyboard = (props) => {
   };
 
   const handleDelete = async () => {
-    const successToast = () => {
-      toast.success("Successfully deleted the keyboard!", { theme: "colored" });
-    };
-  
-    const errorToast = () => {
-      toast.error("Could not delete the keyboard.", { theme: "colored" });
-    };
-
-    await axios
-    .delete(`${keyboardApi}/${props.match.params.id}`)
-    .then((res) => {
-      console.log(res);
-      successToast();
-      setEditable(!editable);
-    })
-    .catch((err) => {
-      console.log(err);
-      errorToast();
-    });
+    setDeleteKeyboard(true);
   };
 
   return (
     <>
-      <DeleteKeyboardConfirmation />
+      {deleteKeyboard === true ? <DeleteKeyboardConfirmation setDeleteKeyboard={setDeleteKeyboard} /> : <></>}
       {editable && <></>}
       {!editable && (
         <ButtonContainer>
@@ -141,7 +124,7 @@ const Keyboard = (props) => {
             <li>
               <Part>Plate</Part>
               {!editable && keyboard.plate}
-              {editable && <EditableInput type="text" name="plate" value={keyboard.switches} onChange={handleChange} />}
+              {editable && <EditableInput type="text" name="plate" value={keyboard.plate} onChange={handleChange} />}
             </li>
             <li>
               <Part>Stabilizers</Part>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
 import axios from "axios";
 import { toast } from 'react-toastify';
 
@@ -183,8 +184,8 @@ const AddNewKeyboard = (props) => {
             ></Input>
           </LabelGroup>
           <ButtonRow>
-            <CreateButton onClick={handleCreate}>Create</CreateButton>
-            <DiscardButton onClick={handleDiscard}>Discard</DiscardButton>
+            <ButtonSuccess onClick={handleCreate}>Create</ButtonSuccess>
+            <ButtonDanger onClick={handleDiscard}>Discard</ButtonDanger>
           </ButtonRow>
         </form>
       </ModalBody>
@@ -233,16 +234,4 @@ const ButtonRow = styled.div`
   text-align: center;
   margin: auto;
   margin-top: 1rem;
-`;
-
-const Button = styled.button`
-  margin: 0.5rem;
-`;
-
-const CreateButton = styled(Button)`
-
-`;
-
-const DiscardButton = styled(Button)`
-
 `;

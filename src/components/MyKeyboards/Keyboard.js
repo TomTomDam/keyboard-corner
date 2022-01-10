@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
+import { ButtonSuccess, ButtonInfo, ButtonDanger } from "../../assets/styles/Modules";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import DeleteKeyboardConfirmation from './DeleteKeyboardConfirmation';
@@ -89,8 +90,8 @@ const Keyboard = (props) => {
       {editable && <></>}
       {!editable && (
         <ButtonContainer>
-          <Button onClick={() => setEditable(!editable)}>Edit</Button>
-          <Button onClick={() => handleDelete()}>Delete</Button>
+          <ButtonInfo onClick={() => setEditable(!editable)}>Edit</ButtonInfo>
+          <ButtonDanger onClick={() => handleDelete()}>Delete</ButtonDanger>
         </ButtonContainer>
       )}
       <Container>
@@ -147,8 +148,8 @@ const Keyboard = (props) => {
       {!editable && <></>}
       {editable && (
         <ButtonContainer>
-          <Button onClick={() => handleSave()}>Save</Button>
-          <Button onClick={() => setEditable(!editable)}>Discard</Button>
+          <ButtonSuccess onClick={() => handleSave()}>Save</ButtonSuccess>
+          <ButtonDanger onClick={() => setEditable(!editable)}>Discard</ButtonDanger>
         </ButtonContainer>
       )}
     </>

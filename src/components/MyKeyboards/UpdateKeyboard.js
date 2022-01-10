@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
 import axios from "axios";
 
 const UpdateKeyboard = () => {
@@ -177,10 +178,10 @@ const UpdateKeyboard = () => {
           onChange={handleChange}
         ></input>
       </LabelGroup>
-      <ButtonRow>
-        <UpdateButton onClick={handleUpdate}>Update</UpdateButton>
-        <DiscardButton onClick={handleDiscard}>Discard</DiscardButton>
-      </ButtonRow>
+      <ButtonContainer>
+        <ButtonSuccess onClick={handleUpdate}>Update</ButtonSuccess>
+        <ButtonDanger onClick={handleDiscard}>Discard</ButtonDanger>
+      </ButtonContainer>
     </form>
   );
 };
@@ -193,14 +194,10 @@ const LabelTitle = styled.div`
   display: block;
 `;
 
-const ButtonRow = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
   margin: auto;
   margin-top: 1rem;
 `;
-
-const UpdateButton = styled.button``;
-
-const DiscardButton = styled.button``;

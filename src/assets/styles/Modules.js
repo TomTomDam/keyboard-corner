@@ -6,26 +6,47 @@ export const GlobalModules = createGlobalStyle`
 export const Button = styled.button`
   display: inline-block;
   border: none;
-  background: ${(props) => props.theme.colours.blue};
+  background-color: ${(props) => props.theme.colours.blue};
   color: ${(props) => props.theme.colours.white};
-  padding: 7px 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  font-size: ${(props) => props.theme.fontSizes.small};
+  border-radius: 5px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
   transition: all 0.3s ease 0s;
   &:hover {
-    background: ${(props) => props.theme.colours.darkgray};
+    cursor: pointer;
+    filter: brightness(85%);
   }
-`;
-
-export const ButtonPrimary = styled(Button)`
-  color: #fff;
-  background-color: ${(props) => props.theme.colours.lightgray};
-  border-color: ${(props) => props.theme.colours.darkgray};
 `;
 
 export const BtnAcceptPolicy = styled.button`
   font-size: 1rem;
   line-height: inherit;
+`;
+
+export const ButtonPrimary = styled(Button)`
+  color: #fff;
+  background-color: ${(props) => props.theme.colours.lightgray};
+  border-color: ${(props) => props.theme.colours.lightgray};
+`;
+
+export const ButtonInfo = styled(Button)`
+  color: #fff;
+  background-color: ${(props) => props.theme.colours.blue};
+  border-color: ${(props) => props.theme.colours.blue};
+`;
+
+export const ButtonSuccess = styled(Button)`
+  color: #fff;
+  background-color: green;
+  border-color: green;
+`;
+
+export const ButtonDanger = styled(Button)`
+  color: #fff;
+  background-color: red;
+  border-color: red;
 `;
 
 //Keyboard Encyclopedia Page

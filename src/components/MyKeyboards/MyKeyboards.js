@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import KeyboardPreview from "./KeyboardPreview"
 import styled from "styled-components";
+import { Button, ButtonInfo } from "../../assets/styles/Modules";
 import { Heading } from "../../assets/styles/Layout";
 import AddNewKeyboard from "./AddNewKeyboard";
 import axios from "axios";
@@ -48,8 +49,8 @@ const MyKeyboards = () => {
         <Heading>My Keyboards</Heading>
         <p>This is a list of my keyboards that I've purchased or built.</p>
       </header>
-      <ButtonRow onClick={addNewKeyboardClick}>
-        <AddNewKeyboardButton>Add a new Keyboard</AddNewKeyboardButton>
+      <ButtonRow>
+        <Button onClick={addNewKeyboardClick}>Add a new Keyboard</Button>
       </ButtonRow>
       {showNewKeyboardForm ? (
         <AddNewKeyboard
@@ -78,5 +79,3 @@ const Container = styled.div`
 const ButtonRow = styled.div`
   margin-top: 1rem;
 `;
-
-const AddNewKeyboardButton = styled.button``;

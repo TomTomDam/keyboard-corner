@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
@@ -35,17 +36,25 @@ const DeleteKeyboardConfirmation = (props) => {
   };
 
   return (
-    <div>
-      <p>Are you sure you want to delete this keyboard?</p>
+    <Container>
+      <ContainerText>Are you sure you want to delete this keyboard?</ContainerText>
       <ButtonContainer>
-        <Button onClick={() => handleDelete()}>Yes</Button>
-        <Button onClick={() => handleDiscard()}>No</Button>
+        <ButtonSuccess onClick={() => handleDelete()}>Yes</ButtonSuccess>
+        <ButtonDanger onClick={() => handleDiscard()}>No</ButtonDanger>
       </ButtonContainer>
-    </div>
+    </Container>
   );
 };
 
 export default DeleteKeyboardConfirmation;
+
+const Container = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const ContainerText = styled.div`
+  margin-bottom: 0.25rem;
+`;
 
 const ButtonContainer = styled.div`
   text-align: center;

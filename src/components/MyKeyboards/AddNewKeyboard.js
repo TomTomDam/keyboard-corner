@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
+import {
+  LabelGroup,
+  LabelTitle,
+  Input,
+  TextArea,
+  ButtonContainer,
+  ButtonSuccess,
+  ButtonDanger,
+  Modal,
+  ModalBody,
+} from "../../assets/styles/Modules";
 import axios from "axios";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const AddNewKeyboard = (props) => {
   const [inputs, setInputs] = useState({
@@ -52,13 +62,13 @@ const AddNewKeyboard = (props) => {
           modifications: inputs.modifications,
           layout: inputs.layout,
           stabilizers: inputs.stabilizers,
-          description: inputs.description
+          description: inputs.description,
         },
         options
       )
       .then((res) => {
         console.log(res);
-        toast.success("Successfully created a Keyboard!",  { theme: "colored" });
+        toast.success("Successfully created a Keyboard!", { theme: "colored" });
       })
       .catch((err) => {
         console.log(err);
@@ -73,165 +83,132 @@ const AddNewKeyboard = (props) => {
 
   return (
     <Modal>
-      <ModalBody>
+      <AddNewKeyboardModalBody>
         <form>
           <LabelGroup>
             <LabelTitle>Title</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="title"
               value={inputs.title}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Image</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="image"
               value={inputs.image}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Switches</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="switches"
               value={inputs.switches}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Switch Modifications</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="switchModifications"
               value={inputs.switchModifications}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Plate</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="plate"
               value={inputs.plate}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Keycaps</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="keycaps"
               value={inputs.keycaps}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Designer</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="designer"
               value={inputs.designer}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Case</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="case"
               value={inputs.case}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Modifications</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="modifications"
               value={inputs.modifications}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Layout</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="layout"
               value={inputs.layout}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Stabilizers</LabelTitle>
-            <Input
+            <AddNewKeyboardInput
               type="text"
               name="stabilizers"
               value={inputs.stabilizers}
               onChange={handleChange}
-            ></Input>
+            ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Description</LabelTitle>
-            <Input
+            <TextArea
               type="text"
               name="description"
               value={inputs.description}
               onChange={handleChange}
-            ></Input>
+            ></TextArea>
           </LabelGroup>
-          <ButtonRow>
+          <ButtonContainer>
             <ButtonSuccess onClick={handleCreate}>Create</ButtonSuccess>
             <ButtonDanger onClick={handleDiscard}>Discard</ButtonDanger>
-          </ButtonRow>
+          </ButtonContainer>
         </form>
-      </ModalBody>
+      </AddNewKeyboardModalBody>
     </Modal>
   );
 };
 
 export default AddNewKeyboard;
 
-const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
+const AddNewKeyboardModalBody = styled(ModalBody)`
+  width: 20%;
 `;
 
-const ModalBody = styled.div`
-  position: fixed;
-  background: white;
-  width: 40%;
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2rem;
-`;
-
-const LabelGroup = styled.div`
-  margin-top: 1rem;
-`;
-
-const LabelTitle = styled.div`
-  display: block;
-`;
-
-const Input = styled.input`
-  line-height: 1.25em;
-`;
-
-const ButtonRow = styled.div`
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: auto;
-  margin-top: 1rem;
+const AddNewKeyboardInput = styled(Input)`
+  width: 12vw;
 `;

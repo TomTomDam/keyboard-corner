@@ -49,6 +49,36 @@ export const ButtonDanger = styled(Button)`
   border-color: red;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+`;
+
+//Modal
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+`;
+
+export const ModalBody = styled.div`
+  position: fixed;
+  background: white;
+  width: 40%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+`;
+
 //Keyboard Encyclopedia Page
 export const TableOfContents = styled.div`
   background: #f9f9f9 none repeat scroll 0 0;
@@ -105,6 +135,7 @@ export const ImageTextContainer = styled.div`
   }
 `;
 
+//Form
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -119,4 +150,23 @@ export const FormLabel = styled.label`
   text-align: left;
 `;
 
-export const Input = styled.input``;
+export const LabelGroup = styled.div`
+  margin-top: 1rem;
+`;
+
+export const LabelTitle = styled.div`
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+`;
+
+export const Input = styled.input`
+  line-height: 1.5em;
+`;
+
+export const TextArea = styled.textarea`
+  width: 12vw;
+  height: 10vh;
+`;

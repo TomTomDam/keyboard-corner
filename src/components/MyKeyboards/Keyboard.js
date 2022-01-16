@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../../assets/styles/Layout";
-import { ButtonSuccess, ButtonInfo, ButtonDanger } from "../../assets/styles/Modules";
+import {
+  Input,
+  TextArea,
+  ButtonContainer,
+  ButtonSuccess,
+  ButtonInfo,
+  ButtonDanger,
+} from "../../assets/styles/Modules";
 import axios from "axios";
-import { toast } from 'react-toastify';
-import DeleteKeyboardConfirmation from './DeleteKeyboardConfirmation';
+import { toast } from "react-toastify";
+import DeleteKeyboardConfirmation from "./DeleteKeyboardConfirmation";
 
 const Keyboard = (props) => {
   const [keyboard, setKeyboard] = useState({
@@ -48,36 +55,35 @@ const Keyboard = (props) => {
     const successToast = () => {
       toast.success("Successfully saved changes!", { theme: "colored" });
     };
-  
+
     const errorToast = () => {
       toast.error("Could not save changes.", { theme: "colored" });
     };
 
     await axios
-    .post(`${keyboardApi}/${props.match.params.id}`,
-    {
-      title: keyboard.title,
-      image: keyboard.image,
-      switches: keyboard.switches,
-      switchModifications: keyboard.switchModifications,
-      plate: keyboard.plate,
-      keycaps: keyboard.keycaps,
-      designer: keyboard.designer,
-      case: keyboard.case,
-      modifications: keyboard.modifications,
-      layout: keyboard.layout,
-      stabilizers: keyboard.stabilizers,
-      description: keyboard.description
-    })
-    .then((res) => {
-      console.log(res);
-      successToast();
-      setEditable(!editable);
-    })
-    .catch((err) => {
-      console.log(err);
-      errorToast();
-    });
+      .post(`${keyboardApi}/${props.match.params.id}`, {
+        title: keyboard.title,
+        image: keyboard.image,
+        switches: keyboard.switches,
+        switchModifications: keyboard.switchModifications,
+        plate: keyboard.plate,
+        keycaps: keyboard.keycaps,
+        designer: keyboard.designer,
+        case: keyboard.case,
+        modifications: keyboard.modifications,
+        layout: keyboard.layout,
+        stabilizers: keyboard.stabilizers,
+        description: keyboard.description,
+      })
+      .then((res) => {
+        console.log(res);
+        successToast();
+        setEditable(!editable);
+      })
+      .catch((err) => {
+        console.log(err);
+        errorToast();
+      });
   };
 
   const handleDelete = async () => {
@@ -86,7 +92,11 @@ const Keyboard = (props) => {
 
   return (
     <>
-      {deleteKeyboard === true ? <DeleteKeyboardConfirmation setDeleteKeyboard={setDeleteKeyboard} /> : <></>}
+      {deleteKeyboard === true ? (
+        <DeleteKeyboardConfirmation setDeleteKeyboard={setDeleteKeyboard} />
+      ) : (
+        <></>
+      )}
       {editable && <></>}
       {!editable && (
         <ButtonContainer>
@@ -99,58 +109,128 @@ const Keyboard = (props) => {
         <TextContainer>
           <Header>
             {!editable && <Heading>{keyboard.title}</Heading>}
-            {editable && <EditableInput type="text" name="title" value={keyboard.title} onChange={handleChange} />}
+            {editable && (
+              <>
+                <Part>Title</Part>
+                <EditableInput
+                  type="text"
+                  name="title"
+                  value={keyboard.title}
+                  onChange={handleChange}
+                />
+              </>
+            )}
           </Header>
           <PartsList>
             <li>
               <Part>Layout</Part>
               {!editable && keyboard.layout}
-              {editable && <EditableInput type="text" name="layout" value={keyboard.layout} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="layout"
+                  value={keyboard.layout}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Keycaps</Part>
               {!editable && keyboard.keycaps}
-              {editable && <EditableInput type="text" name="keycaps" value={keyboard.keycaps} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="keycaps"
+                  value={keyboard.keycaps}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Switches</Part>
               {!editable && keyboard.switches}
-              {editable && <EditableInput type="text" name="switches" value={keyboard.switches} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="switches"
+                  value={keyboard.switches}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Case</Part>
               {!editable && keyboard.case}
-              {editable && <EditableInput type="text" name="case" value={keyboard.case} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="case"
+                  value={keyboard.case}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Plate</Part>
               {!editable && keyboard.plate}
-              {editable && <EditableInput type="text" name="plate" value={keyboard.plate} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="plate"
+                  value={keyboard.plate}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Stabilizers</Part>
               {!editable && keyboard.stabilizers}
-              {editable && <EditableInput type="text" name="stabilizers" value={keyboard.stabilizers} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="stabilizers"
+                  value={keyboard.stabilizers}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Other mods</Part>
               {!editable && keyboard.modifications}
-              {editable && <EditableInput type="text" name="modifications" value={keyboard.modifications} onChange={handleChange} />}
+              {editable && (
+                <EditableInput
+                  type="text"
+                  name="modifications"
+                  value={keyboard.modifications}
+                  onChange={handleChange}
+                />
+              )}
             </li>
             <li>
               <Part>Description</Part>
               {!editable && keyboard.description}
-              {editable && <EditableInput type="text" name="description" value={keyboard.description} onChange={handleChange} />}
+              {editable && (
+                <EditableTextArea
+                  type="text"
+                  name="description"
+                  value={keyboard.description}
+                  onChange={handleChange}
+                />
+              )}
             </li>
           </PartsList>
         </TextContainer>
       </Container>
       {!editable && <></>}
       {editable && (
-        <ButtonContainer>
-          <ButtonSuccess onClick={() => handleSave()}>Save</ButtonSuccess>
-          <ButtonDanger onClick={() => setEditable(!editable)}>Discard</ButtonDanger>
-        </ButtonContainer>
+        <EditButtonContainer>
+          <ButtonSuccess onClick={() => handleSave()}>
+            Save changes
+          </ButtonSuccess>
+          <ButtonDanger onClick={() => setEditable(!editable)}>
+            Discard
+          </ButtonDanger>
+        </EditButtonContainer>
       )}
     </>
   );
@@ -192,14 +272,16 @@ const Part = styled.div`
   margin-top: 1rem;
 `;
 
-const ButtonContainer = styled.div`
-  text-align: center;
-`;
-
-const Button = styled.button`
-  margin: 0.5rem;
-`;
-
-const EditableInput = styled.input`
+const EditableInput = styled(Input)`
   display: block;
+  width: 12vw;
+`;
+
+const EditableTextArea = styled(TextArea)`
+  display: block;
+  height: 6vh;
+`;
+
+const EditButtonContainer = styled(ButtonContainer)`
+  margin-top: 0;
 `;

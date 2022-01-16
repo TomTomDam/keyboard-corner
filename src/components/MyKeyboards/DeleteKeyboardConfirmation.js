@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
+import { Modal, ModalBody, ButtonContainer, ButtonSuccess, ButtonDanger } from "../../assets/styles/Modules";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
@@ -36,30 +36,23 @@ const DeleteKeyboardConfirmation = (props) => {
   };
 
   return (
-    <Container>
-      <ContainerText>Are you sure you want to delete this keyboard?</ContainerText>
-      <ButtonContainer>
-        <ButtonSuccess onClick={() => handleDelete()}>Yes</ButtonSuccess>
-        <ButtonDanger onClick={() => handleDiscard()}>No</ButtonDanger>
-      </ButtonContainer>
-    </Container>
+    <Modal>
+      <DeleteKeyboardModalBody>
+        <p>
+          Are you sure you want to delete this keyboard?
+        </p>
+        <ButtonContainer>
+          <ButtonSuccess onClick={() => handleDelete()}>Yes</ButtonSuccess>
+          <ButtonDanger onClick={() => handleDiscard()}>No</ButtonDanger>
+        </ButtonContainer>
+      </DeleteKeyboardModalBody>
+    </Modal>
   );
 };
 
 export default DeleteKeyboardConfirmation;
 
-const Container = styled.div`
-  margin-bottom: 1rem;
-`;
-
-const ContainerText = styled.div`
-  margin-bottom: 0.25rem;
-`;
-
-const ButtonContainer = styled.div`
-  text-align: center;
-`;
-
-const Button = styled.button`
-  margin: 0.5rem;
+const DeleteKeyboardModalBody = styled(ModalBody)`
+  width: 20%;
+  top: 30%;
 `;

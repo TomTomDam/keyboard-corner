@@ -29,18 +29,10 @@ const MyKeyboards = () => {
 
   //Add new keyboard
   const [showNewKeyboardForm, setShowNewKeyboardForm] = useState(false);
-  const addNewKeyboardClick = () => {
+  const handleAddNewKeyboard = () => {
     showNewKeyboardForm === false
       ? setShowNewKeyboardForm(true)
       : setShowNewKeyboardForm(false);
-  };
-
-  //Delete keyboard
-  const [showDeleteKeyboardForm, setShowDeleteKeyboardForm] = useState(false);
-  const deleteKeyboardClick = () => {
-    showDeleteKeyboardForm === false
-      ? setShowDeleteKeyboardForm(true)
-      : setShowDeleteKeyboardForm(false);
   };
 
   return (
@@ -50,14 +42,13 @@ const MyKeyboards = () => {
         <p>This is a list of my keyboards that I've purchased or built.</p>
       </header>
       <ButtonRow>
-        <Button onClick={addNewKeyboardClick}>Add a new Keyboard</Button>
+        <Button onClick={handleAddNewKeyboard}>Add a new Keyboard</Button>
       </ButtonRow>
       {showNewKeyboardForm ? (
         <AddNewKeyboard
           setShowNewKeyboardForm={setShowNewKeyboardForm}
           keyboardsList={keyboardsList}
-        ></AddNewKeyboard>
-      ) : null}
+        ></AddNewKeyboard>) : <></>}
       <Container>{Keyboards}</Container>
     </>
   );

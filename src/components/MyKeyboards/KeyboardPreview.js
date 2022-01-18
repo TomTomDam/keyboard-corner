@@ -25,10 +25,6 @@ const KeyboardPreview = (props) => {
 export default KeyboardPreview;
 
 const Container = styled.div`
-  display: flex;
-  flex-basis: calc(35% - 40px);
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 1rem;
 `;
@@ -57,14 +53,41 @@ const Title = styled.h1`
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 15vh);
   color: white;
   align-items: center;
   text-align: center;
   font-weight: bold;
+  font-size: ${(props) => props.theme.fontSizes.large};
+  text-shadow: 5px 5px 4px black;
 
   &:hover {
     transition: all 0.5s;
     letter-spacing: 1px;
+  }
+
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
+    top: -8vh;
+    width: 80vw;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
+    top: -8vh;
+    width: 80vw;
+  }
+
+  @media only screen and (min-width: ${(props) =>
+      props.theme.media.tablet}) and (min-width: ${(props) =>
+      props.theme.media.laptop}) and (min-width: ${(props) =>
+      props.theme.media.desktop}) {
+      top: 50%;
+  }
+
+  @media only screen and (min-width: 1700px) {
+    top: 50%;
+  }
+
+  @media only screen and (min-width: 2100px) {
+    top: 50%;
   }
 `;

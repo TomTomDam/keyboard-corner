@@ -49,22 +49,47 @@ const MyKeyboards = () => {
           setShowNewKeyboardForm={setShowNewKeyboardForm}
           keyboardsList={keyboardsList}
         ></AddNewKeyboard>) : <></>}
-      <Container>{Keyboards}</Container>
+      <KeyboardContainer>
+        {Keyboards}
+      </KeyboardContainer>
     </>
   );
 };
 
 export default MyKeyboards;
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+const KeyboardContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
   min-height: 100%;
+  width: 90vw;
+  margin: 0 auto;
+
+  @media only screen and (max-width: ${(props) => props.theme.media.phone}) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.phone}) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: ${(props) =>
+      props.theme.media.tablet}) and (min-width: ${(props) =>
+      props.theme.media.laptop}) and (min-width: ${(props) =>
+      props.theme.media.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 1700px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: 2100px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const ButtonRow = styled.div`

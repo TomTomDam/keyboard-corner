@@ -69,6 +69,8 @@ const AddNewKeyboard = (props) => {
       .then((res) => {
         console.log(res);
         toast.success("Successfully created a Keyboard!", { theme: "colored" });
+        props.setShowNewKeyboardForm(false);
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);

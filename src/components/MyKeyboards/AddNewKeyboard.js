@@ -40,13 +40,6 @@ const AddNewKeyboard = (props) => {
   const handleCreate = (e) => {
     e.preventDefault();
 
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
-
     axios
       .post(
         `${keyboardApi}`,
@@ -63,8 +56,7 @@ const AddNewKeyboard = (props) => {
           layout: inputs.layout,
           stabilizers: inputs.stabilizers,
           description: inputs.description,
-        },
-        options
+        }
       )
       .then((res) => {
         console.log(res);

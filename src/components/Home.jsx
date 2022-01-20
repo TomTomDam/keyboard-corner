@@ -55,7 +55,9 @@ const Home = () => {
             A centralised resource for all things related to mechanical
             keyboards.
           </JumbotronHeaderText>
-          <JumbotronButton>Get started</JumbotronButton>
+          <Link to="/keyboard-encyclopedia/introduction">
+            <JumbotronButton>Get started</JumbotronButton>
+          </Link>
         </JumbotronHeader>
       </Jumbotron>
       <Wrapper1>
@@ -128,7 +130,7 @@ const Home = () => {
             The Keyboard Encyclopedia is your one stop shop for anything related
             to mechanical keyboards.
           </Wrapper4Text>
-          <Link to="/keyboard-encyclopedia">
+          <Link to="/keyboard-encyclopedia/introduction">
             <Wrapper4Button>The Keyboard Encyclopedia</Wrapper4Button>
           </Link>
         </Wrapper4Container>

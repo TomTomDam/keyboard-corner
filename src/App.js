@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from "./ScrollToTop";
 
 //Stylesheets
 import "./App.css";
@@ -30,6 +31,7 @@ import Users from "./components/User/Admin/Index";
 const App = () => {
   return (
     <Container>
+      <ScrollToTop />
       <GlobalBase />
       <GlobalLayout />
       <GlobalModules />

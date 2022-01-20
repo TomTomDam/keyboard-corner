@@ -61,10 +61,11 @@ export default MyKeyboards;
 const KeyboardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  min-height: 100%;
+  min-height: 100vh;
   width: 90vw;
   margin: 0 auto;
 

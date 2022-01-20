@@ -23,7 +23,8 @@ const DeleteKeyboardConfirmation = (props) => {
       .then((res) => {
         console.log(res);
         successToast();
-        //Redirect back to 'my-keyboards' page
+        props.setDeleteKeyboard(false);
+        window.location.href = `${document.location.origin}/my-keyboards`;
       })
       .catch((err) => {
         console.log(err);

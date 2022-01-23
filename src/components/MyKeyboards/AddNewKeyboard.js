@@ -30,15 +30,82 @@ const AddNewKeyboard = (props) => {
     stabilizers: "",
     description: "",
   });
+  const [validationErrors, setValidationErrors] = useState({
+    title: "",
+    designer: "",
+    case: "",
+    layout: ""
+  });
   const keyboardApi = "http://localhost:3000/api/keyboard";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs((inputs) => ({ ...inputs, [name]: value }));
+    setInputs((inputs) => ({ 
+      ...inputs, 
+      [name]: value 
+    }));
+
+    inputValidation(name, value);
+  };
+
+  const inputValidation = (name, value) => {
+    if (name.trim() === 'title' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        title: "Title is required."
+      }));
+    } else if (name.trim() === 'title' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        title: ""
+      }));
+    }
+    
+    if (name.trim() === 'designer' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        designer: "Designer is required."
+      }));
+    } else if (name.trim() === 'designer' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        designer: ""
+      }));
+    }
+
+    if (name.trim() === 'case' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        case: "Case is required."
+      }));
+    } else if (name.trim() === 'case' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        case: ""
+      }));
+    }
+    
+    if (name.trim() === 'layout' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "Layout is required."
+      }));
+    } else if (name.trim() === 'layout' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: ""
+      }));
+    }
+
+    return validationErrors;
   };
 
   const handleCreate = (e) => {
     e.preventDefault();
+ 
+    // if (validationErrors !== null || validationErrors !== undefined) {
+    //   return;
+    // }
 
     axios
       .post(
@@ -87,6 +154,7 @@ const AddNewKeyboard = (props) => {
               value={inputs.title}
               onChange={handleChange}
             ></AddNewKeyboardInput>
+            {validationErrors.title && <ValidationMessage>{validationErrors.title}</ValidationMessage>}
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Image</LabelTitle>
@@ -141,6 +209,7 @@ const AddNewKeyboard = (props) => {
               value={inputs.designer}
               onChange={handleChange}
             ></AddNewKeyboardInput>
+            {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Case</LabelTitle>
@@ -150,6 +219,7 @@ const AddNewKeyboard = (props) => {
               value={inputs.case}
               onChange={handleChange}
             ></AddNewKeyboardInput>
+            {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Modifications</LabelTitle>
@@ -168,6 +238,7 @@ const AddNewKeyboard = (props) => {
               value={inputs.layout}
               onChange={handleChange}
             ></AddNewKeyboardInput>
+            {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Stabilizers</LabelTitle>
@@ -205,4 +276,8 @@ const AddNewKeyboardModalBody = styled(ModalBody)`
 
 const AddNewKeyboardInput = styled(Input)`
   width: 12vw;
+`;
+
+const ValidationMessage = styled.p`
+  color: red;
 `;

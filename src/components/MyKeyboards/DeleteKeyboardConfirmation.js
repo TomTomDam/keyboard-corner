@@ -10,25 +10,17 @@ const DeleteKeyboardConfirmation = (props) => {
   let { id } = useParams();
 
   const handleDelete = async () => {
-    const successToast = () => {
-      toast.success("Successfully deleted the keyboard!", { theme: "colored" });
-    };
-
-    const errorToast = () => {
-      toast.error("Could not delete the keyboard.", { theme: "colored" });
-    };
-
     await axios
       .delete(`${keyboardApi}/${id}`)
       .then((res) => {
         console.log(res);
-        successToast();
         props.setDeleteKeyboard(false);
+        toast.success("Successfully deleted the keyboard!", { theme: "colored" });
         window.location.href = `${document.location.origin}/my-keyboards`;
       })
       .catch((err) => {
         console.log(err);
-        errorToast();
+        toast.error("Could not delete the keyboard.", { theme: "colored" });
       });
   };
 

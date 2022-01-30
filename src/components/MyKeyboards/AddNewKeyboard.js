@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   LabelGroup,
@@ -37,6 +37,10 @@ const AddNewKeyboard = (props) => {
     layout: ""
   });
   const keyboardApi = "http://localhost:3000/api/keyboard";
+
+  // useEffect(() => {
+  //   setInputs(inputs);
+  // }, [inputs]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -103,9 +107,21 @@ const AddNewKeyboard = (props) => {
   const handleCreate = (e) => {
     e.preventDefault();
  
-    // if (validationErrors !== null || validationErrors !== undefined) {
-    //   return;
-    // }
+    if (validationErrors !== null || validationErrors !== undefined) {
+      // TODO: Retrigger inputValidation and display error messages.
+      // let {inputState} = this.state.inputs;
+      // Object.keys(inputState).map((key, index) => {
+      //   if (inputState[index].hasAttribute("required")){
+      //       if (inputState[index].value == ""){
+      //         return inputValidation(inputState[index].key, inputState[index].value);
+      //       }
+      //   }
+      // });
+
+      return toast.error(
+        "Could not create a keyboard. Please check that these inputs are not empty: Title, Designer, Case, Layout.",
+        { theme: "colored" });
+    }
 
     axios
       .post(
@@ -127,8 +143,8 @@ const AddNewKeyboard = (props) => {
       )
       .then((res) => {
         console.log(res);
-        toast.success("Successfully created a Keyboard!", { theme: "colored" });
         props.setShowNewKeyboardForm(false);
+        toast.success("Successfully created a Keyboard!", { theme: "colored" });
         window.location.reload();
       })
       .catch((err) => {
@@ -145,7 +161,7 @@ const AddNewKeyboard = (props) => {
   return (
     <Modal>
       <AddNewKeyboardModalBody>
-        <form>
+        <form id="addNewKeyboardForm">
           <LabelGroup>
             <LabelTitle>Title</LabelTitle>
             <AddNewKeyboardInput
@@ -153,6 +169,7 @@ const AddNewKeyboard = (props) => {
               name="title"
               value={inputs.title}
               onChange={handleChange}
+              required
             ></AddNewKeyboardInput>
             {validationErrors.title && <ValidationMessage>{validationErrors.title}</ValidationMessage>}
           </LabelGroup>
@@ -208,6 +225,7 @@ const AddNewKeyboard = (props) => {
               name="designer"
               value={inputs.designer}
               onChange={handleChange}
+              required
             ></AddNewKeyboardInput>
             {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
           </LabelGroup>
@@ -218,6 +236,7 @@ const AddNewKeyboard = (props) => {
               name="case"
               value={inputs.case}
               onChange={handleChange}
+              required
             ></AddNewKeyboardInput>
             {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
           </LabelGroup>
@@ -237,6 +256,7 @@ const AddNewKeyboard = (props) => {
               name="layout"
               value={inputs.layout}
               onChange={handleChange}
+              required
             ></AddNewKeyboardInput>
             {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
           </LabelGroup>
@@ -259,7 +279,7 @@ const AddNewKeyboard = (props) => {
             ></TextArea>
           </LabelGroup>
           <ButtonContainer>
-            <ButtonSuccess onClick={handleCreate}>Create</ButtonSuccess>
+            <ButtonSuccess onClick={(e) => handleCreate(e)}>Create</ButtonSuccess>
             <ButtonDanger onClick={handleDiscard}>Discard</ButtonDanger>
           </ButtonContainer>
         </form>

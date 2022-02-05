@@ -31,6 +31,12 @@ const Keyboard = (props) => {
   });
   const [editable, setEditable] = useState(false);
   const [deleteKeyboard, setDeleteKeyboard] = useState(false);
+  const [validationErrors, setValidationErrors] = useState({
+    title: "",
+    designer: "",
+    case: "",
+    layout: ""
+  });
   const keyboardApi = "http://localhost:3000/api/keyboard";
 
   useEffect(async () => {
@@ -48,19 +54,76 @@ const Keyboard = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setKeyboard((part) => ({ ...keyboard, [name]: value }));
+    setKeyboard((keyboard) => ({ 
+      ...keyboard, 
+      [name]: value 
+    }));
+
+    inputValidation(name, value);
   };
 
-  const handleSave = async () => {
-    const successToast = () => {
-      toast.success("Successfully saved changes!", { theme: "colored" });
-    };
+  const inputValidation = (name, value) => {
+    if (name.trim() === 'title' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        title: "Title is required."
+      }));
+    } else if (name.trim() === 'title' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        title: ""
+      }));
+    }
+    
+    if (name.trim() === 'designer' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        designer: "Designer is required."
+      }));
+    } else if (name.trim() === 'designer' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        designer: ""
+      }));
+    }
 
-    const errorToast = () => {
-      toast.error("Could not save changes.", { theme: "colored" });
-    };
+    if (name.trim() === 'case' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        case: "Case is required."
+      }));
+    } else if (name.trim() === 'case' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        case: ""
+      }));
+    }
+    
+    if (name.trim() === 'layout' && value.trim() === '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "Layout is required."
+      }));
+    } else if (name.trim() === 'layout' && value.trim() !== '') {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: ""
+      }));
+    }
 
-    await axios
+    return validationErrors;
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    if (validationErrors !== null || validationErrors !== undefined) {
+      return toast.error(
+        "Could not create a keyboard. Please check that these inputs are not empty: Title, Designer, Case, Layout.",
+        { theme: "colored" });
+    }
+
+    axios
       .post(`${keyboardApi}/${props.match.params.id}`, {
         title: keyboard.title,
         image: keyboard.image,
@@ -77,16 +140,16 @@ const Keyboard = (props) => {
       })
       .then((res) => {
         console.log(res);
-        successToast();
+        toast.success("Successfully saved changes!", { theme: "colored" });
         setEditable(!editable);
       })
       .catch((err) => {
         console.log(err);
-        errorToast();
+        toast.error("Could not save changes.", { theme: "colored" });
       });
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     setDeleteKeyboard(true);
   };
 
@@ -118,6 +181,7 @@ const Keyboard = (props) => {
                   value={keyboard.title}
                   onChange={handleChange}
                 />
+                {validationErrors.title && <ValidationMessage>{validationErrors.title}</ValidationMessage>}
               </>
             )}
           </Header>
@@ -126,12 +190,45 @@ const Keyboard = (props) => {
               <Part>Layout</Part>
               {!editable && keyboard.layout}
               {editable && (
+                <>
                 <EditableInput
                   type="text"
                   name="layout"
                   value={keyboard.layout}
                   onChange={handleChange}
                 />
+                {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
+                </>
+              )}
+            </li>
+            <li>
+              <Part>Designer</Part>
+              {!editable && keyboard.designer}
+              {editable && (
+                <>
+                <EditableInput
+                  type="text"
+                  name="designer"
+                  value={keyboard.designer}
+                  onChange={handleChange}
+                />
+                {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
+                </>
+              )}
+            </li>
+            <li>
+              <Part>Case</Part>
+              {!editable && keyboard.case}
+              {editable && (
+                <>
+                <EditableInput
+                  type="text"
+                  name="case"
+                  value={keyboard.case}
+                  onChange={handleChange}
+                />
+                {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
+                </>
               )}
             </li>
             <li>
@@ -159,13 +256,13 @@ const Keyboard = (props) => {
               )}
             </li>
             <li>
-              <Part>Case</Part>
-              {!editable && keyboard.case}
+              <Part>Switch modifications</Part>
+              {!editable && keyboard.switchModifications}
               {editable && (
                 <EditableInput
                   type="text"
-                  name="case"
-                  value={keyboard.case}
+                  name="switchModifications"
+                  value={keyboard.switchModifications}
                   onChange={handleChange}
                 />
               )}
@@ -224,7 +321,7 @@ const Keyboard = (props) => {
       {!editable && <></>}
       {editable && (
         <EditButtonContainer>
-          <ButtonSuccess onClick={() => handleSave()}>
+          <ButtonSuccess onClick={(e) => handleSave(e)}>
             Save changes
           </ButtonSuccess>
           <ButtonDanger onClick={() => setEditable(!editable)}>
@@ -284,4 +381,8 @@ const EditableTextArea = styled(TextArea)`
 
 const EditButtonContainer = styled(ButtonContainer)`
   margin-top: 0;
+`;
+
+const ValidationMessage = styled.p`
+  color: red;
 `;

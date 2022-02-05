@@ -183,6 +183,48 @@ const AddNewKeyboard = (props) => {
             ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
+            <LabelTitle>Layout</LabelTitle>
+            <AddNewKeyboardInput
+              type="text"
+              name="layout"
+              value={inputs.layout}
+              onChange={handleChange}
+              required
+            ></AddNewKeyboardInput>
+            {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
+          </LabelGroup>
+          <LabelGroup>
+            <LabelTitle>Designer</LabelTitle>
+            <AddNewKeyboardInput
+              type="text"
+              name="designer"
+              value={inputs.designer}
+              onChange={handleChange}
+              required
+            ></AddNewKeyboardInput>
+            {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
+          </LabelGroup>
+          <LabelGroup>
+            <LabelTitle>Case</LabelTitle>
+            <AddNewKeyboardInput
+              type="text"
+              name="case"
+              value={inputs.case}
+              onChange={handleChange}
+              required
+            ></AddNewKeyboardInput>
+            {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
+          </LabelGroup>
+          <LabelGroup>
+            <LabelTitle>Keycaps</LabelTitle>
+            <AddNewKeyboardInput
+              type="text"
+              name="keycaps"
+              value={inputs.keycaps}
+              onChange={handleChange}
+            ></AddNewKeyboardInput>
+          </LabelGroup>
+          <LabelGroup>
             <LabelTitle>Switches</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -210,35 +252,13 @@ const AddNewKeyboard = (props) => {
             ></AddNewKeyboardInput>
           </LabelGroup>
           <LabelGroup>
-            <LabelTitle>Keycaps</LabelTitle>
+            <LabelTitle>Stabilizers</LabelTitle>
             <AddNewKeyboardInput
               type="text"
-              name="keycaps"
-              value={inputs.keycaps}
+              name="stabilizers"
+              value={inputs.stabilizers}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
-            <LabelTitle>Designer</LabelTitle>
-            <AddNewKeyboardInput
-              type="text"
-              name="designer"
-              value={inputs.designer}
-              onChange={handleChange}
-              required
-            ></AddNewKeyboardInput>
-            {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
-            <LabelTitle>Case</LabelTitle>
-            <AddNewKeyboardInput
-              type="text"
-              name="case"
-              value={inputs.case}
-              onChange={handleChange}
-              required
-            ></AddNewKeyboardInput>
-            {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
           </LabelGroup>
           <LabelGroup>
             <LabelTitle>Modifications</LabelTitle>
@@ -246,26 +266,6 @@ const AddNewKeyboard = (props) => {
               type="text"
               name="modifications"
               value={inputs.modifications}
-              onChange={handleChange}
-            ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
-            <LabelTitle>Layout</LabelTitle>
-            <AddNewKeyboardInput
-              type="text"
-              name="layout"
-              value={inputs.layout}
-              onChange={handleChange}
-              required
-            ></AddNewKeyboardInput>
-            {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
-            <LabelTitle>Stabilizers</LabelTitle>
-            <AddNewKeyboardInput
-              type="text"
-              name="stabilizers"
-              value={inputs.stabilizers}
               onChange={handleChange}
             ></AddNewKeyboardInput>
           </LabelGroup>

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const UserContext = createContext();
 
@@ -22,7 +23,7 @@ export const UserProvider = (props) => {
   const login = (user) => {
     setUser(user);
 
-    const loginConfig = {
+    const options = {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -36,12 +37,13 @@ export const UserProvider = (props) => {
           username: user.username,
           password: user.password,
         },
-        loginConfig
+        options
       )
       .then((res) => {
         //Redirect to previous page or homepage
         if (res.data.statusCode === 200) {
-          // window.location = "/";
+          toast.success("Successfully logged in!", { theme: "colored" });
+          window.location = "/";
           setIsAuthenticated(true);
         }
       })
@@ -51,15 +53,6 @@ export const UserProvider = (props) => {
   };
 
   const logout = (user) => {
-    axios
-      .post(`${accountApi}/logout`, { username: user.username })
-      .then((res) => {
-        setUser(null);
-        setIsAuthenticated(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
 
   const register = (user) => {
@@ -76,36 +69,15 @@ export const UserProvider = (props) => {
       .then((res) => {
         // //Get return url from location state or default to home page
         // const { from } = location.state || { from: { pathname: "/" } };
+        toast.success("Successfully created a User!", { theme: "colored" });
+        window.location = "/";
         setIsAuthenticated(true);
       })
       .catch((err) => {
+        toast.error("Could not create a User.", { theme: "colored" });
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    setInterval(() => {
-      //Verify access token every 15 minutes
-      axios.post(`${authApi}/verify-token`).catch((err) => {
-        console.log(err);
-      });
-    }, 900000);
-
-    setTimeout(() => {
-      //Verify refresh token after 1 week
-      axios
-        .post(`${authApi}/refresh-token`)
-        .then((res) => {
-          //If refresh token is expired, logout the user
-          axios.get(`${accountApi}/logout`).catch((err) => {
-            console.log(err);
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, 86400000);
-  }, []);
 
   return (
     <UserContext.Provider

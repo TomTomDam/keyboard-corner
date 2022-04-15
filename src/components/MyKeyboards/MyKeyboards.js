@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import KeyboardPreview from "./KeyboardPreview"
 import styled from "styled-components";
 import { Button, ButtonInfo } from "../../assets/styles/Modules";
-import { Heading } from "../../assets/styles/Layout";
+import { Heading, PageSectionHeading } from "../../assets/styles/Layout";
 import AddNewKeyboard from "./AddNewKeyboard";
 import axios from "axios";
 
 const MyKeyboards = () => {
-  const keyboardApi = "http://localhost:3000/api/keyboard";
-  const [keyboardsList, setKeyboardsList] = useState([]);
+  const apiUrl = "http://localhost:3000/api";
+  const [keyboardList, setKeyboardsList] = useState([]);
 
   useEffect(async () => {
     const data = await axios
-      .get(keyboardApi)
+      .get(`${apiUrl}/keyboard`)
       .then((res) => res.data)
       .catch((err) => console.log(err));
 
@@ -23,8 +23,16 @@ const MyKeyboards = () => {
     }
   }, []);
 
-  const Keyboards = keyboardsList.map((keyboard) => (
-    <KeyboardPreview key={keyboard.Id} keyboard={keyboard} />
+  const CurrentKeyboards = keyboardList.map((keyboard) => (
+    keyboard.Status == 1 ? <KeyboardPreview key={keyboard.Id} keyboard={keyboard} /> : <></>
+  ));
+
+  const OrderedKeyboards = keyboardList.map((keyboard) => (
+    keyboard.Status == 2 ? <KeyboardPreview key={keyboard.Id} keyboard={keyboard} /> : <></>
+  ));
+
+  const SoldOrGaveAwayKeyboards = keyboardList.map((keyboard) => (
+    keyboard.Status == 3 || keyboard.status == 4 ? <KeyboardPreview key={keyboard.Id} keyboard={keyboard} /> : <></>
   ));
 
   //Add new keyboard
@@ -47,10 +55,19 @@ const MyKeyboards = () => {
       {showNewKeyboardForm ? (
         <AddNewKeyboard
           setShowNewKeyboardForm={setShowNewKeyboardForm}
-          keyboardsList={keyboardsList}
+          keyboardsList={keyboardList}
         ></AddNewKeyboard>) : <></>}
+      <StatusHeading>Currently on hand</StatusHeading>
       <KeyboardContainer>
-        {Keyboards}
+        {CurrentKeyboards}
+      </KeyboardContainer>
+      <StatusHeading>Ordered</StatusHeading>
+      <KeyboardContainer>
+        {OrderedKeyboards}
+      </KeyboardContainer>
+      <StatusHeading>Sold/Gave away</StatusHeading>
+      <KeyboardContainer>
+        {SoldOrGaveAwayKeyboards}
       </KeyboardContainer>
     </>
   );
@@ -61,11 +78,11 @@ export default MyKeyboards;
 const KeyboardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  min-height: 100vh;
+  min-height: 50vh;
   width: 90vw;
   margin: 0 auto;
 
@@ -95,4 +112,9 @@ const KeyboardContainer = styled.div`
 
 const ButtonRow = styled.div`
   margin-top: 1rem;
+`;
+
+const StatusHeading = styled(PageSectionHeading)`
+  margin-top: 3rem;
+  margin-bottom: -2rem;
 `;

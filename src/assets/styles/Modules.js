@@ -150,7 +150,7 @@ export const FormLabel = styled.label`
   text-align: left;
 `;
 
-export const LabelGroup = styled.div`
+export const FormGroup = styled.div`
   margin-top: 1rem;
 `;
 

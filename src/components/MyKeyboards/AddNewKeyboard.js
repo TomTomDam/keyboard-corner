@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
-  LabelGroup,
+  FormGroup,
   LabelTitle,
   Input,
   TextArea,
@@ -29,75 +29,86 @@ const AddNewKeyboard = (props) => {
     layout: "",
     stabilizers: "",
     description: "",
+    status: ""
   });
   const [validationErrors, setValidationErrors] = useState({
     title: "",
     designer: "",
     case: "",
-    layout: ""
+    layout: "",
   });
-  const keyboardApi = "http://localhost:3000/api/keyboard";
+  const [keyboardStatusList, setKeyboardStatusList] = useState([]);
+  const apiUrl = "http://localhost:3000/api";
 
-  // useEffect(() => {
-  //   setInputs(inputs);
-  // }, [inputs]);
+  useEffect(async () => {
+    const statuses = await axios
+      .get(`${apiUrl}/keyboardStatus`)
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+
+    if (statuses === null || statuses === undefined) {
+      setKeyboardStatusList([]);
+    } else {
+      setKeyboardStatusList(statuses);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs((inputs) => ({ 
-      ...inputs, 
-      [name]: value 
+    setInputs((inputs) => ({
+      ...inputs,
+      [name]: value,
     }));
 
     inputValidation(name, value);
   };
 
   const inputValidation = (name, value) => {
-    if (name.trim() === 'title' && value.trim() === '') {
+    if (name.trim() === "title" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        title: "Title is required."
+        title: "Title is required.",
       }));
-    } else if (name.trim() === 'title' && value.trim() !== '') {
+    } else if (name.trim() === "title" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        title: ""
-      }));
-    }
-    
-    if (name.trim() === 'designer' && value.trim() === '') {
-      setValidationErrors((errors) => ({
-        ...errors,
-        designer: "Designer is required."
-      }));
-    } else if (name.trim() === 'designer' && value.trim() !== '') {
-      setValidationErrors((errors) => ({
-        ...errors,
-        designer: ""
+        title: "",
       }));
     }
 
-    if (name.trim() === 'case' && value.trim() === '') {
+    if (name.trim() === "designer" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        case: "Case is required."
+        designer: "Designer is required.",
       }));
-    } else if (name.trim() === 'case' && value.trim() !== '') {
+    } else if (name.trim() === "designer" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        case: ""
+        designer: "",
       }));
     }
-    
-    if (name.trim() === 'layout' && value.trim() === '') {
+
+    if (name.trim() === "case" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        layout: "Layout is required."
+        case: "Case is required.",
       }));
-    } else if (name.trim() === 'layout' && value.trim() !== '') {
+    } else if (name.trim() === "case" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        layout: ""
+        case: "",
+      }));
+    }
+
+    if (name.trim() === "layout" && value.trim() === "") {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "Layout is required.",
+      }));
+    } else if (name.trim() === "layout" && value.trim() !== "") {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "",
       }));
     }
 
@@ -106,7 +117,7 @@ const AddNewKeyboard = (props) => {
 
   const handleCreate = (e) => {
     e.preventDefault();
- 
+
     if (validationErrors !== null || validationErrors !== undefined) {
       // TODO: Retrigger inputValidation and display error messages.
       // let {inputState} = this.state.inputs;
@@ -118,29 +129,30 @@ const AddNewKeyboard = (props) => {
       //   }
       // });
 
+      console.log("validationErrors: " + JSON.stringify(validationErrors));
+
       return toast.error(
         "Could not create a keyboard. Please check that these inputs are not empty: Title, Designer, Case, Layout.",
-        { theme: "colored" });
+        { theme: "colored" }
+      );
     }
 
     axios
-      .post(
-        `${keyboardApi}`,
-        {
-          title: inputs.title,
-          image: inputs.image,
-          switches: inputs.switches,
-          switchModifications: inputs.switchModifications,
-          plate: inputs.plate,
-          keycaps: inputs.keycaps,
-          designer: inputs.designer,
-          case: inputs.case,
-          modifications: inputs.modifications,
-          layout: inputs.layout,
-          stabilizers: inputs.stabilizers,
-          description: inputs.description,
-        }
-      )
+      .post(`${apiUrl}`, {
+        title: inputs.title,
+        image: inputs.image,
+        switches: inputs.switches,
+        switchModifications: inputs.switchModifications,
+        plate: inputs.plate,
+        keycaps: inputs.keycaps,
+        designer: inputs.designer,
+        case: inputs.case,
+        modifications: inputs.modifications,
+        layout: inputs.layout,
+        stabilizers: inputs.stabilizers,
+        description: inputs.description,
+        //status: inputs.status,
+      })
       .then((res) => {
         console.log(res);
         props.setShowNewKeyboardForm(false);
@@ -158,11 +170,25 @@ const AddNewKeyboard = (props) => {
     props.setShowNewKeyboardForm(false);
   };
 
+  //TODO make global
+  const getKeyboardStatus = (status) => {
+    switch (status) {
+      case 1:
+        return "Currently on hand";
+      case 2:
+        return "Ordered";
+      case 3:
+        return "Sold";
+      case 4:
+        return "Gave away";
+    }
+  };
+
   return (
     <Modal>
       <AddNewKeyboardModalBody>
         <form id="addNewKeyboardForm">
-          <LabelGroup>
+          <FormGroup>
             <LabelTitle>Title</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -171,9 +197,11 @@ const AddNewKeyboard = (props) => {
               onChange={handleChange}
               required
             ></AddNewKeyboardInput>
-            {validationErrors.title && <ValidationMessage>{validationErrors.title}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
+            {validationErrors.title && (
+              <ValidationMessage>{validationErrors.title}</ValidationMessage>
+            )}
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Image</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -181,8 +209,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.image}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Layout</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -191,9 +219,11 @@ const AddNewKeyboard = (props) => {
               onChange={handleChange}
               required
             ></AddNewKeyboardInput>
-            {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
+            {validationErrors.layout && (
+              <ValidationMessage>{validationErrors.layout}</ValidationMessage>
+            )}
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Designer</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -202,9 +232,11 @@ const AddNewKeyboard = (props) => {
               onChange={handleChange}
               required
             ></AddNewKeyboardInput>
-            {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
+            {validationErrors.designer && (
+              <ValidationMessage>{validationErrors.designer}</ValidationMessage>
+            )}
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Case</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -213,9 +245,11 @@ const AddNewKeyboard = (props) => {
               onChange={handleChange}
               required
             ></AddNewKeyboardInput>
-            {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
-          </LabelGroup>
-          <LabelGroup>
+            {validationErrors.case && (
+              <ValidationMessage>{validationErrors.case}</ValidationMessage>
+            )}
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Keycaps</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -223,8 +257,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.keycaps}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Switches</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -232,8 +266,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.switches}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Switch Modifications</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -241,8 +275,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.switchModifications}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Plate</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -250,8 +284,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.plate}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Stabilizers</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -259,8 +293,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.stabilizers}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Modifications</LabelTitle>
             <AddNewKeyboardInput
               type="text"
@@ -268,8 +302,8 @@ const AddNewKeyboard = (props) => {
               value={inputs.modifications}
               onChange={handleChange}
             ></AddNewKeyboardInput>
-          </LabelGroup>
-          <LabelGroup>
+          </FormGroup>
+          <FormGroup>
             <LabelTitle>Description</LabelTitle>
             <TextArea
               type="text"
@@ -277,9 +311,19 @@ const AddNewKeyboard = (props) => {
               value={inputs.description}
               onChange={handleChange}
             ></TextArea>
-          </LabelGroup>
+          </FormGroup>
+          {/* <FormGroup>
+            <LabelTitle>Status</LabelTitle>
+            <select name="status" onChange={handleChange}>
+              {keyboardStatusList.map((status) => (
+                <option value={status.Id}>{getKeyboardStatus(status.Id)}</option>
+              ))}
+            </select>
+          </FormGroup> */}
           <ButtonContainer>
-            <ButtonSuccess onClick={(e) => handleCreate(e)}>Create</ButtonSuccess>
+            <ButtonSuccess onClick={(e) => handleCreate(e)}>
+              Create
+            </ButtonSuccess>
             <ButtonDanger onClick={handleDiscard}>Discard</ButtonDanger>
           </ButtonContainer>
         </form>

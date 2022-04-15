@@ -6,12 +6,12 @@ import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
 const DeleteKeyboardConfirmation = (props) => {
-  const keyboardApi = "http://localhost:3000/api/keyboard";
+  const apiUrl = "http://localhost:3000/api";
   let { id } = useParams();
 
   const handleDelete = async () => {
     await axios
-      .delete(`${keyboardApi}/${id}`)
+      .delete(`${apiUrl}/keyboard/${id}`)
       .then((res) => {
         console.log(res);
         props.setDeleteKeyboard(false);

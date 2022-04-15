@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --hot --open chrome.exe",
     "server": "cd api && npm run start",
-    "build": "webpack --config webpack.config.js --mode production"
+    "build": "webpack --config webpack.config.js --mode production",
+    "rebuild": "electron-rebuild -f -w sqlite3"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,7 @@
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.5.3",
     "html-webpack-plugin": "^4.5.1",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
+    "electron-rebuild": "^3.2.7",
     "file-loader": "^6.2.0",
     "style-loader": "^2.0.0"
   }

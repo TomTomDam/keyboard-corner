@@ -35,13 +35,13 @@ const Keyboard = (props) => {
     title: "",
     designer: "",
     case: "",
-    layout: ""
+    layout: "",
   });
-  const keyboardApi = "http://localhost:3000/api/keyboard";
+  const apiUrl = "http://localhost:3000/api";
 
   useEffect(async () => {
     const data = await axios
-      .get(`${keyboardApi}/${props.match.params.id}`)
+      .get(`${apiUrl}/keyboard/${props.match.params.id}`)
       .then((res) => res.data)
       .catch((err) => console.log(err));
 
@@ -54,60 +54,60 @@ const Keyboard = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setKeyboard((keyboard) => ({ 
-      ...keyboard, 
-      [name]: value 
+    setKeyboard((keyboard) => ({
+      ...keyboard,
+      [name]: value,
     }));
 
     inputValidation(name, value);
   };
 
   const inputValidation = (name, value) => {
-    if (name.trim() === 'title' && value.trim() === '') {
+    if (name.trim() === "title" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        title: "Title is required."
+        title: "Title is required.",
       }));
-    } else if (name.trim() === 'title' && value.trim() !== '') {
+    } else if (name.trim() === "title" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        title: ""
-      }));
-    }
-    
-    if (name.trim() === 'designer' && value.trim() === '') {
-      setValidationErrors((errors) => ({
-        ...errors,
-        designer: "Designer is required."
-      }));
-    } else if (name.trim() === 'designer' && value.trim() !== '') {
-      setValidationErrors((errors) => ({
-        ...errors,
-        designer: ""
+        title: "",
       }));
     }
 
-    if (name.trim() === 'case' && value.trim() === '') {
+    if (name.trim() === "designer" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        case: "Case is required."
+        designer: "Designer is required.",
       }));
-    } else if (name.trim() === 'case' && value.trim() !== '') {
+    } else if (name.trim() === "designer" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        case: ""
+        designer: "",
       }));
     }
-    
-    if (name.trim() === 'layout' && value.trim() === '') {
+
+    if (name.trim() === "case" && value.trim() === "") {
       setValidationErrors((errors) => ({
         ...errors,
-        layout: "Layout is required."
+        case: "Case is required.",
       }));
-    } else if (name.trim() === 'layout' && value.trim() !== '') {
+    } else if (name.trim() === "case" && value.trim() !== "") {
       setValidationErrors((errors) => ({
         ...errors,
-        layout: ""
+        case: "",
+      }));
+    }
+
+    if (name.trim() === "layout" && value.trim() === "") {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "Layout is required.",
+      }));
+    } else if (name.trim() === "layout" && value.trim() !== "") {
+      setValidationErrors((errors) => ({
+        ...errors,
+        layout: "",
       }));
     }
 
@@ -120,11 +120,12 @@ const Keyboard = (props) => {
     if (validationErrors !== null || validationErrors !== undefined) {
       return toast.error(
         "Could not create a keyboard. Please check that these inputs are not empty: Title, Designer, Case, Layout.",
-        { theme: "colored" });
+        { theme: "colored" }
+      );
     }
 
     axios
-      .post(`${keyboardApi}/${props.match.params.id}`, {
+      .post(`${apiUrl}/keyboard/${props.match.params.id}`, {
         title: keyboard.title,
         image: keyboard.image,
         switches: keyboard.switches,
@@ -151,6 +152,20 @@ const Keyboard = (props) => {
 
   const handleDelete = () => {
     setDeleteKeyboard(true);
+  };
+
+  //TODO make global
+  const getKeyboardStatus = (status) => {
+    switch (status) {
+      case 1:
+        return "Currently on hand";
+      case 2:
+        return "Ordered";
+      case 3:
+        return "Sold";
+      case 4:
+        return "Gave away";
+    }
   };
 
   return (
@@ -181,7 +196,11 @@ const Keyboard = (props) => {
                   value={keyboard.title}
                   onChange={handleChange}
                 />
-                {validationErrors.title && <ValidationMessage>{validationErrors.title}</ValidationMessage>}
+                {validationErrors.title && (
+                  <ValidationMessage>
+                    {validationErrors.title}
+                  </ValidationMessage>
+                )}
               </>
             )}
           </Header>
@@ -191,13 +210,17 @@ const Keyboard = (props) => {
               {!editable && keyboard.layout}
               {editable && (
                 <>
-                <EditableInput
-                  type="text"
-                  name="layout"
-                  value={keyboard.layout}
-                  onChange={handleChange}
-                />
-                {validationErrors.layout && <ValidationMessage>{validationErrors.layout}</ValidationMessage>}
+                  <EditableInput
+                    type="text"
+                    name="layout"
+                    value={keyboard.layout}
+                    onChange={handleChange}
+                  />
+                  {validationErrors.layout && (
+                    <ValidationMessage>
+                      {validationErrors.layout}
+                    </ValidationMessage>
+                  )}
                 </>
               )}
             </li>
@@ -206,13 +229,17 @@ const Keyboard = (props) => {
               {!editable && keyboard.designer}
               {editable && (
                 <>
-                <EditableInput
-                  type="text"
-                  name="designer"
-                  value={keyboard.designer}
-                  onChange={handleChange}
-                />
-                {validationErrors.designer && <ValidationMessage>{validationErrors.designer}</ValidationMessage>}
+                  <EditableInput
+                    type="text"
+                    name="designer"
+                    value={keyboard.designer}
+                    onChange={handleChange}
+                  />
+                  {validationErrors.designer && (
+                    <ValidationMessage>
+                      {validationErrors.designer}
+                    </ValidationMessage>
+                  )}
                 </>
               )}
             </li>
@@ -221,13 +248,17 @@ const Keyboard = (props) => {
               {!editable && keyboard.case}
               {editable && (
                 <>
-                <EditableInput
-                  type="text"
-                  name="case"
-                  value={keyboard.case}
-                  onChange={handleChange}
-                />
-                {validationErrors.case && <ValidationMessage>{validationErrors.case}</ValidationMessage>}
+                  <EditableInput
+                    type="text"
+                    name="case"
+                    value={keyboard.case}
+                    onChange={handleChange}
+                  />
+                  {validationErrors.case && (
+                    <ValidationMessage>
+                      {validationErrors.case}
+                    </ValidationMessage>
+                  )}
                 </>
               )}
             </li>
@@ -314,6 +345,10 @@ const Keyboard = (props) => {
                   onChange={handleChange}
                 />
               )}
+            </li>
+            <li>
+              <Part>Status</Part>
+              {getKeyboardStatus(keyboard.status)}
             </li>
           </PartsList>
         </TextContainer>

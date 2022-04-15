@@ -31,6 +31,8 @@ app.use("/api/account", require("./routes/account"));
 app.use("/api/auth", require("./routes/auth"));
 //Keyboard Route
 app.use("/api/keyboard", require("./routes/keyboard"));
+//KeyboardStatus Route
+app.use("/api/keyboardStatus", require("./routes/keyboardStatus"));
 
 const port = process.env.port || 3000;
 app.listen(port);

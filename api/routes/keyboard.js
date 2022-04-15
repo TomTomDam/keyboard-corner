@@ -52,7 +52,8 @@ router.get("/:id", (req, res) => {
           modifications: row.Modifications,
           layout: row.Layout,
           stabilizers: row.Stabilizers,
-          description: row.Description
+          description: row.Description,
+          status: row.Status
         })
       : res.json({
           statusCode: 404,
@@ -76,7 +77,8 @@ router.post("/", (req, res) => {
       Modifications, 
       Layout, 
       Stabilizers, 
-      Description
+      Description,
+      Status
     ) 
     VALUES (
       $title, 
@@ -90,7 +92,8 @@ router.post("/", (req, res) => {
       $modifications, 
       $layout, 
       $stabilizers, 
-      $description
+      $description,
+      $status
     )`;
     let params = {
       $title: req.body.title,
@@ -105,6 +108,7 @@ router.post("/", (req, res) => {
       $layout: req.body.layout,
       $stabilizers: req.body.stabilizers,
       $description: req.body.description,
+      $status: req.body.status
     };
 
     //Object.values() passes request body values into an array
@@ -141,7 +145,8 @@ router.post("/:id", (req, res) => {
     Modifications = $modifications, 
     Layout = $layout, 
     Stabilizers = $stabilizers, 
-    Description = $description 
+    Description = $description,
+    Status = $status
   WHERE id = $id`;
   let data = {
     $title: req.body.title,
@@ -156,6 +161,7 @@ router.post("/:id", (req, res) => {
     $layout: req.body.layout,
     $stabilizers: req.body.stabilizers,
     $description: req.body.description,
+    $status: req.body.status,
     $id: req.params.id
   };
   
